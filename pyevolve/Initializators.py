@@ -179,7 +179,7 @@ def GTreeInitializatorInteger(genome, **args):
    elif method == "full":
       root = GTree.buildGTreeFull(0, lambda_generator, max_siblings, max_depth)
    elif method == "ramped":
-      if utils.randomFlipCoin(0.5):
+      if utils.random_flip_coin(0.5):
          root = GTree.buildGTreeGrow(0, lambda_generator, max_siblings, max_depth)
       else:
          root = GTree.buildGTreeFull(0, lambda_generator, max_siblings, max_depth)
@@ -217,7 +217,7 @@ def GTreeInitializatorAllele(genome, **args):
    elif method == "full":
       root = GTree.buildGTreeFull(0, allele[0].getRandomAllele, max_siblings, max_depth)
    elif method == "ramped":
-      if utils.randomFlipCoin(0.5):
+      if utils.random_flip_coin(0.5):
          root = GTree.buildGTreeGrow(0, allele[0].getRandomAllele, max_siblings, max_depth)
       else:
          root = GTree.buildGTreeFull(0, allele[0].getRandomAllele, max_siblings, max_depth)
@@ -255,7 +255,7 @@ def GTreeGPInitializator(genome, **args):
    elif method == "full":
       root = GTree.buildGTreeGPFull(ga_engine, 0, max_depth)
    elif method == "ramped":
-      if utils.randomFlipCoin(0.5):
+      if utils.random_flip_coin(0.5):
          root = GTree.buildGTreeGPFull(ga_engine, 0, max_depth)
       else:
          root = GTree.buildGTreeGPGrow(ga_engine, 0, max_depth)

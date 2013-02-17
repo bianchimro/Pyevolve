@@ -13,13 +13,13 @@ from math import sqrt as math_sqrt
 import logging
 import sys
 
-def randomFlipCoin(p):
+def random_flip_coin(p):
    """ Returns True with the *p* probability. If the *p* is 1.0,
    the function will always return True, or if is 0.0, the
    function will return always False.
    
    Example:
-      >>> utils.randomFlipCoin(1.0)
+      >>> utils.random_flip_coin(1.0)
       True
 
    :param p: probability, between 0.0 and 1.0

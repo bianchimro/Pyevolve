@@ -89,7 +89,7 @@ def G1DBinaryStringXUniform(genome, **args):
    brother.resetStats()
 
    for i in xrange(len(gMom)):
-      if utils.randomFlipCoin(Consts.CDefG1DBinaryStringUniformProb):
+      if utils.random_flip_coin(Consts.CDefG1DBinaryStringUniformProb):
          temp = sister[i]
          sister[i] = brother[i]
          brother[i] = temp
@@ -176,7 +176,7 @@ def G1DListCrossoverUniform(genome, **args):
    brother.resetStats()
 
    for i in xrange(len(gMom)):
-      if utils.randomFlipCoin(Consts.CDefG1DListCrossUniformProb):
+      if utils.random_flip_coin(Consts.CDefG1DListCrossUniformProb):
          temp = sister[i]
          sister[i] = brother[i]
          brother[i] = temp
@@ -387,7 +387,7 @@ def G2DListCrossoverUniform(genome, **args):
    
    for i in xrange(h):
       for j in xrange(w):
-         if utils.randomFlipCoin(Consts.CDefG2DListCrossUniformProb):
+         if utils.random_flip_coin(Consts.CDefG2DListCrossUniformProb):
             temp = sister.getItem(i, j)
             sister.setItem(i, j, brother.getItem(i, j))
             brother.setItem(i, j, temp)
@@ -467,7 +467,7 @@ def G2DBinaryStringXUniform(genome, **args):
    
    for i in xrange(h):
       for j in xrange(w):
-         if utils.randomFlipCoin(Consts.CDefG2DBinaryStringUniformProb):
+         if utils.random_flip_coin(Consts.CDefG2DBinaryStringUniformProb):
             temp = sister.getItem(i, j)
             sister.setItem(i, j, brother.getItem(i, j))
             brother.setItem(i, j, temp)
@@ -634,12 +634,12 @@ def GTreeCrossoverSinglePointStrict(genome, **args):
          dadRandom = gDad.getRandomNode()
          momRandom = gMom.getRandomNode()
       else:
-         if utils.randomFlipCoin(distr_leaf):
+         if utils.random_flip_coin(distr_leaf):
             momRandom = gMom.getRandomNode(1)
          else: 
             momRandom = gMom.getRandomNode(2)
 
-         if utils.randomFlipCoin(distr_leaf):
+         if utils.random_flip_coin(distr_leaf):
             dadRandom = gDad.getRandomNode(1)
          else:
             dadRandom = gDad.getRandomNode(2)

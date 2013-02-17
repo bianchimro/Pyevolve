@@ -638,7 +638,7 @@ class GSimpleGA:
             for it in genomeMom.crossover.applyFunctions(mom=genomeMom, dad=genomeDad, count=2):
                (sister, brother) = it
          else:
-            if not crossover_empty and utils.randomFlipCoin(self.pCrossover):
+            if not crossover_empty and utils.random_flip_coin(self.pCrossover):
                for it in genomeMom.crossover.applyFunctions(mom=genomeMom, dad=genomeDad, count=2):
                   (sister, brother) = it
             else:
@@ -655,7 +655,7 @@ class GSimpleGA:
          genomeMom = self.select(popID=self.currentGeneration)
          genomeDad = self.select(popID=self.currentGeneration)
 
-         if utils.randomFlipCoin(self.pCrossover):
+         if utils.random_flip_coin(self.pCrossover):
             for it in genomeMom.crossover.applyFunctions(mom=genomeMom, dad=genomeDad, count=1):
                (sister, brother) = it
          else:

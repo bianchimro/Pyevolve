@@ -7,15 +7,15 @@ class utils_functions_Test():
     def setUp(self):
         pass
         
-    def randomFlipCoin_test(self): 
+    def random_flip_coin_test(self): 
     
-        true_coin = utils.randomFlipCoin(1)
+        true_coin = utils.random_flip_coin(1)
         assert true_coin is True
         
-        false_coin = utils.randomFlipCoin(0)
+        false_coin = utils.random_flip_coin(0)
         assert false_coin is False        
         
-        prob_coin = utils.randomFlipCoin(0.5)
+        prob_coin = utils.random_flip_coin(0.5)
         assert prob_coin is True or prob_coin is False
 
         
