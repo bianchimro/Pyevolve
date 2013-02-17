@@ -11,7 +11,7 @@ use, like list item swap, random utilities and etc.
 from random import random as rand_random
 from math import sqrt as math_sqrt
 import logging
-import Consts
+import sys
 
 def randomFlipCoin(p):
    """ Returns True with the *p* probability. If the *p* is 1.0,
@@ -136,7 +136,8 @@ def importSpecial(name):
    try:
       imp_mod = __import__(name)
    except ImportError:
-      raiseException("Cannot import module %s: %s" % (name, Consts.CDefImportList[name]), expt=ImportError)
+      #raiseException("Cannot import module %s: %s" % (name, Consts.CDefImportList[name]), expt=ImportError)
+      raiseException("Cannot import module %s: %s" % (name, name), expt=ImportError)
    return imp_mod 
 
 class ErrorAccumulator:
