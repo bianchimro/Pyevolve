@@ -32,7 +32,7 @@ Class
 
 """
 
-import Consts, Util
+import Consts, utils
 from FunctionSlot import FunctionSlot
 from Statistics import Statistics
 from math import sqrt as math_sqrt
@@ -322,12 +322,12 @@ class GPopulation:
       rev = (self.minimax == Consts.minimaxType["maximize"])
 
       if self.sortType == Consts.sortType["raw"]:
-         self.internalPop.sort(cmp=Util.cmp_individual_raw, reverse=rev)
+         self.internalPop.sort(cmp=utils.cmp_individual_raw, reverse=rev)
       else:
          self.scale()
-         self.internalPop.sort(cmp=Util.cmp_individual_scaled, reverse=rev)
+         self.internalPop.sort(cmp=utils.cmp_individual_scaled, reverse=rev)
          self.internalPopRaw = self.internalPop[:]
-         self.internalPopRaw.sort(cmp=Util.cmp_individual_raw, reverse=rev)
+         self.internalPopRaw.sort(cmp=utils.cmp_individual_raw, reverse=rev)
 
       self.sorted = True
 

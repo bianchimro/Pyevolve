@@ -36,7 +36,7 @@ Class
 
 from GenomeBase import GenomeBase, G1DBase
 import Consts
-import Util
+import utils
     
 class G1DBinaryString(GenomeBase, G1DBase):
    """ G1DBinaryString Class - The 1D Binary String chromosome
@@ -110,7 +110,7 @@ class G1DBinaryString(GenomeBase, G1DBase):
 
       """
       if value not in (0, 1):
-         Util.raiseException("The value must be zero (0) or one (1), used (%s)" % value, ValueError)
+         utils.raiseException("The value must be zero (0) or one (1), used (%s)" % value, ValueError)
       G1DBase.__setitem__(self, key, value)
 
    def __repr__(self):
@@ -163,7 +163,7 @@ class G1DBinaryString(GenomeBase, G1DBase):
 
       """
       if value not in [0, 1]:
-         Util.raiseException("The value must be 0 or 1", ValueError)
+         utils.raiseException("The value must be 0 or 1", ValueError)
       G1DBase.append(self, value)
 
    def copy(self, g):

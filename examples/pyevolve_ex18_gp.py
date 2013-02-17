@@ -1,10 +1,10 @@
-from pyevolve import Util
+from pyevolve import utils
 from pyevolve import GTree
 from pyevolve import GSimpleGA
 from pyevolve import Consts
 import math
 
-rmse_accum = Util.ErrorAccumulator()
+rmse_accum = utils.ErrorAccumulator()
 
 def gp_add(a, b): return a+b
 def gp_sub(a, b): return a-b

@@ -10,7 +10,7 @@ allele types to use with the supported chromosomes.
 """
 import random
 import Consts
-import Util
+import utils
 
 class GAlleles:
    """ GAlleles Class - The set of alleles
@@ -62,7 +62,7 @@ class GAlleles:
       try:
          val = self.allele_list[index]
       except IndexError:
-         Util.raiseException(
+         utils.raiseException(
          """An error was occurred while finding allele for the %d position of chromosome.
            You may consider use the 'homogeneous' parameter of the GAlleles class.
          """ % (index,))
@@ -207,7 +207,7 @@ class GAlleleRange:
 
       """
       if begin > end:
-         Util.raiseException('Wrong value, the end of the range (%s) is greater than the begin (%s) !' % (end, begin), ValueError)
+         utils.raiseException('Wrong value, the end of the range (%s) is greater than the begin (%s) !' % (end, begin), ValueError)
       self.beginEnd.append((begin, end))
       self.__processMinMax()
 
@@ -216,7 +216,7 @@ class GAlleleRange:
 
    def __setitem__(self, index, value):
       if value[0] > value[1]:
-         Util.raiseException('Wrong value, the end of the range is greater than the begin ! %s' % value, ValueError)
+         utils.raiseException('Wrong value, the end of the range is greater than the begin ! %s' % value, ValueError)
       self.beginEnd[index] = value
       self.__processMinMax()
 

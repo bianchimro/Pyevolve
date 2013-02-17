@@ -40,7 +40,7 @@ Class
 
 from GenomeBase import GenomeBase
 import Consts
-import Util
+import utils
     
 class G2DBinaryString(GenomeBase):
    """ G3DBinaryString Class - The 2D Binary String chromosome
@@ -139,7 +139,7 @@ class G2DBinaryString(GenomeBase):
       
       """
       if value not in [0,1]:
-         Util.raiseException("The item value must be 0 or 1 in the G2DBinaryString chromosome", ValueError)
+         utils.raiseException("The item value must be 0 or 1 in the G2DBinaryString chromosome", ValueError)
       self.genomeString[x][y] = value
 
 

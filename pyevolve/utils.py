@@ -1,6 +1,6 @@
 """
 
-:mod:`Util` -- utility module
+:mod:`utils` -- utility module
 ============================================================================
 
 This is the utility module, with some utility functions of general
@@ -19,7 +19,7 @@ def randomFlipCoin(p):
    function will return always False.
    
    Example:
-      >>> Util.randomFlipCoin(1.0)
+      >>> utils.randomFlipCoin(1.0)
       True
 
    :param p: probability, between 0.0 and 1.0
@@ -36,7 +36,7 @@ def listSwapElement(lst, indexa, indexb):
 
    Example:
       >>> l = [1, 2, 3]
-      >>> Util.listSwapElement(l, 1, 2)
+      >>> utils.listSwapElement(l, 1, 2)
       >>> l
       [1, 3, 2]
 
@@ -53,7 +53,7 @@ def list2DSwapElement(lst, indexa, indexb):
 
    Example:
       >>> l = [ [1,2,3], [4,5,6] ] 
-      >>> Util.list2DSwapElement(l, (0,1), (1,1) )
+      >>> utils.list2DSwapElement(l, (0,1), (1,1) )
       >>> l
       [[1, 5, 3], [4, 2, 6]]
 
@@ -71,7 +71,7 @@ def raiseException(message, expt=None):
    """ Raise an exception and logs the message.
 
    Example:
-      >>> Util.raiseException('The value is not an integer', ValueError)
+      >>> utils.raiseException('The value is not an integer', ValueError)
 
    :param message: the message of exception
    :param expt: the exception class

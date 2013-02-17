@@ -521,7 +521,7 @@ CDefCSVFileStatsGenFreq = 1
 # - DB Adapter XML RPC
 CDefXMLRPCStatsGenFreq = 20
 
-# Util Consts
+# utils Consts
 CDefBroadcastAddress = "255.255.255.255"
 nodeType = {"TERMINAL" : 0, "NONTERMINAL": 1}
 

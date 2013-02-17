@@ -7,7 +7,7 @@ This module have the *scaling schemes* like Linear scaling, etc.
 
 """
 import Consts
-import Util
+import utils
 import math
 import logging
 
@@ -41,7 +41,7 @@ def LinearScaling(pop):
    for i in xrange(len(pop)):
       f = pop[i].score
       if f < 0.0:
-         Util.raiseException("Score %r is negative, linear scaling not supported !" % (f,), ValueError)
+         utils.raiseException("Score %r is negative, linear scaling not supported !" % (f,), ValueError)
       f = f * a + b
       if f < 0:
          f = 0.0
@@ -71,7 +71,7 @@ def PowerLawScaling(pop):
    for i in xrange(len(pop)):
       f = pop[i].score
       if f < 0.0:
-         Util.raiseException("Score %r is negative, power law scaling not supported !" % (f,), ValueError)
+         utils.raiseException("Score %r is negative, power law scaling not supported !" % (f,), ValueError)
       f = math.pow(f, k)
       pop[i].fitness = f
 

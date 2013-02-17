@@ -1,7 +1,7 @@
 from pyevolve import *
 import math
 
-rmse_accum = Util.ErrorAccumulator()
+rmse_accum = utils.ErrorAccumulator()
 
 def gp_add(a, b): return a+b
 def gp_sub(a, b): return a-b

@@ -10,7 +10,7 @@ In this module we have the genetic operators of crossover (or recombination) for
 from random import randint as rand_randint, choice as rand_choice
 from random import random as rand_random
 import math
-import Util
+import utils
 import Consts
 
 #############################
@@ -29,7 +29,7 @@ def G1DBinaryStringXSinglePoint(genome, **args):
    gDad = args["dad"]
 
    if len(gMom) == 1:
-      Util.raiseException("The Binary String have one element, can't use the Single Point Crossover method !", TypeError)
+      utils.raiseException("The Binary String have one element, can't use the Single Point Crossover method !", TypeError)
 
    cut = rand_randint(1, len(gMom)-1)
 
@@ -57,12 +57,12 @@ def G1DBinaryStringXTwoPoint(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      Util.raiseException("The Binary String have one element, can't use the Two Point Crossover method !", TypeError)
+      utils.raiseException("The Binary String have one element, can't use the Two Point Crossover method !", TypeError)
 
    cuts = [rand_randint(1, len(gMom)-1), rand_randint(1, len(gMom)-1)]
 
    if cuts[0] > cuts[1]:
-      Util.listSwapElement(cuts, 0, 1)
+      utils.listSwapElement(cuts, 0, 1)
 
    if args["count"] >= 1:
       sister = gMom.clone()
@@ -89,7 +89,7 @@ def G1DBinaryStringXUniform(genome, **args):
    brother.resetStats()
 
    for i in xrange(len(gMom)):
-      if Util.randomFlipCoin(Consts.CDefG1DBinaryStringUniformProb):
+      if utils.randomFlipCoin(Consts.CDefG1DBinaryStringUniformProb):
          temp = sister[i]
          sister[i] = brother[i]
          brother[i] = temp
@@ -112,7 +112,7 @@ def G1DListCrossoverSinglePoint(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      Util.raiseException("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
+      utils.raiseException("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
       
    cut = rand_randint(1, len(gMom)-1)
 
@@ -140,12 +140,12 @@ def G1DListCrossoverTwoPoint(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      Util.raiseException("The 1D List have one element, can't use the Two Point Crossover method !", TypeError)
+      utils.raiseException("The 1D List have one element, can't use the Two Point Crossover method !", TypeError)
 
    cuts = [rand_randint(1, len(gMom)-1), rand_randint(1, len(gMom)-1)]
 
    if cuts[0] > cuts[1]:
-      Util.listSwapElement(cuts, 0, 1)
+      utils.listSwapElement(cuts, 0, 1)
 
    if args["count"] >= 1:
       sister = gMom.clone()
@@ -176,7 +176,7 @@ def G1DListCrossoverUniform(genome, **args):
    brother.resetStats()
 
    for i in xrange(len(gMom)):
-      if Util.randomFlipCoin(Consts.CDefG1DListCrossUniformProb):
+      if utils.randomFlipCoin(Consts.CDefG1DListCrossUniformProb):
          temp = sister[i]
          sister[i] = brother[i]
          brother[i] = temp
@@ -227,7 +227,7 @@ def G1DListCrossoverEdge(genome, **args):
    gMom, sisterl  = args["mom"], []
    gDad, brotherl = args["dad"], []
 
-   mom_edges, dad_edges, merge_edges = Util.G1DListGetEdgesComposite(gMom, gDad)
+   mom_edges, dad_edges, merge_edges = utils.G1DListGetEdgesComposite(gMom, gDad)
 
    for c, u in (sisterl, set(gMom)), (brotherl, set(gDad)):
       curr = None
@@ -261,7 +261,7 @@ def G1DListCrossoverCutCrossfill(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      Util.raiseException("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
+      utils.raiseException("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
       
    cut = rand_randint(1, len(gMom)-1)
 
@@ -387,7 +387,7 @@ def G2DListCrossoverUniform(genome, **args):
    
    for i in xrange(h):
       for j in xrange(w):
-         if Util.randomFlipCoin(Consts.CDefG2DListCrossUniformProb):
+         if utils.randomFlipCoin(Consts.CDefG2DListCrossUniformProb):
             temp = sister.getItem(i, j)
             sister.setItem(i, j, brother.getItem(i, j))
             brother.setItem(i, j, temp)
@@ -467,7 +467,7 @@ def G2DBinaryStringXUniform(genome, **args):
    
    for i in xrange(h):
       for j in xrange(w):
-         if Util.randomFlipCoin(Consts.CDefG2DBinaryStringUniformProb):
+         if utils.randomFlipCoin(Consts.CDefG2DBinaryStringUniformProb):
             temp = sister.getItem(i, j)
             sister.setItem(i, j, brother.getItem(i, j))
             brother.setItem(i, j, temp)
@@ -620,10 +620,10 @@ def GTreeCrossoverSinglePointStrict(genome, **args):
    distr_leaf =  gMom.getParam("distr_leaf", None)
 
    if max_depth is None:
-      Util.raiseException("You must specify the max_depth genome parameter !", ValueError)
+      utils.raiseException("You must specify the max_depth genome parameter !", ValueError)
       
    if max_depth < 0:
-      Util.raiseException("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
+      utils.raiseException("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
 
    momRandom = None
    dadRandom = None
@@ -634,12 +634,12 @@ def GTreeCrossoverSinglePointStrict(genome, **args):
          dadRandom = gDad.getRandomNode()
          momRandom = gMom.getRandomNode()
       else:
-         if Util.randomFlipCoin(distr_leaf):
+         if utils.randomFlipCoin(distr_leaf):
             momRandom = gMom.getRandomNode(1)
          else: 
             momRandom = gMom.getRandomNode(2)
 
-         if Util.randomFlipCoin(distr_leaf):
+         if utils.randomFlipCoin(distr_leaf):
             dadRandom = gDad.getRandomNode(1)
          else:
             dadRandom = gDad.getRandomNode(2)
@@ -718,10 +718,10 @@ def GTreeGPCrossoverSinglePoint(genome, **args):
    max_attempt = gMom.getParam("max_attempt", 15)
 
    if max_depth is None:
-      Util.raiseException("You must specify the max_depth genome parameter !", ValueError)
+      utils.raiseException("You must specify the max_depth genome parameter !", ValueError)
       
    if max_depth < 0:
-      Util.raiseException("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
+      utils.raiseException("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
 
    momRandom = None
    dadRandom = None

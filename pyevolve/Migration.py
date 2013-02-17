@@ -10,7 +10,7 @@ GA related functions.
 
 """
 
-import Util
+import utils
 from random import randint as rand_randint, choice as rand_choice
 import Network
 import Consts
@@ -195,7 +195,7 @@ class WANMigration(MigrationScheme):
    def setTopology(self, graph):
       """ Sets the topology of the migrations
       
-      :param graph: the :class:`Util.Graph` instance
+      :param graph: the :class:`utils.Graph` instance
       """
       self.topologyGraph = graph
 
@@ -204,7 +204,7 @@ class WANMigration(MigrationScheme):
       self.serverThread.start()
 
       if self.topologyGraph is None:
-         Util.raiseException("You must add a topology graph to the migration scheme !")
+         utils.raiseException("You must add a topology graph to the migration scheme !")
       
       # targets = [ (ip, port), (ip, port), ...]
       targets = self.topologyGraph.getNeighbors(self.myself)

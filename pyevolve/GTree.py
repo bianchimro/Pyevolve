@@ -36,7 +36,7 @@ Classes
 import random
 from GenomeBase import GenomeBase, GTreeBase, GTreeNodeBase
 import Consts
-import Util
+import utils
 
 try:
    import pydot
@@ -193,7 +193,7 @@ class GTreeNode(GTreeNodeBase):
       return newcopy
 
 #################################
-#    Tree Utility Functions     # 
+#    Tree utilsity Functions     # 
 #################################
 
 
@@ -280,7 +280,7 @@ class GTreeNodeGP(GTreeNodeBase):
       :param other: the other GTreeNodeGP
       """
       if not isinstance(other, GTreeNodeGP):
-         Util.raiseException("The other node used to compare is not a GTreeNodeGP class", TypeError)
+         utils.raiseException("The other node used to compare is not a GTreeNodeGP class", TypeError)
 
       if other.node_type == self.node_type:
          if other.node_data == self.node_data:
@@ -386,7 +386,7 @@ class GTreeGP(GenomeBase, GTreeBase):
       :param filename: the output file image
       """
       if not HAVE_PYDOT:
-         Util.raiseException("You must install Pydot to use this feature !")
+         utils.raiseException("You must install Pydot to use this feature !")
 
       graph = pydot.Dot()
       self.writeDotGraph(graph)
@@ -399,7 +399,7 @@ class GTreeGP(GenomeBase, GTreeBase):
       :param filename: the output file, ex: individual.dot
       """
       if not HAVE_PYDOT:
-         Util.raiseException("You must install Pydot to use this feature !")
+         utils.raiseException("You must install Pydot to use this feature !")
 
       graph = pydot.Dot(graph_type="digraph")
       self.writeDotGraph(graph)
@@ -546,7 +546,7 @@ class GTreeGP(GenomeBase, GTreeBase):
       :param other: the other GTreeGP to compare
       """
       if not isinstance(other, GTreeGP):
-         Util.raiseException("The other tree used to compare is not a GTreeGP class", TypeError)
+         utils.raiseException("The other tree used to compare is not a GTreeGP class", TypeError)
 
       stack_self  = []
       stack_other = []
@@ -587,13 +587,13 @@ class GTreeGP(GenomeBase, GTreeBase):
       :param end: the end index of individuals
       """
       if not HAVE_PYDOT:
-         Util.raiseException("You must install Pydot to use this feature !")
+         utils.raiseException("You must install Pydot to use this feature !")
 
       pop = ga_engine.getPopulation()
       graph = pydot.Dot(graph_type="digraph")
 
       if not isinstance(pop[0], GTreeGP):
-         Util.raiseException("The population must have individuals of the GTreeGP chromosome !")
+         utils.raiseException("The population must have individuals of the GTreeGP chromosome !")
 
       n = 0
       end_index = len(pop) if end==0 else end
@@ -621,13 +621,13 @@ class GTreeGP(GenomeBase, GTreeBase):
       :param end: the end index of individuals
       """
       if not HAVE_PYDOT:
-         Util.raiseException("You must install Pydot to use this feature !")
+         utils.raiseException("You must install Pydot to use this feature !")
 
       pop = ga_engine.getPopulation()
       graph = pydot.Dot(graph_type="digraph")
 
       if not isinstance(pop[0], GTreeGP):
-         Util.raiseException("The population must have individuals of the GTreeGP chromosome !")
+         utils.raiseException("The population must have individuals of the GTreeGP chromosome !")
 
       n = 0
       end_index = len(pop) if end==0 else end
@@ -641,7 +641,7 @@ class GTreeGP(GenomeBase, GTreeBase):
 
 
 #################################
-#    Tree GP Utility Functions  # 
+#    Tree GP utilsity Functions  # 
 #################################
 
 def gpdec(**kwds):

@@ -15,7 +15,7 @@ from random import uniform as rand_uniform
 import inspect
 from types import BooleanType
 
-import Util
+import utils
 
 class FunctionSlot:
    """ FunctionSlot Class - The function slot
@@ -64,7 +64,7 @@ class FunctionSlot:
       :param func: the function object
       """
       if not callable(func):
-         Util.raiseException("The function must be a method or function", TypeError)
+         utils.raiseException("The function must be a method or function", TypeError)
 
    def __iadd__(self, func):
       """ To add more functions using the += operator
@@ -105,7 +105,7 @@ class FunctionSlot:
 
       """
       if type(flag) != BooleanType:
-         Util.raiseException("Random option must be True or False", TypeError)
+         utils.raiseException("Random option must be True or False", TypeError)
 
       self.rand_apply = flag
    
@@ -173,7 +173,7 @@ class FunctionSlot:
 
       """
       if len(self.funcList) <= 0:
-         Util.raiseException("No function defined: " + self.slotName)
+         utils.raiseException("No function defined: " + self.slotName)
       
       if not self.rand_apply:
          for f in self.funcList:
