@@ -101,7 +101,7 @@ class UDPThreadBroadcastClient(threading.Thread):
       sent = None
       with self.sentBytesLock:
          if self.sentBytes is None:
-            utils.raiseException('Bytes sent is None')
+            utils.raise_exception('Bytes sent is None')
          else: sent = self.sentBytes
       return sent
 
@@ -112,7 +112,7 @@ class UDPThreadBroadcastClient(threading.Thread):
    def run(self):
       """ Method called when you call *.start()* of the thread """
       if self.data is None:
-         utils.raiseException('You must set the data with setData method', ValueError)
+         utils.raise_exception('You must set the data with setData method', ValueError)
 
       with self.sentBytesLock:
          self.sentBytes = self.send()
@@ -238,7 +238,7 @@ class UDPThreadUnicastClient(threading.Thread):
    def run(self):
       """ Method called when you call *.start()* of the thread """
       if len(self.target) <= 0:
-         utils.raiseException('You must set the target(s) before send data', ValueError)
+         utils.raise_exception('You must set the target(s) before send data', ValueError)
 
       while True:
          if self.doshutdown: break
@@ -395,7 +395,7 @@ def pickleAndCompress(obj, level=9):
    if level < 0: return pickled
    else:
       if not ZLIB_SUPPORT:
-         utils.raiseException('zlib not found !', ImportError)
+         utils.raise_exception('zlib not found !', ImportError)
       pickled_zlib = zlib.compress(pickled, level)
       return pickled_zlib
 
@@ -406,7 +406,7 @@ def unpickleAndDecompress(obj_dump, decompress=True):
    """
    if decompress:
       if not ZLIB_SUPPORT:
-         utils.raiseException('zlib not found !', ImportError)
+         utils.raise_exception('zlib not found !', ImportError)
       obj_decompress = zlib.decompress(obj_dump)
    else:
       obj_decompress = obj_dump

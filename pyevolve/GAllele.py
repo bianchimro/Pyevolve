@@ -62,7 +62,7 @@ class GAlleles:
       try:
          val = self.allele_list[index]
       except IndexError:
-         utils.raiseException(
+         utils.raise_exception(
          """An error was occurred while finding allele for the %d position of chromosome.
            You may consider use the 'homogeneous' parameter of the GAlleles class.
          """ % (index,))
@@ -207,7 +207,7 @@ class GAlleleRange:
 
       """
       if begin > end:
-         utils.raiseException('Wrong value, the end of the range (%s) is greater than the begin (%s) !' % (end, begin), ValueError)
+         utils.raise_exception('Wrong value, the end of the range (%s) is greater than the begin (%s) !' % (end, begin), ValueError)
       self.beginEnd.append((begin, end))
       self.__processMinMax()
 
@@ -216,7 +216,7 @@ class GAlleleRange:
 
    def __setitem__(self, index, value):
       if value[0] > value[1]:
-         utils.raiseException('Wrong value, the end of the range is greater than the begin ! %s' % value, ValueError)
+         utils.raise_exception('Wrong value, the end of the range is greater than the begin ! %s' % value, ValueError)
       self.beginEnd[index] = value
       self.__processMinMax()
 

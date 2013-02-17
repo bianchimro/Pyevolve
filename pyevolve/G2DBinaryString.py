@@ -139,7 +139,7 @@ class G2DBinaryString(GenomeBase):
       
       """
       if value not in [0,1]:
-         utils.raiseException("The item value must be 0 or 1 in the G2DBinaryString chromosome", ValueError)
+         utils.raise_exception("The item value must be 0 or 1 in the G2DBinaryString chromosome", ValueError)
       self.genomeString[x][y] = value
 
 

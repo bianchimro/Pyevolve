@@ -29,7 +29,7 @@ def G1DBinaryStringXSinglePoint(genome, **args):
    gDad = args["dad"]
 
    if len(gMom) == 1:
-      utils.raiseException("The Binary String have one element, can't use the Single Point Crossover method !", TypeError)
+      utils.raise_exception("The Binary String have one element, can't use the Single Point Crossover method !", TypeError)
 
    cut = rand_randint(1, len(gMom)-1)
 
@@ -57,12 +57,12 @@ def G1DBinaryStringXTwoPoint(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      utils.raiseException("The Binary String have one element, can't use the Two Point Crossover method !", TypeError)
+      utils.raise_exception("The Binary String have one element, can't use the Two Point Crossover method !", TypeError)
 
    cuts = [rand_randint(1, len(gMom)-1), rand_randint(1, len(gMom)-1)]
 
    if cuts[0] > cuts[1]:
-      utils.listSwapElement(cuts, 0, 1)
+      utils.list_swap_element(cuts, 0, 1)
 
    if args["count"] >= 1:
       sister = gMom.clone()
@@ -112,7 +112,7 @@ def G1DListCrossoverSinglePoint(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      utils.raiseException("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
+      utils.raise_exception("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
       
    cut = rand_randint(1, len(gMom)-1)
 
@@ -140,12 +140,12 @@ def G1DListCrossoverTwoPoint(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      utils.raiseException("The 1D List have one element, can't use the Two Point Crossover method !", TypeError)
+      utils.raise_exception("The 1D List have one element, can't use the Two Point Crossover method !", TypeError)
 
    cuts = [rand_randint(1, len(gMom)-1), rand_randint(1, len(gMom)-1)]
 
    if cuts[0] > cuts[1]:
-      utils.listSwapElement(cuts, 0, 1)
+      utils.list_swap_element(cuts, 0, 1)
 
    if args["count"] >= 1:
       sister = gMom.clone()
@@ -261,7 +261,7 @@ def G1DListCrossoverCutCrossfill(genome, **args):
    gDad = args["dad"]
    
    if len(gMom) == 1:
-      utils.raiseException("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
+      utils.raise_exception("The 1D List have one element, can't use the Single Point Crossover method !", TypeError)
       
    cut = rand_randint(1, len(gMom)-1)
 
@@ -620,10 +620,10 @@ def GTreeCrossoverSinglePointStrict(genome, **args):
    distr_leaf =  gMom.getParam("distr_leaf", None)
 
    if max_depth is None:
-      utils.raiseException("You must specify the max_depth genome parameter !", ValueError)
+      utils.raise_exception("You must specify the max_depth genome parameter !", ValueError)
       
    if max_depth < 0:
-      utils.raiseException("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
+      utils.raise_exception("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
 
    momRandom = None
    dadRandom = None
@@ -718,10 +718,10 @@ def GTreeGPCrossoverSinglePoint(genome, **args):
    max_attempt = gMom.getParam("max_attempt", 15)
 
    if max_depth is None:
-      utils.raiseException("You must specify the max_depth genome parameter !", ValueError)
+      utils.raise_exception("You must specify the max_depth genome parameter !", ValueError)
       
    if max_depth < 0:
-      utils.raiseException("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
+      utils.raise_exception("The max_depth must be >= 1, if you want to use GTreeCrossoverSinglePointStrict crossover !", ValueError)
 
    momRandom = None
    dadRandom = None

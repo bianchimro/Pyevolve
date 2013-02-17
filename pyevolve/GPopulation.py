@@ -316,18 +316,58 @@ class GPopulation:
          self.sort()
          return self.internalPopRaw[-1]
 
+   def cmp_individual_raw(self, a, b):
+       """ Compares two individual raw scores
+    
+       Example:
+          >>> GPopulation.cmp_individual_raw(a, b)
+       
+       :param a: the A individual instance
+       :param b: the B individual instance
+       :rtype: 0 if the two individuals raw score are the same,
+               -1 if the B individual raw score is greater than A and
+               1 if the A individual raw score is greater than B.
+    
+       .. note:: this function is used to sorte the population individuals
+    
+       """
+       if a.score < b.score: return -1
+       if a.score > b.score: return 1
+       return 0
+   
+   def cmp_individual_scaled(self, a, b):
+      """ Compares two individual fitness scores, used for sorting population
+   
+      Example:
+         >>> GPopulation.cmp_individual_scaled(a, b)
+      
+      :param a: the A individual instance
+      :param b: the B individual instance
+      :rtype: 0 if the two individuals fitness score are the same,
+              -1 if the B individual fitness score is greater than A and
+              1 if the A individual fitness score is greater than B.
+   
+      .. note:: this function is used to sorte the population individuals
+   
+      """
+      if a.fitness < b.fitness: return -1
+      if a.fitness > b.fitness: return 1
+      return 0
+
+
+
    def sort(self):
       """ Sort the population """
       if self.sorted: return
       rev = (self.minimax == Consts.minimaxType["maximize"])
 
       if self.sortType == Consts.sortType["raw"]:
-         self.internalPop.sort(cmp=utils.cmp_individual_raw, reverse=rev)
+         self.internalPop.sort(cmp=self.cmp_individual_raw, reverse=rev)
       else:
          self.scale()
-         self.internalPop.sort(cmp=utils.cmp_individual_scaled, reverse=rev)
+         self.internalPop.sort(cmp=self.cmp_individual_scaled, reverse=rev)
          self.internalPopRaw = self.internalPop[:]
-         self.internalPopRaw.sort(cmp=utils.cmp_individual_raw, reverse=rev)
+         self.internalPopRaw.sort(cmp=self.cmp_individual_raw, reverse=rev)
 
       self.sorted = True
 

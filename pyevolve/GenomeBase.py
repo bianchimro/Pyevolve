@@ -321,10 +321,10 @@ class GTreeNodeBase:
 
       if childs is not None:
          if type(childs) != list:
-            utils.raiseException("Childs must be a list of nodes", TypeError)
+            utils.raise_exception("Childs must be a list of nodes", TypeError)
          typecheck_list = filter(lambda x: not isinstance(x, GTreeNodeBase), childs)
          if len(typecheck_list) > 0:
-            utils.raiseException("Childs must be a list of nodes", TypeError)
+            utils.raise_exception("Childs must be a list of nodes", TypeError)
          self.childs += childs
 
    def isLeaf(self):
@@ -360,7 +360,7 @@ class GTreeNodeBase:
          self.childs.extend(child)
       else:
          if not isinstance(child, GTreeNodeBase):
-            utils.raiseException("The child must be a node", TypeError)
+            utils.raise_exception("The child must be a node", TypeError)
          self.childs.append(child)
 
    def replaceChild(self, older, newer):
@@ -378,7 +378,7 @@ class GTreeNodeBase:
       :param parent: the parent node
       """
       #if not isinstance(parent, GTreeNodeBase):
-      #   utils.raiseException("The parent must be a node", TypeError)
+      #   utils.raise_exception("The parent must be a node", TypeError)
       self.parent = parent
    
    def getParent(self):
@@ -461,7 +461,7 @@ class GTreeBase:
       :param root: the tree root node
       """
       if not isinstance(root, GTreeNodeBase):
-         utils.raiseException("The root must be a node", TypeError)
+         utils.raise_exception("The root must be a node", TypeError)
       self.root_node = root
 
    def getNodeDepth(self, node):
@@ -534,7 +534,7 @@ class GTreeBase:
       :param start_node: the start node to begin the traversal
       """
       if not inspect.isfunction(callback):
-         utils.raiseException("The callback for the tree traversal must be a function", TypeError)
+         utils.raise_exception("The callback for the tree traversal must be a function", TypeError)
 
       if start_node is None:
          start_node = self.getRoot()

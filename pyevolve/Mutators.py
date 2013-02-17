@@ -28,12 +28,12 @@ def G1DBinaryStringMutatorSwap(genome, **args):
       mutations = 0
       for it in xrange(stringLength):
          if utils.random_flip_coin(args["pmut"]):
-            utils.listSwapElement(genome, it, rand_randint(0, stringLength-1))
+            utils.list_swap_element(genome, it, rand_randint(0, stringLength-1))
             mutations+=1
 
    else:
       for it in xrange(int(round(mutations))):
-         utils.listSwapElement(genome, rand_randint(0, stringLength-1),
+         utils.list_swap_element(genome, rand_randint(0, stringLength-1),
                                       rand_randint(0, stringLength-1))
 
    return int(mutations)
@@ -78,11 +78,11 @@ def G1DListMutatorSwap(genome, **args):
       mutations = 0
       for it in xrange(listSize+1):
          if utils.random_flip_coin(args["pmut"]):
-            utils.listSwapElement(genome, it, rand_randint(0, listSize))
+            utils.list_swap_element(genome, it, rand_randint(0, listSize))
             mutations+=1
    else:
       for it in xrange(int(round(mutations))):
-         utils.listSwapElement(genome, rand_randint(0, listSize), rand_randint(0, listSize))
+         utils.list_swap_element(genome, rand_randint(0, listSize), rand_randint(0, listSize))
 
    return int(mutations)
 
@@ -98,7 +98,7 @@ def G1DListMutatorSIM(genome, **args):
    cuts = [rand_randint(0, len(genome)), rand_randint(0, len(genome))]
 
    if cuts[0] > cuts[1]:
-      utils.listSwapElement(cuts, 0, 1)
+      utils.list_swap_element(cuts, 0, 1)
 
    if (cuts[1]-cuts[0]) <= 0:
       cuts[1] = rand_randint(cuts[0], len(genome))
@@ -382,7 +382,7 @@ def G1DListMutatorAllele(genome, **args):
 
    allele = genome.getParam("allele", None)
    if allele is None:
-      utils.raiseException("to use the G1DListMutatorAllele, you must specify the 'allele' parameter", TypeError)
+      utils.raise_exception("to use the G1DListMutatorAllele, you must specify the 'allele' parameter", TypeError)
 
    if mutations < 1.0:
       mutations = 0
@@ -422,13 +422,13 @@ def G2DListMutatorSwap(genome, **args):
          for j in xrange(width):
             if utils.random_flip_coin(args["pmut"]):
                index_b = (rand_randint(0, height-1), rand_randint(0, width-1))
-               utils.list2DSwapElement(genome.genomeList, (i,j), index_b)
+               utils.list2D_swap_element(genome.genomeList, (i,j), index_b)
                mutations+=1
    else:
       for it in xrange(int(round(mutations))):
          index_a = (rand_randint(0, height-1), rand_randint(0, width-1))
          index_b = (rand_randint(0, height-1), rand_randint(0, width-1))
-         utils.list2DSwapElement(genome.genomeList, index_a, index_b)
+         utils.list2D_swap_element(genome.genomeList, index_a, index_b)
 
    return int(mutations)
 
@@ -580,10 +580,10 @@ def G2DListMutatorAllele(genome, **args):
 
    allele = genome.getParam("allele", None)
    if allele is None:
-      utils.raiseException("to use the G2DListMutatorAllele, you must specify the 'allele' parameter", TypeError)
+      utils.raise_exception("to use the G2DListMutatorAllele, you must specify the 'allele' parameter", TypeError)
 
    if allele.homogeneous == False:
-      utils.raiseException("to use the G2DListMutatorAllele, the 'allele' must be homogeneous")
+      utils.raise_exception("to use the G2DListMutatorAllele, the 'allele' must be homogeneous")
 
    if mutations < 1.0:
       mutations = 0
@@ -725,13 +725,13 @@ def G2DBinaryStringMutatorSwap(genome, **args):
          for j in xrange(width):
             if utils.random_flip_coin(args["pmut"]):
                index_b = (rand_randint(0, height-1), rand_randint(0, width-1))
-               utils.list2DSwapElement(genome.genomeString, (i,j), index_b)
+               utils.list2D_swap_element(genome.genomeString, (i,j), index_b)
                mutations+=1
    else:
       for it in xrange(int(round(mutations))):
          index_a = (rand_randint(0, height-1), rand_randint(0, width-1))
          index_b = (rand_randint(0, height-1), rand_randint(0, width-1))
-         utils.list2DSwapElement(genome.genomeString, index_a, index_b)
+         utils.list2D_swap_element(genome.genomeString, index_a, index_b)
 
    return int(mutations)
 
@@ -1018,10 +1018,10 @@ def GTreeGPMutatorSubtree(genome, **args):
    mutations = 0
 
    if max_depth is None:
-      utils.raiseException("You must specify the max_depth genome parameter !", ValueError)
+      utils.raise_exception("You must specify the max_depth genome parameter !", ValueError)
       
    if max_depth < 0:
-      utils.raiseException("The max_depth must be >= 1, if you want to use GTreeGPMutatorSubtree crossover !", ValueError)
+      utils.raise_exception("The max_depth must be >= 1, if you want to use GTreeGPMutatorSubtree crossover !", ValueError)
 
    branch_list = genome.nodes_branch
    elements = len(branch_list)

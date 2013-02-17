@@ -31,12 +31,12 @@ def random_flip_coin(p):
 
    return rand_random() <= p
    
-def listSwapElement(lst, indexa, indexb):
+def list_swap_element(lst, indexa, indexb):
    """ Swaps elements A and B in a list.
 
    Example:
       >>> l = [1, 2, 3]
-      >>> utils.listSwapElement(l, 1, 2)
+      >>> utils.list_swap_element(l, 1, 2)
       >>> l
       [1, 3, 2]
 
@@ -48,12 +48,12 @@ def listSwapElement(lst, indexa, indexb):
    """
    lst[indexa], lst[indexb] = lst[indexb], lst[indexa]
 
-def list2DSwapElement(lst, indexa, indexb):
+def list2D_swap_element(lst, indexa, indexb):
    """ Swaps elements A and B in a 2D list (matrix).
 
    Example:
       >>> l = [ [1,2,3], [4,5,6] ] 
-      >>> utils.list2DSwapElement(l, (0,1), (1,1) )
+      >>> utils.list2D_swap_element(l, (0,1), (1,1) )
       >>> l
       [[1, 5, 3], [4, 2, 6]]
 
@@ -67,11 +67,11 @@ def list2DSwapElement(lst, indexa, indexb):
    lst[indexa[0]][indexa[1]] = lst[indexb[0]][indexb[1]]
    lst[indexb[0]][indexb[1]] = temp
 
-def raiseException(message, expt=None):
+def raise_exception(message, expt=None):
    """ Raise an exception and logs the message.
 
    Example:
-      >>> utils.raiseException('The value is not an integer', ValueError)
+      >>> utils.raise_exception('The value is not an integer', ValueError)
 
    :param message: the message of exception
    :param expt: the exception class
@@ -85,45 +85,8 @@ def raiseException(message, expt=None):
       raise expt, message
 
 
-def cmp_individual_raw(a, b):
-   """ Compares two individual raw scores
 
-   Example:
-      >>> GPopulation.cmp_individual_raw(a, b)
-   
-   :param a: the A individual instance
-   :param b: the B individual instance
-   :rtype: 0 if the two individuals raw score are the same,
-           -1 if the B individual raw score is greater than A and
-           1 if the A individual raw score is greater than B.
-
-   .. note:: this function is used to sorte the population individuals
-
-   """
-   if a.score < b.score: return -1
-   if a.score > b.score: return 1
-   return 0
-   
-def cmp_individual_scaled(a, b):
-   """ Compares two individual fitness scores, used for sorting population
-
-   Example:
-      >>> GPopulation.cmp_individual_scaled(a, b)
-   
-   :param a: the A individual instance
-   :param b: the B individual instance
-   :rtype: 0 if the two individuals fitness score are the same,
-           -1 if the B individual fitness score is greater than A and
-           1 if the A individual fitness score is greater than B.
-
-   .. note:: this function is used to sorte the population individuals
-
-   """
-   if a.fitness < b.fitness: return -1
-   if a.fitness > b.fitness: return 1
-   return 0
-
-def importSpecial(name):
+def import_special(name):
    """ This function will import the *name* module, if fails,
    it will raise an ImportError exception and a message
 
@@ -136,8 +99,8 @@ def importSpecial(name):
    try:
       imp_mod = __import__(name)
    except ImportError:
-      #raiseException("Cannot import module %s: %s" % (name, Consts.CDefImportList[name]), expt=ImportError)
-      raiseException("Cannot import module %s: %s" % (name, name), expt=ImportError)
+      #raise_exception("Cannot import module %s: %s" % (name, Consts.CDefImportList[name]), expt=ImportError)
+      raise_exception("Cannot import module %s: %s" % (name, name), expt=ImportError)
    return imp_mod 
 
 class ErrorAccumulator:

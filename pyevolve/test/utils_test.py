@@ -19,44 +19,35 @@ class utils_functions_Test():
         assert prob_coin is True or prob_coin is False
 
         
-    def listSwapElement_test(self):
+    def list_swap_element_test(self):
         l = [1, 2, 3]
 
-        utils.listSwapElement(l, 1, 2)
+        utils.list_swap_element(l, 1, 2)
         assert l == [1, 3, 2]
 
-        utils.listSwapElement(l, 1, 2)
+        utils.list_swap_element(l, 1, 2)
         assert l == [1, 2, 3]        
 
-        assert_raises(IndexError, utils.listSwapElement, l, 1, 4)
+        assert_raises(IndexError, utils.list_swap_element, l, 1, 4)
 
         
-    def list2DSwapElement(self):
+    def list2D_swap_element(self):
         l = [ [1,2,3], [4,5,6] ] 
 
-        utils.list2DSwapElement(l, (0,1), (1,1))
+        utils.list2D_swap_element(l, (0,1), (1,1))
         assert l == [ [1, 5, 3], [4, 2, 6] ]
 
-        utils.list2DSwapElement(l, (0,1), (1,1))
+        utils.list2D_swap_element(l, (0,1), (1,1))
         assert l == [ [1,2,3], [4,5,6] ] 
         
-    def raiseException_test(self):
+    def raise_exception_test(self):
         
-        assert_raises(IndexError, utils.raiseException, "Some index error", IndexError)
-        
-    def cmp_individual_raw_test(self):
-        #TODO: write test
-        pass
-        
-    def cmp_individual_scaled_test(self):
-        #TODO: write test
-        pass
-        
+        assert_raises(IndexError, utils.raise_exception, "Some index error", IndexError)        
     
-    def importSpecial_test(self):
+    def import_special_test(self):
         #TODO: how to test this if you have the module installed?
-        #assert_raises(ImportError, utils.importSpecial, "visual.graph")
-        #assert_raises(KeyError, utils.importSpecial, "something_visual.graph")
+        #assert_raises(ImportError, utils.import_special, "visual.graph")
+        #assert_raises(KeyError, utils.import_special, "something_visual.graph")
         pass
         
     def tearDown(self):

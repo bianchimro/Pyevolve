@@ -95,7 +95,7 @@ class DBBaseAdapter:
 
       :param ga_engine: the GA Engine
       """
-      utils.raiseException("This method is not implemented on the ABC", NotImplementedError)
+      utils.raise_exception("This method is not implemented on the ABC", NotImplementedError)
 
 class DBFileCSV(DBBaseAdapter):
    """ DBFileCSV Class - Adapter to dump statistics in CSV format
@@ -145,7 +145,7 @@ class DBFileCSV(DBBaseAdapter):
       """
       if self.csvmod is None:
          logging.debug("Loading the csv module...")
-         self.csvmod = utils.importSpecial("csv")
+         self.csvmod = utils.import_special("csv")
 
       logging.debug("Opening the CSV file to dump statistics [%s]", self.filename)
       if self.reset: open_mode = "w"
@@ -232,7 +232,7 @@ class DBURLPost(DBBaseAdapter):
       """
       if self.urllibmod is None:
          logging.debug("Loading urllib module...")
-         self.urllibmod = utils.importSpecial("urllib")
+         self.urllibmod = utils.import_special("urllib")
 
    def insert(self, ga_engine):
       """ Sends the data to the URL using POST or GET
@@ -312,7 +312,7 @@ class DBSQLite(DBBaseAdapter):
       """
       if self.sqlite3mod is None:
          logging.debug("Loading sqlite3 module...")
-         self.sqlite3mod = utils.importSpecial("sqlite3")
+         self.sqlite3mod = utils.import_special("sqlite3")
 
       logging.debug("Opening database, dbname=%s", self.dbName)
       self.connection = self.sqlite3mod.connect(self.dbName)
@@ -497,7 +497,7 @@ class DBXMLRPC(DBBaseAdapter):
       """
       if self.xmlrpclibmod is None:
          logging.debug("Loding the xmlrpclib module...")
-         self.xmlrpclibmod = utils.importSpecial("xmlrpclib")
+         self.xmlrpclibmod = utils.import_special("xmlrpclib")
 
       logging.debug("Opening the XML RPC Server Proxy on %s", self.url)
       self.proxy = self.xmlrpclibmod.ServerProxy(self.url, allow_none=True)
@@ -573,7 +573,7 @@ class DBVPythonGraph(DBBaseAdapter):
       """
       logging.debug("Loading visual.graph (VPython) module...")
       if self.vtkGraph is None:
-         self.vtkGraph = utils.importSpecial("visual.graph").graph
+         self.vtkGraph = utils.import_special("visual.graph").graph
 
       display_rawmin = self.makeDisplay("Raw Score (min)",       0,   0,   ga_engine)
       display_rawmax = self.makeDisplay("Raw Score (max)",       0,   250, ga_engine)
@@ -669,7 +669,7 @@ class DBMySQLAdapter(DBBaseAdapter):
       """
       if self.mysqldbmod is None:
          logging.debug("Loading MySQLdb module...")
-         self.mysqldbmod = utils.importSpecial("MySQLdb")
+         self.mysqldbmod = utils.import_special("MySQLdb")
 
       logging.debug("Opening database, host=%s", self.host)
       self.connection = self.mysqldbmod.connect(host=self.host, user=self.user,
