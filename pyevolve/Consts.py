@@ -439,17 +439,7 @@ CDefGAElitismReplacement = 1
 CDefRangeMin = 0
 CDefRangeMax = 100
 
-# - G1DBinaryString defaults
-CDefG1DBinaryStringMutator     = Mutators.G1DBinaryStringMutatorFlip
-CDefG1DBinaryStringCrossover   = Crossovers.G1DBinaryStringXSinglePoint
-CDefG1DBinaryStringInit        = Initializators.G1DBinaryStringInitializator
-CDefG1DBinaryStringUniformProb = 0.5
 
-# - G2DBinaryString defaults
-CDefG2DBinaryStringMutator     = Mutators.G2DBinaryStringMutatorFlip
-CDefG2DBinaryStringCrossover   = Crossovers.G2DBinaryStringXUniform
-CDefG2DBinaryStringInit        = Initializators.G2DBinaryStringInitializator
-CDefG2DBinaryStringUniformProb = 0.5
 
 # - GTree defaults
 CDefGTreeInit      = Initializators.GTreeInitializatorInteger
@@ -461,17 +451,6 @@ CDefGTreeGPInit      = Initializators.GTreeGPInitializator
 CDefGGTreeGPMutator  = Mutators.GTreeGPMutatorSubtree
 CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
 
-# - G1DList defaults
-CDefG1DListMutIntMU = 2
-CDefG1DListMutIntSIGMA = 10
-
-CDefG1DListMutRealMU = 0
-CDefG1DListMutRealSIGMA = 1
-
-CDefG1DListMutator   = Mutators.G1DListMutatorSwap
-CDefG1DListCrossover = Crossovers.G1DListCrossoverSinglePoint
-CDefG1DListInit      = Initializators.G1DListInitializatorInteger
-CDefG1DListCrossUniformProb = 0.5
 
 # SBX Crossover defaults
 # Crossover distribution index for SBX

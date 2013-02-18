@@ -35,8 +35,18 @@ Class
 """
 
 from g1dbase import G1DBase
-import Consts
+
+import Mutators
+import Crossovers
+import Initializators
 import utils
+
+# - G1DBinaryString defaults
+CDefG1DBinaryStringMutator     = Mutators.G1DBinaryStringMutatorFlip
+CDefG1DBinaryStringCrossover   = Crossovers.G1DBinaryStringXSinglePoint
+CDefG1DBinaryStringInit        = Initializators.G1DBinaryStringInitializator
+CDefG1DBinaryStringUniformProb = 0.5
+
     
 class G1DBinaryString(G1DBase):
     """ G1DBinaryString Class - The 1D Binary String chromosome
@@ -60,9 +70,9 @@ class G1DBinaryString(G1DBase):
         super(G1DBinaryString, self).__init__(length)
         self.genomeList = []
         self.stringLength = length
-        self.initializator.set(Consts.CDefG1DBinaryStringInit)
-        self.mutator.set(Consts.CDefG1DBinaryStringMutator)
-        self.crossover.set(Consts.CDefG1DBinaryStringCrossover)
+        self.initializator.set(CDefG1DBinaryStringInit)
+        self.mutator.set(CDefG1DBinaryStringMutator)
+        self.crossover.set(CDefG1DBinaryStringCrossover)
 
     def __setitem__(self, key, value):
         """ Set the specified value for an gene of List

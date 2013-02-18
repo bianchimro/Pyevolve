@@ -35,7 +35,22 @@ Class
 
 """
 from g1dbase import G1DBase
-import Consts
+import Mutators
+import Crossovers
+import Initializators
+
+# - G1DList defaults
+CDefG1DListMutIntMU = 2
+CDefG1DListMutIntSIGMA = 10
+
+CDefG1DListMutRealMU = 0
+CDefG1DListMutRealSIGMA = 1
+
+CDefG1DListMutator   = Mutators.G1DListMutatorSwap
+CDefG1DListCrossover = Crossovers.G1DListCrossoverSinglePoint
+CDefG1DListInit      = Initializators.G1DListInitializatorInteger
+CDefG1DListCrossUniformProb = 0.5
+
 
 class G1DList(G1DBase):
     """ G1DList Class - The 1D List chromosome representation
@@ -111,9 +126,9 @@ class G1DList(G1DBase):
         size parameter must be specified """
         G1DBase.__init__(self, size)
         if not cloning:
-            self.initializator.set(Consts.CDefG1DListInit)
-            self.mutator.set(Consts.CDefG1DListMutator)
-            self.crossover.set(Consts.CDefG1DListCrossover)
+            self.initializator.set(CDefG1DListInit)
+            self.mutator.set(CDefG1DListMutator)
+            self.crossover.set(CDefG1DListCrossover)
  
     def __mul__(self, other):
         """ Multiply every element of G1DList by "other" """

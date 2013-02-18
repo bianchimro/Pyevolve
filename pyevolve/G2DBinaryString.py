@@ -39,8 +39,17 @@ Class
 """
 
 from genome import GenomeBase
-import Consts
+import Mutators
+import Crossovers
+import Initializators
 import utils
+    
+# - G2DBinaryString defaults
+CDefG2DBinaryStringMutator     = Mutators.G2DBinaryStringMutatorFlip
+CDefG2DBinaryStringCrossover   = Crossovers.G2DBinaryStringXUniform
+CDefG2DBinaryStringInit        = Initializators.G2DBinaryStringInitializator
+CDefG2DBinaryStringUniformProb = 0.5
+
     
 class G2DBinaryString(GenomeBase):
     """ G3DBinaryString Class - The 2D Binary String chromosome
@@ -69,9 +78,9 @@ class G2DBinaryString(GenomeBase):
         for i in xrange(height):
             self.genomeString[i] = [None] * width
     
-        self.initializator.set(Consts.CDefG2DBinaryStringInit)
-        self.mutator.set(Consts.CDefG2DBinaryStringMutator)
-        self.crossover.set(Consts.CDefG2DBinaryStringCrossover)
+        self.initializator.set(CDefG2DBinaryStringInit)
+        self.mutator.set(CDefG2DBinaryStringMutator)
+        self.crossover.set(CDefG2DBinaryStringCrossover)
    
     def __eq__(self, other):
         """ Compares one chromosome with another """
