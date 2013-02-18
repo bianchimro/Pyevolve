@@ -32,7 +32,7 @@ Default Parameters
 
 *Minimax*
 
-   >>> Consts.minimaxType["maximize"]
+   >>> minimaxType["maximize"]
 
    Maximize the evaluation function
 
@@ -65,8 +65,11 @@ from Migration    import MigrationScheme
 from genome   import GenomeBase
 from DBAdapters   import DBBaseAdapter
 
-import Consts
 import utils
+import Mutators
+import Crossovers
+import Initializators
+import Selectors
 
 import random
 import logging
@@ -82,6 +85,18 @@ import pyevolve
 # Platform dependant code for the Interactive Mode
 if sys_platform[:3] == "win":
    import msvcrt
+   
+from Consts import minimaxType, CDefGPGenomes
+
+# - GA Engine defaults
+CDefGAGenerations    = 100
+CDefGAMutationRate   = 0.02
+CDefGACrossoverRate  = 0.9
+CDefGAPopulationSize = 80
+CDefGASelector       = Selectors.GRankSelector
+CDefGAElitismReplacement = 1
+   
+   
 
 def RawScoreCriteria(ga_engine):
    """ Terminate the evolution using the **bestrawscore** and **rounddecimal**
@@ -100,7 +115,7 @@ def RawScoreCriteria(ga_engine):
    if bestRawScore is None:
       utils.raise_exception("you must specify the bestrawscore parameter", ValueError)
 
-   if ga_engine.getMinimax() == Consts.minimaxType["maximize"]:
+   if ga_engine.getMinimax() == minimaxType["maximize"]:
       if roundDecimal is not None:
          return round(bestRawScore, roundDecimal) <= round(ind.score, roundDecimal)
       else:
@@ -219,12 +234,12 @@ class GSimpleGA:
          utils.raise_exception("The genome must be a GenomeBase subclass", TypeError)
 
       self.internalPop  = GPopulation(genome)
-      self.nGenerations = Consts.CDefGAGenerations
-      self.pMutation    = Consts.CDefGAMutationRate
-      self.pCrossover   = Consts.CDefGACrossoverRate
-      self.nElitismReplacement = Consts.CDefGAElitismReplacement
-      self.setPopulationSize(Consts.CDefGAPopulationSize)
-      self.minimax      = Consts.minimaxType["maximize"]
+      self.nGenerations = CDefGAGenerations
+      self.pMutation    = CDefGAMutationRate
+      self.pCrossover   = CDefGACrossoverRate
+      self.nElitismReplacement = CDefGAElitismReplacement
+      self.setPopulationSize(CDefGAPopulationSize)
+      self.minimax      = minimaxType["maximize"]
       self.elitism      = True
 
       # Adapters
@@ -239,7 +254,7 @@ class GSimpleGA:
       self.selector            = FunctionSlot("Selector")
       self.stepCallback        = FunctionSlot("Generation Step Callback")
       self.terminationCriteria = FunctionSlot("Termination Criteria")
-      self.selector.set(Consts.CDefGASelector)
+      self.selector.set(CDefGASelector)
       self.allSlots            = [ self.selector, self.stepCallback, self.terminationCriteria ]
 
       self.internalParams = {}
@@ -247,7 +262,7 @@ class GSimpleGA:
       self.currentGeneration = 0
 
       # GP Testing
-      for classes in Consts.CDefGPGenomes:
+      for classes in CDefGPGenomes:
          if  isinstance(self.internalPop.oneSelfGenome, classes):
             self.setGPMode(True)
             break
@@ -372,7 +387,7 @@ class GSimpleGA:
       ret += "\tCurrent Generation:\t %d\n" % (self.currentGeneration,)
       ret += "\tMutation Rate:\t\t %.2f\n" % (self.pMutation,)
       ret += "\tCrossover Rate:\t\t %.2f\n" % (self.pCrossover,)
-      ret += "\tMinimax Type:\t\t %s\n" % (Consts.minimaxType.keys()[Consts.minimaxType.values().index(self.minimax)].capitalize(),)
+      ret += "\tMinimax Type:\t\t %s\n" % (minimaxType.keys()[minimaxType.values().index(self.minimax)].capitalize(),)
       ret += "\tElitism:\t\t %s\n" % (self.elitism,)
       ret += "\tElitism Replacement:\t %d\n" % (self.nElitismReplacement,)
       ret += "\tDB Adapter:\t\t %s\n" % (self.dbAdapter,)
@@ -460,16 +475,16 @@ class GSimpleGA:
       self.internalPop.setPopulationSize(size)
 
    def setSortType(self, sort_type):
-      """ Sets the sort type, Consts.sortType["raw"]/Consts.sortType["scaled"]
+      """ Sets the sort type, sortType["raw"]/sortType["scaled"]
 
       Example:
-         >>> ga_engine.setSortType(Consts.sortType["scaled"])
+         >>> ga_engine.setSortType(sortType["scaled"])
 
       :param sort_type: the Sort Type
 
       """
-      if sort_type not in Consts.sortType.values():
-         utils.raise_exception("sort type must be a Consts.sortType type", TypeError)
+      if sort_type not in sortType.values():
+         utils.raise_exception("sort type must be a sortType type", TypeError)
       self.internalPop.sortType = sort_type
 
    def setMutationRate(self, rate):
@@ -515,18 +530,18 @@ class GSimpleGA:
    def getMinimax(self):
       """ Gets the minimize/maximize mode
 
-      :rtype: the Consts.minimaxType type
+      :rtype: the minimaxType type
 
       """
       return self.minimax
 
    def setMinimax(self, mtype):
-      """ Sets the minimize/maximize mode, use Consts.minimaxType
+      """ Sets the minimize/maximize mode, use minimaxType
 
-      :param mtype: the minimax mode, from Consts.minimaxType
+      :param mtype: the minimax mode, from minimaxType
 
       """
-      if mtype not in Consts.minimaxType.values():
+      if mtype not in minimaxType.values():
          utils.raise_exception("Minimax must be maximize or minimize", TypeError)
       self.minimax = mtype
 
@@ -670,13 +685,13 @@ class GSimpleGA:
 
       if self.elitism:
          logging.debug("Doing elitism.")
-         if self.getMinimax() == Consts.minimaxType["maximize"]:
+         if self.getMinimax() == minimaxType["maximize"]:
             for i in xrange(self.nElitismReplacement):
                #re-evaluate before being sure this is the best
                self.internalPop.bestRaw(i).evaluate()
                if self.internalPop.bestRaw(i).score > newPop.bestRaw(i).score:
                   newPop[len(newPop)-1-i] = self.internalPop.bestRaw(i)
-         elif self.getMinimax() == Consts.minimaxType["minimize"]:
+         elif self.getMinimax() == minimaxType["minimize"]:
             for i in xrange(self.nElitismReplacement):
                #re-evaluate before being sure this is the best
                self.internalPop.bestRaw(i).evaluate()
@@ -797,7 +812,7 @@ class GSimpleGA:
             if self.interactiveMode:
                if sys_platform[:3] == "win":
                   if msvcrt.kbhit():
-                     if ord(msvcrt.getch()) == Consts.CDefESCKey:
+                     if ord(msvcrt.getch()) == CDefESCKey:
                         print "Loading modules for Interactive Mode...",
                         logging.debug("Windows Interactive Mode key detected ! generation=%d", self.getCurrentGeneration())
                         from pyevolve import Interaction

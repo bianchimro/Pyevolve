@@ -422,18 +422,6 @@ CDefScaleBoltzFactor          = 0.05
 # 40 temp. = 500 generations
 CDefScaleBoltzStart           = 40.0
 
-# - Population Defaults
-CDefPopSortType               = sortType["scaled"]
-CDefPopMinimax                = minimaxType["maximize"]
-CDefPopScale                  = Scaling.LinearScaling
-
-# - GA Engine defaults
-CDefGAGenerations    = 100
-CDefGAMutationRate   = 0.02
-CDefGACrossoverRate  = 0.9
-CDefGAPopulationSize = 80
-CDefGASelector       = Selectors.GRankSelector
-CDefGAElitismReplacement = 1
 
 # - This is general used by integer/real ranges defaults
 CDefRangeMin = 0

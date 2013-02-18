@@ -10,13 +10,13 @@ Default Parameters
 
 *Sort Type*
    
-   >>> Consts.sortType["scaled"]
+   >>> sortType["scaled"]
 
    The scaled sort type
 
 *Minimax*
 
-   >>> Consts.minimaxType["maximize"]
+   >>> minimaxType["maximize"]
 
    Maximize the evaluation function
 
@@ -32,11 +32,22 @@ Class
 
 """
 
-import Consts, utils
+
+import logging
+
+import utils
 from FunctionSlot import FunctionSlot
 from Statistics import Statistics
 from math import sqrt as math_sqrt
-import logging
+import Scaling
+
+
+# - Population Defaults
+from Consts import sortType, minimaxType
+CDefPopSortType               = sortType["scaled"]
+CDefPopMinimax                = minimaxType["maximize"]
+CDefPopScale                  = Scaling.LinearScaling
+
 
 try:
    from multiprocessing import cpu_count, Pool
@@ -143,11 +154,11 @@ class GPopulation:
       self.internalPop    = []
       self.internalPopRaw = []
       self.popSize       = 0
-      self.sortType      = Consts.CDefPopSortType
+      self.sortType      = CDefPopSortType
       self.sorted        = False
-      self.minimax       = Consts.CDefPopMinimax
+      self.minimax       = CDefPopMinimax
       self.scaleMethod   = FunctionSlot("Scale Method")
-      self.scaleMethod.set(Consts.CDefPopScale)
+      self.scaleMethod.set(CDefPopScale)
       self.allSlots      = [self.scaleMethod]
 
       self.internalParams = {}
@@ -182,7 +193,7 @@ class GPopulation:
       """ Sets the population minimax
 
       Example:
-         >>> pop.setMinimax(Consts.minimaxType["maximize"])
+         >>> pop.setMinimax(minimaxType["maximize"])
    
       :param minimax: the minimax type
 
@@ -193,8 +204,8 @@ class GPopulation:
       """ Returns the string representation of the population """
       ret =  "- GPopulation\n"
       ret += "\tPopulation Size:\t %d\n" % (self.popSize,)
-      ret += "\tSort Type:\t\t %s\n" % (Consts.sortType.keys()[Consts.sortType.values().index(self.sortType)].capitalize(),)
-      ret += "\tMinimax Type:\t\t %s\n" % (Consts.minimaxType.keys()[Consts.minimaxType.values().index(self.minimax)].capitalize(),)
+      ret += "\tSort Type:\t\t %s\n" % (sortType.keys()[sortType.values().index(self.sortType)].capitalize(),)
+      ret += "\tMinimax Type:\t\t %s\n" % (minimaxType.keys()[minimaxType.values().index(self.minimax)].capitalize(),)
       for slot in self.allSlots:
          ret+= "\t" + slot.__repr__()
       ret+="\n"
@@ -295,7 +306,7 @@ class GPopulation:
          The parameter `index`.
       
       """
-      if self.sortType == Consts.sortType["raw"]:
+      if self.sortType == sortType["raw"]:
          return self.internalPop[index]
       else:
          self.sort()
@@ -310,7 +321,7 @@ class GPopulation:
          The parameter `index`.
       
       """
-      if self.sortType == Consts.sortType["raw"]:
+      if self.sortType == sortType["raw"]:
          return self.internalPop[-1]
       else:
          self.sort()
@@ -359,9 +370,9 @@ class GPopulation:
    def sort(self):
       """ Sort the population """
       if self.sorted: return
-      rev = (self.minimax == Consts.minimaxType["maximize"])
+      rev = (self.minimax == minimaxType["maximize"])
 
-      if self.sortType == Consts.sortType["raw"]:
+      if self.sortType == sortType["raw"]:
          self.internalPop.sort(cmp=self.cmp_individual_raw, reverse=rev)
       else:
          self.scale()
@@ -383,7 +394,7 @@ class GPopulation:
       """ Sets the sort type
 
       Example:
-         >>> pop.setSortType(Consts.sortType["scaled"])
+         >>> pop.setSortType(sortType["scaled"])
 
       :param sort_type: the Sort Type
 
@@ -469,7 +480,7 @@ class GPopulation:
    def printStats(self):
       """ Print statistics of the current population """
       message = ""
-      if self.sortType == Consts.sortType["scaled"]:
+      if self.sortType == sortType["scaled"]:
          message = "Max/Min/Avg Fitness(Raw) [%(fitMax).2f(%(rawMax).2f)/%(fitMin).2f(%(rawMin).2f)/%(fitAve).2f(%(rawAve).2f)]" % self.stats
       else:
          message = "Max/Min/Avg Raw [%(rawMax).2f/%(rawMin).2f/%(rawAve).2f]" % self.stats
