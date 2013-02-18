@@ -34,7 +34,8 @@ Class
 
 """
 
-from GenomeBase import GenomeBase, G1DBase
+from genome import GenomeBase
+from g1dbase import G1DBase
 import Consts
 import utils
     
@@ -45,7 +46,7 @@ class G1DBinaryString(GenomeBase, G1DBase):
 
    .. inheritance-diagram:: G1DBinaryString.G1DBinaryString
 
-   This chromosome class extends the :class:`GenomeBase.GenomeBase`
+   This chromosome class extends the :class:`genome.GenomeBase`
    and :class:`GenomeBase.G1DBase` classes.
    
    Example:

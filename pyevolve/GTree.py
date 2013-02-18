@@ -34,8 +34,10 @@ Classes
 -------------------------------------------------------------
 """
 import random
-from GenomeBase import GenomeBase, GTreeBase, GTreeNodeBase
+from genome import GenomeBase
+from gtreebase import GTreeBase, GTreeNodeBase
 import Consts
+
 import utils
 
 try:

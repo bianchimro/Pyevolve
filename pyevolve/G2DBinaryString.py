@@ -38,7 +38,7 @@ Class
 -------------------------------------------------------------
 """
 
-from GenomeBase import GenomeBase
+from genome import GenomeBase
 import Consts
 import utils
     
