@@ -13,6 +13,15 @@ from math import sqrt as math_sqrt
 import logging
 import sys
 
+CDefImportList = {"visual.graph": "you must install VPython !",
+                  "csv" : "csv module not found !",
+                  "urllib" : "urllib module not found !",
+                  "sqlite3": "sqlite3 module not found, are you using Jython or IronPython ?",
+                  "xmlrpclib" : "xmlrpclib module not found !",
+                  "MySQLdb" : "MySQLdb module not found, you must install mysql-python !",
+                  "pydot" : "Pydot module not found, you must install Pydot to plot graphs !"}
+
+
 def random_flip_coin(p):
    """ Returns True with the *p* probability. If the *p* is 1.0,
    the function will always return True, or if is 0.0, the
@@ -99,8 +108,7 @@ def import_special(name):
    try:
       imp_mod = __import__(name)
    except ImportError:
-      #raise_exception("Cannot import module %s: %s" % (name, Consts.CDefImportList[name]), expt=ImportError)
-      raise_exception("Cannot import module %s: %s" % (name, name), expt=ImportError)
+      raise_exception("Cannot import module %s: %s" % (name, CDefImportList[name]), expt=ImportError)
    return imp_mod 
 
 class ErrorAccumulator:

@@ -8,8 +8,12 @@ This module have the *selection methods*, like roulette wheel, tournament, ranki
 """
 
 import random
-import Consts
 import operator
+
+# - Tournament selector
+from Consts import sortType, minimaxType
+CDefTournamentPoolSize = 2
+
 
 def GRankSelector(population, **args):
    """ The Rank Selector - This selector will pick the best individual of
@@ -18,7 +22,7 @@ def GRankSelector(population, **args):
    count = 0
 
    if args["popID"] != GRankSelector.cachePopID:
-      if population.sortType == Consts.sortType["scaled"]:
+      if population.sortType == sortType["scaled"]:
          best_fitness = population.bestFitness().fitness
          for index in xrange(1, len(population.internalPop)):
             if population[index].fitness == best_fitness:
@@ -58,13 +62,13 @@ def GTournamentSelector(population, **args):
 
    """
    choosen = None
-   should_minimize = population.minimax == Consts.minimaxType["minimize"]
+   should_minimize = population.minimax == minimaxType["minimize"]
    minimax_operator = min if should_minimize else max
 
-   poolSize = population.get_param("tournamentPool", Consts.CDefTournamentPoolSize)
+   poolSize = population.get_param("tournamentPool", CDefTournamentPoolSize)
    tournament_pool = [GRouletteWheel(population, **args) for i in xrange(poolSize) ] 
 
-   if population.sortType == Consts.sortType["scaled"]:
+   if population.sortType == sortType["scaled"]:
       choosen = minimax_operator(tournament_pool, key=lambda ind: ind.fitness)
    else:
       choosen = minimax_operator(tournament_pool, key=lambda ind: ind.score)
@@ -82,13 +86,13 @@ def GTournamentSelectorAlternative(population, **args):
       Added the GTournamentAlternative function.
 
    """
-   pool_size = population.get_param("tournamentPool", Consts.CDefTournamentPoolSize)
+   pool_size = population.get_param("tournamentPool", CDefTournamentPoolSize)
    len_pop = len(population)
-   should_minimize = population.minimax == Consts.minimaxType["minimize"]
+   should_minimize = population.minimax == minimaxType["minimize"]
    minimax_operator = min if should_minimize else max
    tournament_pool = [population[random.randint(0, len_pop-1)] for i in xrange(pool_size)]
    
-   if population.sortType == Consts.sortType["scaled"]:
+   if population.sortType == sortType["scaled"]:
       choosen = minimax_operator(tournament_pool, key=lambda ind: ind.fitness)
    else:
       choosen = minimax_operator(tournament_pool, key=lambda ind: ind.score)
@@ -130,7 +134,7 @@ def GRouletteWheel_PrepareWheel(population):
 
    population.statistics()
 
-   if population.sortType == Consts.sortType["scaled"]:
+   if population.sortType == sortType["scaled"]:
       pop_fitMax = population.stats["fitMax"]
       pop_fitMin = population.stats["fitMin"]
 
@@ -139,7 +143,7 @@ def GRouletteWheel_PrepareWheel(population):
             psum[index] = (index+1) / float(len_pop)
       elif (pop_fitMax > 0 and pop_fitMin >= 0) or (pop_fitMax <= 0 and pop_fitMin < 0):
          population.sort()
-         if population.minimax == Consts.minimaxType["maximize"]:
+         if population.minimax == minimaxType["maximize"]:
             psum[0] = population[0].fitness
             for i in xrange(1, len_pop):
                psum[i] = population[i].fitness + psum[i-1]
@@ -161,7 +165,7 @@ def GRouletteWheel_PrepareWheel(population):
       
       elif (pop_rawMax > 0 and pop_rawMin >= 0) or (pop_rawMax <= 0 and pop_rawMin < 0):
          population.sort()
-         if population.minimax == Consts.minimaxType["maximize"]:
+         if population.minimax == minimaxType["maximize"]:
             psum[0] = population[0].score
             for i in xrange(1, len_pop):
                psum[i] = population[i].score + psum[i-1]

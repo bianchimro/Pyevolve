@@ -86,7 +86,8 @@ import pyevolve
 if sys_platform[:3] == "win":
    import msvcrt
    
-from Consts import minimaxType, CDefGPGenomes
+from Consts import minimaxType
+from gtree import GTreeGP
 
 # - GA Engine defaults
 CDefGAGenerations    = 100
@@ -95,7 +96,12 @@ CDefGACrossoverRate  = 0.9
 CDefGAPopulationSize = 80
 CDefGASelector       = Selectors.GRankSelector
 CDefGAElitismReplacement = 1
-   
+
+CDefGPGenomes = [GTreeGP] 
+
+#esc key for interactive mode
+# TODO: not investigated yet
+CDefESCKey = 27  
    
 
 def RawScoreCriteria(ga_engine):

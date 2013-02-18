@@ -11,7 +11,16 @@ from random import randint as rand_randint, choice as rand_choice
 from random import random as rand_random
 import math
 import utils
-import Consts
+#import Consts
+
+
+# SBX Crossover defaults
+# Crossover distribution index for SBX
+# Larger Etac = similar to parents
+# Smaller Etac = far away from parents
+CDefG1DListSBXEtac  = 10
+CDefG1DListSBXEPS   = 1.0e-14
+
 
 #############################
 ##     1D Binary String    ##
@@ -89,7 +98,7 @@ def G1DBinaryStringXUniform(genome, **args):
    brother.reset_stats()
 
    for i in xrange(len(gMom)):
-      if utils.random_flip_coin(Consts.CDefG1DBinaryStringUniformProb):
+      if utils.random_flip_coin(CDefG1DBinaryStringUniformProb):
          temp = sister[i]
          sister[i] = brother[i]
          brother[i] = temp
@@ -176,7 +185,7 @@ def G1DListCrossoverUniform(genome, **args):
    brother.reset_stats()
 
    for i in xrange(len(gMom)):
-      if utils.random_flip_coin(Consts.CDefG1DListCrossUniformProb):
+      if utils.random_flip_coin(CDefG1DListCrossUniformProb):
          temp = sister[i]
          sister[i] = brother[i]
          brother[i] = temp
@@ -300,16 +309,16 @@ def G1DListCrossoverRealSBX(genome, **args):
    .. warning:: This crossover method is Data Type Dependent, which means that
                 must be used for 1D genome of real values.
    """
-   EPS = Consts.CDefG1DListSBXEPS
+   EPS = CDefG1DListSBXEPS
    # Crossover distribution index
-   eta_c = Consts.CDefG1DListSBXEtac  
+   eta_c = CDefG1DListSBXEtac  
 
    gMom = args["mom"]
    gDad = args["dad"]
 
    # Get the variable bounds ('gDad' could have been used; but I love Mom:-))
-   lb = gMom.get_param("rangemin", Consts.CDefRangeMin)
-   ub = gMom.get_param("rangemax", Consts.CDefRangeMax)
+   lb = gMom.get_param("rangemin", CDefRangeMin)
+   ub = gMom.get_param("rangemax", CDefRangeMax)
 
    sister = gMom.clone()
    brother = gDad.clone()
@@ -387,7 +396,7 @@ def G2DListCrossoverUniform(genome, **args):
    
    for i in xrange(h):
       for j in xrange(w):
-         if utils.random_flip_coin(Consts.CDefG2DListCrossUniformProb):
+         if utils.random_flip_coin(CDefG2DListCrossUniformProb):
             temp = sister.get_item(i, j)
             sister.set_item(i, j, brother.get_item(i, j))
             brother.set_item(i, j, temp)
@@ -467,7 +476,7 @@ def G2DBinaryStringXUniform(genome, **args):
    
    for i in xrange(h):
       for j in xrange(w):
-         if utils.random_flip_coin(Consts.CDefG2DBinaryStringUniformProb):
+         if utils.random_flip_coin(CDefG2DBinaryStringUniformProb):
             temp = sister.get_item(i, j)
             sister.set_item(i, j, brother.get_item(i, j))
             brother.set_item(i, j, temp)
@@ -730,9 +739,9 @@ def GTreeGPCrossoverSinglePoint(genome, **args):
 
       dadRandom = gDad.getRandomNode()
 
-      if   dadRandom.getType() == Consts.nodeType["TERMINAL"]:
+      if   dadRandom.getType() == nodeType["TERMINAL"]:
          momRandom = gMom.getRandomNode(1)
-      elif dadRandom.getType() == Consts.nodeType["NONTERMINAL"]:
+      elif dadRandom.getType() == nodeType["NONTERMINAL"]:
          momRandom = gMom.getRandomNode(2)
 
       mD = gMom.getNodeDepth(momRandom)

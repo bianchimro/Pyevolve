@@ -23,8 +23,10 @@ try:
 except ImportError:
     ZLIB_SUPPORT = False
 
-import Consts
 import logging
+
+CDefBroadcastAddress = "255.255.255.255"
+
 
 def getMachineIP():
    """ Return all the IPs from current machine.
@@ -107,7 +109,7 @@ class UDPThreadBroadcastClient(threading.Thread):
 
    def send(self):
       """ Broadcasts the data """
-      return self.sock.sendto(self.data, (Consts.CDefBroadcastAddress, self.targetPort))
+      return self.sock.sendto(self.data, (CDefBroadcastAddress, self.targetPort))
    
    def run(self):
       """ Method called when you call *.start()* of the thread """

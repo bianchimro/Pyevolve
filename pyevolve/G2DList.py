@@ -36,7 +36,24 @@ Class
 """
 
 from genome import GenomeBase
-import Consts
+
+import Mutators
+import Crossovers
+import Initializators
+
+
+# - G2DList defaults
+CDefG2DListMutIntMU = 2
+CDefG2DListMutIntSIGMA = 10
+
+CDefG2DListMutRealMU = 0
+CDefG2DListMutRealSIGMA = 1
+
+CDefG2DListMutator   = Mutators.G2DListMutatorSwap
+CDefG2DListCrossover = Crossovers.G2DListCrossoverUniform
+CDefG2DListInit      = Initializators.G2DListInitializatorInteger
+CDefG2DListCrossUniformProb = 0.5
+
     
 class G2DList(GenomeBase):
    """ G2DList Class - The 2D List chromosome representation
@@ -100,9 +117,9 @@ class G2DList(GenomeBase):
          self.genomeList[i] = [None] * width
 
       if not cloning:
-         self.initializator.set(Consts.CDefG2DListInit)
-         self.mutator.set(Consts.CDefG2DListMutator)
-         self.crossover.set(Consts.CDefG2DListCrossover)
+         self.initializator.set(CDefG2DListInit)
+         self.mutator.set(CDefG2DListMutator)
+         self.crossover.set(CDefG2DListCrossover)
 
    def __eq__(self, other):
       """ Compares one chromosome with another """

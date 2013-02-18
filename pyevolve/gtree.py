@@ -38,7 +38,23 @@ import random
 from genome import GenomeBase
 from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
-import Consts
+
+import Initializators
+import Mutators
+import Crossovers
+
+
+# - GTree defaults
+CDefGTreeInit      = Initializators.GTreeInitializatorInteger
+CDefGGTreeMutator  = Mutators.GTreeMutatorIntegerRange
+CDefGTreeCrossover = Crossovers.GTreeCrossoverSinglePointStrict
+
+
+# - GTreeGP defaults
+CDefGTreeGPInit      = Initializators.GTreeGPInitializator
+CDefGGTreeGPMutator  = Mutators.GTreeGPMutatorSubtree
+CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
+
 
 
 import utils
@@ -99,9 +115,9 @@ class GTree(GenomeBase, GTreeBase):
    def __init__(self, root_node=None):
       GenomeBase.__init__(self)
       GTreeBase.__init__(self, root_node)
-      self.initializator.set(Consts.CDefGTreeInit)
-      self.mutator.set(Consts.CDefGGTreeMutator)
-      self.crossover.set(Consts.CDefGTreeCrossover)
+      self.initializator.set(CDefGTreeInit)
+      self.mutator.set(CDefGGTreeMutator)
+      self.crossover.set(CDefGTreeCrossover)
 
    def __repr__(self):
       """ Return a string representation of Genome """
@@ -148,9 +164,9 @@ class GTreeGP(GenomeBase, GTreeBase):
       GenomeBase.__init__(self)
       GTreeBase.__init__(self, root_node)
       if not cloning:
-         self.initializator.set(Consts.CDefGTreeGPInit)
-         self.mutator.set(Consts.CDefGGTreeGPMutator)
-         self.crossover.set(Consts.CDefGTreeGPCrossover)
+         self.initializator.set(CDefGTreeGPInit)
+         self.mutator.set(CDefGGTreeGPMutator)
+         self.crossover.set(CDefGTreeGPCrossover)
 
    def __repr__(self):
       """ Return a string representation of Genome """
@@ -205,12 +221,12 @@ class GTreeGP(GenomeBase, GTreeBase):
          newnode = pydot.Node(str(count), style="filled")
          count += 1
 
-         if self.nodes_list[i].getType() == Consts.nodeType["TERMINAL"]:
+         if self.nodes_list[i].getType() == nodeType["TERMINAL"]:
             newnode.set_color("lightblue2")
          else:
             newnode.set_color("goldenrod2")
 
-         if self.nodes_list[i].getType() == Consts.nodeType["NONTERMINAL"]:
+         if self.nodes_list[i].getType() == nodeType["NONTERMINAL"]:
             func = getattr(main_module, self.nodes_list[i].getData())
 
             if hasattr(func, "shape"):

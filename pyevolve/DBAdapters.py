@@ -18,12 +18,39 @@ module, you'll find the adapters above cited.
 """
 
 from pyevolve import __version__
-import Consts
 import utils
 import logging
 import types
 import datetime
 import Statistics
+
+
+# - DB Adapters SQLite defaults
+CDefSQLiteDBName = "pyevolve.db"
+CDefSQLiteDBTable = "statistics"
+CDefSQLiteDBTablePop = "population"
+CDefSQLiteStatsGenFreq = 1
+CDefSQLiteStatsCommitFreq = 300
+
+# - DB Adapters MySQL defaults
+CDefMySQLDBName = "pyevolve"
+CDefMySQLDBTable = "statistics"
+CDefMySQLDBTablePop = "population"
+CDefMySQLDBHost = "localhost"
+CDefMySQLDBPort = 3306
+CDefMySQLStatsGenFreq = 1
+CDefMySQLStatsCommitFreq = 300
+
+# - DB Adapters URL Post defaults
+CDefURLPostStatsGenFreq = 100
+
+# - DB Adapters CSV File defaults
+CDefCSVFileName = "pyevolve.csv"
+CDefCSVFileStatsGenFreq = 1
+
+# - DB Adapter XML RPC
+CDefXMLRPCStatsGenFreq = 20
+
 
 
 class DBBaseAdapter:
@@ -117,8 +144,8 @@ class DBFileCSV(DBBaseAdapter):
       Removed the stub methods and subclassed the :class:`DBBaseAdapter` class.
 
    """
-   def __init__(self, filename=Consts.CDefCSVFileName, identify=None,
-                frequency = Consts.CDefCSVFileStatsGenFreq, reset=True):
+   def __init__(self, filename=CDefCSVFileName, identify=None,
+                frequency = CDefCSVFileStatsGenFreq, reset=True):
       """ The creator of DBFileCSV Class """
 
       DBBaseAdapter.__init__(self, frequency, identify)
@@ -208,7 +235,7 @@ class DBURLPost(DBBaseAdapter):
    """
    
    def __init__(self, url, identify=None,
-                frequency = Consts.CDefURLPostStatsGenFreq, post=True):
+                frequency = CDefURLPostStatsGenFreq, post=True):
       """ The creator of the DBURLPost Class. """
 
       DBBaseAdapter.__init__(self, frequency, identify)
@@ -281,9 +308,9 @@ class DBSQLite(DBBaseAdapter):
    :param commit_freq: the commit frequency
    """
 
-   def __init__(self, dbname=Consts.CDefSQLiteDBName, identify=None, resetDB=False,
-                resetIdentify=True, frequency=Consts.CDefSQLiteStatsGenFreq,
-                commit_freq=Consts.CDefSQLiteStatsCommitFreq):
+   def __init__(self, dbname=CDefSQLiteDBName, identify=None, resetDB=False,
+                resetIdentify=True, frequency=CDefSQLiteStatsGenFreq,
+                commit_freq=CDefSQLiteStatsCommitFreq):
       """ The creator of the DBSQLite Class """
 
       DBBaseAdapter.__init__(self, frequency, identify)
@@ -365,24 +392,24 @@ class DBSQLite(DBBaseAdapter):
 
       """
       c = self.getCursor()
-      pstmt = "create table if not exists %s(identify text, generation integer, " % (Consts.CDefSQLiteDBTable)
+      pstmt = "create table if not exists %s(identify text, generation integer, " % (CDefSQLiteDBTable)
       for k, v in stats.items():
          pstmt += "%s %s, " % (k, self.typeDict[type(v)])
       pstmt = pstmt[:-2] + ")"
-      logging.debug("Creating table %s: %s.", Consts.CDefSQLiteDBTable, pstmt)
+      logging.debug("Creating table %s: %s.", CDefSQLiteDBTable, pstmt)
       c.execute(pstmt)
 
       pstmt = """create table if not exists %s(identify text, generation integer,
-              individual integer, fitness real, raw real)""" % (Consts.CDefSQLiteDBTablePop)
-      logging.debug("Creating table %s: %s.", Consts.CDefSQLiteDBTablePop, pstmt)
+              individual integer, fitness real, raw real)""" % (CDefSQLiteDBTablePop)
+      logging.debug("Creating table %s: %s.", CDefSQLiteDBTablePop, pstmt)
       c.execute(pstmt)
       self.commit()
 
    def resetTableIdentify(self):
       """ Delete all records on the table with the same Identify """
       c = self.getCursor()
-      stmt  = "delete from %s where identify = ?" % (Consts.CDefSQLiteDBTable)
-      stmt2 = "delete from %s where identify = ?" % (Consts.CDefSQLiteDBTablePop)
+      stmt  = "delete from %s where identify = ?" % (CDefSQLiteDBTable)
+      stmt2 = "delete from %s where identify = ?" % (CDefSQLiteDBTablePop)
 
       logging.debug("Erasing data from the tables with the identify = %s", self.getIdentify())
       try:
@@ -403,8 +430,8 @@ class DBSQLite(DBBaseAdapter):
       """
       logging.debug("Reseting structure, droping table and creating new empty table.")
       c = self.getCursor()
-      c.execute("drop table if exists %s" % (Consts.CDefSQLiteDBTable,))
-      c.execute("drop table if exists %s" % (Consts.CDefSQLiteDBTablePop,))
+      c.execute("drop table if exists %s" % (CDefSQLiteDBTable,))
+      c.execute("drop table if exists %s" % (CDefSQLiteDBTablePop,))
       self.commit()
       self.createStructure(stats)
       
@@ -421,13 +448,13 @@ class DBSQLite(DBBaseAdapter):
       generation = ga_engine.getCurrentGeneration()
 
       c = self.getCursor()
-      pstmt = "insert into %s values (?, ?, " % (Consts.CDefSQLiteDBTable)
+      pstmt = "insert into %s values (?, ?, " % (CDefSQLiteDBTable)
       for i in xrange(len(stats)):
          pstmt += "?, "
       pstmt = pstmt[:-2] + ")" 
       c.execute(pstmt, (self.getIdentify(), generation) + stats.asTuple())
 
-      pstmt = "insert into %s values(?, ?, ?, ?, ?)" % (Consts.CDefSQLiteDBTablePop,)
+      pstmt = "insert into %s values(?, ?, ?, ?, ?)" % (CDefSQLiteDBTablePop,)
       tups = []
       for i in xrange(len(population)):
          ind = population[i]
@@ -473,7 +500,7 @@ class DBXMLRPC(DBBaseAdapter):
       The :class:`DBXMLRPC` class.
 
    """
-   def __init__(self, url, identify=None, frequency = Consts.CDefXMLRPCStatsGenFreq):
+   def __init__(self, url, identify=None, frequency = CDefXMLRPCStatsGenFreq):
       """ The creator of DBXMLRPC Class """
 
       DBBaseAdapter.__init__(self, frequency, identify)
@@ -633,9 +660,9 @@ class DBMySQLAdapter(DBBaseAdapter):
    :param commit_freq: the commit frequency
    """
 
-   def __init__(self, user, passwd, host=Consts.CDefMySQLDBHost, port=Consts.CDefMySQLDBPort,
-                db=Consts.CDefMySQLDBName, identify=None, resetDB=False, resetIdentify=True,
-                frequency=Consts.CDefMySQLStatsGenFreq, commit_freq=Consts.CDefMySQLStatsCommitFreq):
+   def __init__(self, user, passwd, host=CDefMySQLDBHost, port=CDefMySQLDBPort,
+                db=CDefMySQLDBName, identify=None, resetDB=False, resetIdentify=True,
+                frequency=CDefMySQLStatsGenFreq, commit_freq=CDefMySQLStatsCommitFreq):
       """ The creator of the DBSQLite Class """
 
       DBBaseAdapter.__init__(self, frequency, identify)
@@ -722,24 +749,24 @@ class DBMySQLAdapter(DBBaseAdapter):
 
       """
       c = self.getCursor()
-      pstmt = "create table if not exists %s(identify VARCHAR(80), generation INTEGER, " % (Consts.CDefMySQLDBTable)
+      pstmt = "create table if not exists %s(identify VARCHAR(80), generation INTEGER, " % (CDefMySQLDBTable)
       for k, v in stats.items():
          pstmt += "%s %s, " % (k, self.typeDict[type(v)])
       pstmt = pstmt[:-2] + ")"
-      logging.debug("Creating table %s: %s.", Consts.CDefSQLiteDBTable, pstmt)
+      logging.debug("Creating table %s: %s.", CDefSQLiteDBTable, pstmt)
       c.execute(pstmt)
 
       pstmt = """create table if not exists %s(identify VARCHAR(80), generation INTEGER,
-              individual INTEGER, fitness DOUBLE(14,6), raw DOUBLE(14,6))""" % (Consts.CDefMySQLDBTablePop)
-      logging.debug("Creating table %s: %s.", Consts.CDefMySQLDBTablePop, pstmt)
+              individual INTEGER, fitness DOUBLE(14,6), raw DOUBLE(14,6))""" % (CDefMySQLDBTablePop)
+      logging.debug("Creating table %s: %s.", CDefMySQLDBTablePop, pstmt)
       c.execute(pstmt)
       self.commit()
 
    def resetTableIdentify(self):
       """ Delete all records on the table with the same Identify """
       c = self.getCursor()
-      stmt  = "delete from %s where identify = '%s'" % (Consts.CDefMySQLDBTable, self.getIdentify())
-      stmt2 = "delete from %s where identify = '%s'" % (Consts.CDefMySQLDBTablePop, self.getIdentify())
+      stmt  = "delete from %s where identify = '%s'" % (CDefMySQLDBTable, self.getIdentify())
+      stmt2 = "delete from %s where identify = '%s'" % (CDefMySQLDBTablePop, self.getIdentify())
 
       logging.debug("Erasing data from the tables with the identify = %s", self.getIdentify())
       c.execute(stmt)
@@ -756,8 +783,8 @@ class DBMySQLAdapter(DBBaseAdapter):
       """
       logging.debug("Reseting structure, droping table and creating new empty table.")
       c = self.getCursor()
-      c.execute("drop table if exists %s" % (Consts.CDefMySQLDBTable,))
-      c.execute("drop table if exists %s" % (Consts.CDefMySQLDBTablePop,))
+      c.execute("drop table if exists %s" % (CDefMySQLDBTable,))
+      c.execute("drop table if exists %s" % (CDefMySQLDBTablePop,))
       self.commit()
       self.createStructure(stats)
       
@@ -774,13 +801,13 @@ class DBMySQLAdapter(DBBaseAdapter):
       generation = ga_engine.getCurrentGeneration()
 
       c = self.getCursor()
-      pstmt = "insert into " + Consts.CDefMySQLDBTable + " values (%s, %s, "
+      pstmt = "insert into " + CDefMySQLDBTable + " values (%s, %s, "
       for i in xrange(len(stats)):
          pstmt += "%s, "
       pstmt = pstmt[:-2] + ")" 
       c.execute(pstmt, (self.getIdentify(), generation) + stats.asTuple())
 
-      pstmt = "insert into " + Consts.CDefMySQLDBTablePop + " values(%s, %s, %s, %s, %s)"
+      pstmt = "insert into " + CDefMySQLDBTablePop + " values(%s, %s, %s, %s, %s)"
 
       tups = []
       for i in xrange(len(population)):

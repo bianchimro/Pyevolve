@@ -6,10 +6,19 @@
 This module have the *scaling schemes* like Linear scaling, etc.
 
 """
-import Consts
 from pyevolve import utils
 import math
 import logging
+
+# - Scale methods defaults
+CDefScaleLinearMultiplier     = 1.2
+CDefScaleSigmaTruncMultiplier = 2.0
+CDefScalePowerLawFactor       = 1.0005
+CDefScaleBoltzMinTemp         = 1.0
+CDefScaleBoltzFactor          = 0.05
+# 40 temp. = 500 generations
+CDefScaleBoltzStart           = 40.0
+
 
 def LinearScaling(pop):
    """ Linear Scaling scheme
@@ -19,7 +28,7 @@ def LinearScaling(pop):
    """
    logging.debug("Running linear scaling.")
    pop.statistics()
-   c = Consts.CDefScaleLinearMultiplier
+   c = CDefScaleLinearMultiplier
    a = b = delta = 0.0
 
    pop_rawAve = pop.stats["rawAve"]
@@ -51,7 +60,7 @@ def SigmaTruncScaling(pop):
    """ Sigma Truncation scaling scheme, allows negative scores """
    logging.debug("Running sigma truncation scaling.")
    pop.statistics()
-   c = Consts.CDefScaleSigmaTruncMultiplier
+   c = CDefScaleSigmaTruncMultiplier
    pop_rawAve = pop.stats["rawAve"]
    pop_rawDev = pop.stats["rawDev"]
    for i in xrange(len(pop)):
@@ -67,7 +76,7 @@ def PowerLawScaling(pop):
 
    """
    logging.debug("Running power law scaling.")
-   k = Consts.CDefScalePowerLawFactor
+   k = CDefScalePowerLawFactor
    for i in xrange(len(pop)):
       f = pop[i].score
       if f < 0.0:
@@ -87,9 +96,9 @@ def BoltzmannScaling(pop):
       The `BoltzmannScaling` function.
 
    """
-   boltz_temperature = pop.get_param("boltz_temperature", Consts.CDefScaleBoltzStart)
-   boltz_factor      = pop.get_param("boltz_factor", Consts.CDefScaleBoltzFactor)
-   boltz_min         = pop.get_param("boltz_min", Consts.CDefScaleBoltzMinTemp)
+   boltz_temperature = pop.get_param("boltz_temperature", CDefScaleBoltzStart)
+   boltz_factor      = pop.get_param("boltz_factor", CDefScaleBoltzFactor)
+   boltz_min         = pop.get_param("boltz_min", CDefScaleBoltzMinTemp)
 
    boltz_temperature-= boltz_factor
    boltz_temperature = max(boltz_temperature, boltz_min)

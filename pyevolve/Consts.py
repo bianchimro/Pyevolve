@@ -367,13 +367,7 @@ Migration Constants (:mod:`Migration`)
 
 
 """
-import Scaling
-import Selectors
-import Initializators
-import Mutators
-import Crossovers
 import logging
-from gtree import GTreeGP
 
 # Required python version 2.5+
 CDefPythonRequire = (2, 5)
@@ -396,109 +390,10 @@ minimaxType = { "minimize" : 0,
                 "maximize" : 1
                }
 
-CDefESCKey = 27
 
-CDefImportList = {"visual.graph": "you must install VPython !",
-                  "csv" : "csv module not found !",
-                  "urllib" : "urllib module not found !",
-                  "sqlite3": "sqlite3 module not found, are you using Jython or IronPython ?",
-                  "xmlrpclib" : "xmlrpclib module not found !",
-                  "MySQLdb" : "MySQLdb module not found, you must install mysql-python !",
-                  "pydot" : "Pydot module not found, you must install Pydot to plot graphs !"}
-
-####################
-# Defaults section #
-####################
-
-# - Tournament selector
-CDefTournamentPoolSize = 2
-
-# - Scale methods defaults
-CDefScaleLinearMultiplier     = 1.2
-CDefScaleSigmaTruncMultiplier = 2.0
-CDefScalePowerLawFactor       = 1.0005
-CDefScaleBoltzMinTemp         = 1.0
-CDefScaleBoltzFactor          = 0.05
-# 40 temp. = 500 generations
-CDefScaleBoltzStart           = 40.0
-
+nodeType = {"TERMINAL" : 0, "NONTERMINAL": 1}
 
 # - This is general used by integer/real ranges defaults
 CDefRangeMin = 0
 CDefRangeMax = 100
-
-# - GTree defaults
-CDefGTreeInit      = Initializators.GTreeInitializatorInteger
-CDefGGTreeMutator  = Mutators.GTreeMutatorIntegerRange
-CDefGTreeCrossover = Crossovers.GTreeCrossoverSinglePointStrict
-
-
-# - GTreeGP defaults
-CDefGTreeGPInit      = Initializators.GTreeGPInitializator
-CDefGGTreeGPMutator  = Mutators.GTreeGPMutatorSubtree
-CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
-
-
-# SBX Crossover defaults
-# Crossover distribution index for SBX
-# Larger Etac = similar to parents
-# Smaller Etac = far away from parents
-CDefG1DListSBXEtac  = 10
-CDefG1DListSBXEPS   = 1.0e-14
-  
-# - G2DList defaults
-CDefG2DListMutIntMU = 2
-CDefG2DListMutIntSIGMA = 10
-
-CDefG2DListMutRealMU = 0
-CDefG2DListMutRealSIGMA = 1
-
-CDefG2DListMutator   = Mutators.G2DListMutatorSwap
-CDefG2DListCrossover = Crossovers.G2DListCrossoverUniform
-CDefG2DListInit      = Initializators.G2DListInitializatorInteger
-CDefG2DListCrossUniformProb = 0.5
-
-# Gaussian Gradient
-CDefGaussianGradientMU = 1.0
-CDefGaussianGradientSIGMA = (1.0/3.0) # approx. +/- 3-sigma is +/- 10%
-
-# - DB Adapters SQLite defaults
-CDefSQLiteDBName = "pyevolve.db"
-CDefSQLiteDBTable = "statistics"
-CDefSQLiteDBTablePop = "population"
-CDefSQLiteStatsGenFreq = 1
-CDefSQLiteStatsCommitFreq = 300
-
-# - DB Adapters MySQL defaults
-CDefMySQLDBName = "pyevolve"
-CDefMySQLDBTable = "statistics"
-CDefMySQLDBTablePop = "population"
-CDefMySQLDBHost = "localhost"
-CDefMySQLDBPort = 3306
-CDefMySQLStatsGenFreq = 1
-CDefMySQLStatsCommitFreq = 300
-
-# - DB Adapters URL Post defaults
-CDefURLPostStatsGenFreq = 100
-
-# - DB Adapters CSV File defaults
-CDefCSVFileName = "pyevolve.csv"
-CDefCSVFileStatsGenFreq = 1
-
-# - DB Adapter XML RPC
-CDefXMLRPCStatsGenFreq = 20
-
-# utils Consts
-CDefBroadcastAddress = "255.255.255.255"
-nodeType = {"TERMINAL" : 0, "NONTERMINAL": 1}
-
-CDefGPGenomes = [GTreeGP]
-
-# Migration Consts
-CDefGenMigrationRate = 20
-CDefMigrationNIndividuals = 3
-CDefGenMigrationReplacement = 3
-
-CDefNetworkIndividual = 1
-CDefNetworkInfo = 2
 

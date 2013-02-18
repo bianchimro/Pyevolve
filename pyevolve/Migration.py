@@ -13,7 +13,6 @@ GA related functions.
 import utils
 from random import randint as rand_randint, choice as rand_choice
 import Network
-import Consts
 from FunctionSlot import FunctionSlot
 import logging
 
@@ -22,6 +21,16 @@ try:
    HAS_MPI4PY = True
 except ImportError:
    HAS_MPI4PY = False
+
+
+# Migration Consts
+CDefGenMigrationRate = 20
+CDefMigrationNIndividuals = 3
+CDefGenMigrationReplacement = 3
+
+CDefNetworkIndividual = 1
+CDefNetworkInfo = 2
+
 
 class MigrationScheme(object):
    """ This is the base class for all migration schemes """
@@ -35,9 +44,9 @@ class MigrationScheme(object):
    def __init__(self):
       self.selector = FunctionSlot("Selector")
       self.GAEngine = None
-      self.nMigrationRate = Consts.CDefGenMigrationRate
-      self.nIndividuals = Consts.CDefMigrationNIndividuals
-      self.nReplacement = Consts.CDefGenMigrationReplacement
+      self.nMigrationRate = CDefGenMigrationRate
+      self.nIndividuals = CDefMigrationNIndividuals
+      self.nReplacement = CDefGenMigrationReplacement
       self.networkCompression = 9
 
    def isReady(self):
@@ -240,7 +249,7 @@ class WANMigration(MigrationScheme):
       
       for individual in pool:
          # (code, group name, individual)
-         networkObject = (Consts.CDefNetworkIndividual, self.getGroupName(), individual)
+         networkObject = (CDefNetworkIndividual, self.getGroupName(), individual)
          networkData = Network.pickleAndCompress(networkObject, self.getCompressionLevel())
          # Send the individuals to the topology
          self.clientThread.addData(networkData)
