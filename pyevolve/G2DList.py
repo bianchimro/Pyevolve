@@ -35,7 +35,7 @@ Class
 
 """
 
-from GenomeBase import GenomeBase
+from genome import GenomeBase
 import Consts
     
 class G2DList(GenomeBase):
@@ -86,42 +86,12 @@ class G2DList(GenomeBase):
 
    """
 
-   evaluator = None
-   """ This is the :term:`evaluation function` slot, you can add
-   a function with the *set* method: ::
-
-      genome.evaluator.set(eval_func)
-   """
-
-   initializator = None
-   """ This is the initialization function of the genome, you
-   can change the default initializator using the function slot: ::
-
-      genome.initializator.set(Initializators.G2DListInitializatorAllele)
-
-   In this example, the initializator :func:`Initializators.G2DListInitializatorAllele`
-   will be used to create the initial population.
-   """
-
-   mutator = None
-   """ This is the mutator function slot, you can change the default
-   mutator using the slot *set* function: ::
-
-      genome.mutator.set(Mutators.G2DListMutatorIntegerGaussian)
-
-   """
-
-   crossover = None
-   """ This is the reproduction function slot, the crossover. You
-   can change the default crossover method using: ::
-
-      genome.crossover.set(Crossovers.G2DListCrossoverSingleHPoint)
-   """
+   
 
    def __init__(self, height, width, cloning=False):
       """ The initializator of G2DList representation,
       height and width must be specified """
-      GenomeBase.__init__(self)
+      super(G2DList,self).__init__()
       self.height = height
       self.width = width
 
@@ -198,7 +168,7 @@ class G2DList(GenomeBase):
 
    def __repr__(self):
       """ Return a string representation of Genome """
-      ret = GenomeBase.__repr__(self)
+      ret = super(G2DList, self).__repr__()
       ret += "- G2DList\n"
       ret += "\tList size:\t %s\n" % (self.getSize(),)
       ret += "\tList:\n"
@@ -240,7 +210,7 @@ class G2DList(GenomeBase):
       :param g: the destination G2DList instance
 
       """
-      GenomeBase.copy(self, g)
+      super(G2DList, self).copy(g)
       g.height = self.height
       g.width = self.width
       for i in xrange(self.height):
