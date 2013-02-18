@@ -1,4 +1,4 @@
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import Mutators
 from pyevolve import Initializators
@@ -44,7 +44,8 @@ def run_main():
       a = GAllele.GAlleleList(['a','b', 'xxx', 666, 0])
       setOfAlleles.add(a)
       
-   genome = G1DList.G1DList(20)
+   genome = g1dlist.G1DList
+(20)
    genome.setParams(allele=setOfAlleles)
 
    # The evaluator function (objective function)

@@ -158,7 +158,8 @@ Population constants (:class:`GPopulation.GPopulation`)
    The default uniform probability used for some uniform genetic operators for the 2D Binary String (:class:`G2DBinaryString.G2DBinaryString`) chromosome.
 
 
-1D List chromosome constants (:class:`G1DList.G1DList`)
+1D List chromosome constants (:class:`g1dlist.G1DList
+`)
 ----------------------------------------------------------------------------
 
 .. attribute:: CDefG1DListMutIntMU

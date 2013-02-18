@@ -1,4 +1,4 @@
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import Selectors
 from pyevolve import Mutators
@@ -17,7 +17,8 @@ def eval_func(chromosome):
 
 def run_main():
    # Genome instance
-   genome = G1DList.G1DList(40)
+   genome = g1dlist.G1DList
+(40)
 
    # The gauss_mu and gauss_sigma is used to the Gaussian Mutator, but
    # if you don't specify, the mutator will use the defaults

@@ -1,4 +1,4 @@
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import Selectors
 from pyevolve import DBAdapters
@@ -16,7 +16,8 @@ def eval_func(chromosome):
    return score
 
 # Genome instance
-genome = G1DList.G1DList(100)
+genome = g1dlist.G1DList
+(100)
 genome.setParams(rangemin=0, rangemax=10)
 
 # The evaluator function (objective function)

@@ -10,7 +10,8 @@ def rosenbrock(xlist):
 
 def run_main():
    # Genome instance
-   genome = G1DList.G1DList(15)
+   genome = g1dlist.G1DList
+(15)
    genome.setParams(rangemin=-1, rangemax=1.1)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealRange)

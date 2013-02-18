@@ -4,7 +4,7 @@
 # By Jelle Feringa
 #===============================================================================
 
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import GSimpleGA, Consts
 from pyevolve import Selectors
 from pyevolve import Initializators, Mutators, Crossovers
@@ -24,7 +24,8 @@ def evolve_callback(ga_engine):
    return False
 
 def run_main():
-   genome = G1DList.G1DList(len(sentence))
+   genome = g1dlist.G1DList
+(len(sentence))
    genome.setParams(rangemin=min(numeric_sentence),
                     rangemax=max(numeric_sentence),
                     bestrawscore=0.00,

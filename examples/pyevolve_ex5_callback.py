@@ -1,4 +1,4 @@
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import Selectors
 
@@ -22,7 +22,8 @@ def eval_func(genome):
 
 def run_main():
    # Genome instance
-   genome = G1DList.G1DList(200)
+   genome = g1dlist.G1DList
+(200)
    genome.setParams(rangemin=0, rangemax=10)
 
    # The evaluator function (objective function)

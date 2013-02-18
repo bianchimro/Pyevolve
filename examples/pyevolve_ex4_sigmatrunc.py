@@ -1,4 +1,4 @@
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import Selectors
 from pyevolve import Initializators, Mutators
@@ -14,7 +14,8 @@ def eval_func(ind):
 
 def run_main():
    # Genome instance
-   genome = G1DList.G1DList(1)
+   genome = g1dlist.G1DList
+(1)
    genome.setParams(rangemin=-60.0, rangemax=60.0)
 
    # Change the initializator to Real values

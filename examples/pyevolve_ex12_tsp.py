@@ -98,7 +98,8 @@ def main_run():
    coords = [(random.randint(0, WIDTH), random.randint(0, HEIGHT))
                  for i in xrange(CITIES)]
    cm     = cartesian_matrix(coords)
-   genome = G1DList.G1DList(len(coords))
+   genome = g1dlist.G1DList
+(len(coords))
 
    genome.evaluator.set(lambda chromosome: tour_length(cm, chromosome))
    genome.crossover.set(Crossovers.G1DListCrossoverEdge)

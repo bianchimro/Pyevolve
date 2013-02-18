@@ -1,4 +1,4 @@
-from pyevolve import G1DList
+from pyevolve import g1dlist
 from pyevolve import Mutators, Crossovers
 from pyevolve import Consts, GSimpleGA
 from pyevolve import DBAdapters
@@ -25,7 +25,8 @@ def queens_init(genome, **args):
    shuffle(genome.genomeList)
 
 def run_main():
-   genome = G1DList.G1DList(BOARD_SIZE)
+   genome = g1dlist.G1DList
+(BOARD_SIZE)
    genome.setParams(bestrawscore=BOARD_SIZE, rounddecimal=2)
    genome.initializator.set(queens_init)
    genome.mutator.set(Mutators.G1DListMutatorSwap)

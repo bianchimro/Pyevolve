@@ -1,4 +1,4 @@
-from pyevolve import G1DList, GSimpleGA, Selectors
+from pyevolve import g1dlist, GSimpleGA, Selectors
 from pyevolve import Initializators, Mutators, Consts
 import math
 
@@ -15,7 +15,7 @@ def schafferF6(genome):
 
 def run_main():
    # Genome instance
-   genome = G1DList.G1DList(2)
+   genome = g1dlist.G1DList(2)
    genome.setParams(rangemin=-100.0, rangemax=100.0, bestrawscore=0.0000, rounddecimal=4)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
