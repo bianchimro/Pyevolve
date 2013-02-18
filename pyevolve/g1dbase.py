@@ -54,14 +54,14 @@ class G1DBase(GenomeBase):
         """ Return the size of the List """
         return len(self.genomeList)
 
-    def getListSize(self):
+    def get_list_size(self):
         """ Returns the list supposed size
   
         .. warning:: this is different from what the len(obj) returns
         """
         return self.genomeSize
  
-    def resumeString(self):
+    def resume_string(self):
         """ Returns a resumed string representation of the Genome """
         return str(self.genomeList)
  
@@ -87,7 +87,7 @@ class G1DBase(GenomeBase):
         """
         self.genomeList.remove(value)
  
-    def clearList(self):
+    def clear_list(self):
         """ Remove all genes from Genome """
         del self.genomeList[:]
     
@@ -104,7 +104,7 @@ class G1DBase(GenomeBase):
         g.genomeSize = self.genomeSize
         g.genomeList = self.genomeList[:]
   
-    def getInternalList(self):
+    def get_internal_list(self):
         """ Returns the internal list of the genome
   
         ... note:: this method was created to solve performance issues
@@ -112,7 +112,7 @@ class G1DBase(GenomeBase):
         """
         return self.genomeList
  
-    def setInternalList(self, lst):
+    def set_internal_list(self, lst):
         """ Assigns a list to the internal list of the chromosome
         
         :param lst: the list to assign the internal list of the chromosome

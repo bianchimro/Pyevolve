@@ -37,7 +37,7 @@ def cartesian_matrix(coords):
 def tour_length(matrix, tour):
    """ Returns the total length of the tour """
    total = 0
-   t = tour.getInternalList()
+   t = tour.get_internal_list()
    for i in range(CITIES):
       j      = (i+1)%CITIES
       total += matrix[t[i], t[j]]
@@ -74,9 +74,9 @@ def write_tour_to_img(coords, tour, img_file):
 
 def G1DListTSPInitializator(genome, **args):
    """ The initializator for the TSP """
-   lst = [i for i in xrange(genome.getListSize())]
+   lst = [i for i in xrange(genome.get_list_size())]
    random.shuffle(lst)
-   genome.setInternalList(lst)
+   genome.set_internal_list(lst)
 
 # This is to make a video of best individuals along the evolution
 # Use mencoder to create a video with the file list list.txt

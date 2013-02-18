@@ -111,11 +111,11 @@ class G2DList(GenomeBase):
       cond3 = (self.width      == other.width)
       return True if cond1 and cond2 and cond3 else False
 
-   def getItem(self, x, y):
+   def get_item(self, x, y):
       """ Return the specified gene of List
 
       Example:
-         >>> genome.getItem(3, 1)
+         >>> genome.get_item(3, 1)
          666
          >>> genome[3][1]
       
@@ -126,11 +126,11 @@ class G2DList(GenomeBase):
       """
       return self.genomeList[x][y]
 
-   def setItem(self, x, y, value):
+   def set_item(self, x, y, value):
       """ Set the specified gene of List
 
       Example:
-         >>> genome.setItem(3, 1, 666)
+         >>> genome.set_item(3, 1, 666)
          >>> genome[3][1] = 666
       
       :param x: the x index, the column
@@ -148,29 +148,29 @@ class G2DList(GenomeBase):
       """ Iterator support to the list """
       return iter(self.genomeList)
    
-   def getHeight(self):
+   def get_height(self):
       """ Return the height (lines) of the List """
       return self.height
 
-   def getWidth(self):
+   def get_width(self):
       """ Return the width (lines) of the List """
       return self.width
 
-   def getSize(self):
+   def get_size(self):
       """ Returns a tuple (height, widht)
    
       Example:
-         >>> genome.getSize()
+         >>> genome.get_size()
          (3, 2)
 
       """
-      return (self.getHeight(), self.getWidth())
+      return (self.get_height(), self.get_width())
 
    def __repr__(self):
       """ Return a string representation of Genome """
       ret = super(G2DList, self).__repr__()
       ret += "- G2DList\n"
-      ret += "\tList size:\t %s\n" % (self.getSize(),)
+      ret += "\tList size:\t %s\n" % (self.get_size(),)
       ret += "\tList:\n"
       for line in self.genomeList:
          ret += "\t\t\t"
@@ -180,11 +180,11 @@ class G2DList(GenomeBase):
       ret += "\n"
       return ret
 
-   def resumeString(self):
+   def resume_string(self):
       """ Returns a resumed string representation of the Genome
       
       .. versionadded:: 0.6
-         The *resumeString* method.
+         The *resume_string* method.
       """
       ret = ""
       for line in self.genomeList:
@@ -193,7 +193,7 @@ class G2DList(GenomeBase):
          ret += "\n"
       return ret
 
-   def clearList(self):
+   def clear_list(self):
       """ Remove all genes from Genome """
       del self.genomeList[:]
       

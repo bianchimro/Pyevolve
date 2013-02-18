@@ -89,11 +89,11 @@ class G2DBinaryString(GenomeBase):
         cond3 = (self.width      == other.width)
         return True if cond1 and cond2 and cond3 else False
 
-    def getItem(self, x, y):
+    def get_item(self, x, y):
         """ Return the specified gene of List
   
         Example:
-            >>> genome.getItem(3, 1)
+            >>> genome.get_item(3, 1)
             0
         
         :param x: the x index, the column
@@ -103,11 +103,11 @@ class G2DBinaryString(GenomeBase):
         """
         return self.genomeString[x][y]
 
-    def setItem(self, x, y, value):
+    def set_item(self, x, y, value):
         """ Set the specified gene of List
   
         Example:
-            >>> genome.setItem(3, 1, 0)
+            >>> genome.set_item(3, 1, 0)
         
         :param x: the x index, the column
         :param y: the y index, the row
@@ -127,30 +127,30 @@ class G2DBinaryString(GenomeBase):
        """ Iterator support to the list """
        return iter(self.genomeString)
    
-    def getHeight(self):
+    def get_height(self):
        """ Return the height (lines) of the List """
        return self.height
 
-    def getWidth(self):
+    def get_width(self):
        """ Return the width (lines) of the List """
        return self.width
 
-    def getSize(self):
+    def get_size(self):
         """ Returns a tuple (height, widht)
    
         Example:
-            >>> genome.getSize()
+            >>> genome.get_size()
             (3, 2)
  
         """
-        return (self.getHeight(), self.getWidth())
+        return (self.get_height(), self.get_width())
 
 
     def __repr__(self):
         """ Return a string representation of Genome """
         ret = super(G2DBinaryString, self).__repr__()
         ret += "- G2DBinaryString\n"
-        ret += "\tList size:\t %s\n" % (self.getSize(),)
+        ret += "\tList size:\t %s\n" % (self.get_size(),)
         ret += "\tList:\n"
         for line in self.genomeString:
            ret += "\t\t\t"
@@ -160,7 +160,7 @@ class G2DBinaryString(GenomeBase):
         ret += "\n"
         return ret
 
-    def resumeString(self):
+    def resume_string(self):
         """ Returns a resumed string representation of the Genome
         
         """
@@ -171,7 +171,7 @@ class G2DBinaryString(GenomeBase):
            ret += "\n"
         return ret
  
-    def clearString(self):
+    def clear_string(self):
         """ Remove all genes from Genome """
         del self.genomeString[:]
         

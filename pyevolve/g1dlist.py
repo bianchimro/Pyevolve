@@ -155,7 +155,7 @@ class G1DList(G1DBase):
         """ Return a string representation of Genome """
         ret = G1DBase.__repr__(self)
         ret += "- G1DList\n"
-        ret += "\tList size:\t %s\n" % (self.getListSize(),)
+        ret += "\tList size:\t %s\n" % (self.get_list_size(),)
         ret += "\tList:\t\t %s\n\n" % (self.genomeList,)
         return ret
   

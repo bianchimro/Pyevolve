@@ -24,7 +24,7 @@ import utils
 
 def G1DBinaryStringInitializator(genome, **args):
    """ 1D Binary String initializator """
-   genome.genomeList = [ rand_choice((0,1)) for i in xrange(genome.getListSize()) ]
+   genome.genomeList = [ rand_choice((0,1)) for i in xrange(genome.get_list_size()) ]
 
 #############################
 ##     2D Binary String    ##
@@ -36,12 +36,12 @@ def G2DBinaryStringInitializator(genome, **args):
    .. versionadded:: 0.6
       The *G2DBinaryStringInitializator* function
    """
-   genome.clearString()
+   genome.clear_string()
    
-   for i in xrange(genome.getHeight()):
-      for j in xrange(genome.getWidth()):
+   for i in xrange(genome.get_height()):
+      for j in xrange(genome.get_width()):
          random_gene = rand_choice((0,1))
-         genome.setItem(i, j, random_gene)
+         genome.set_item(i, j, random_gene)
 
 
 ####################
@@ -60,7 +60,7 @@ def G1DListInitializatorAllele(genome, **args):
    if allele is None:
       utils.raise_exception("to use the G1DListInitializatorAllele, you must specify the 'allele' parameter")
 
-   genome.genomeList = [ allele[i].getRandomAllele() for i in xrange(genome.getListSize())  ]
+   genome.genomeList = [ allele[i].getRandomAllele() for i in xrange(genome.get_list_size())  ]
 
 def G1DListInitializatorInteger(genome, **args):
    """ Integer initialization function of G1DList
@@ -71,7 +71,7 @@ def G1DListInitializatorInteger(genome, **args):
    range_min = genome.getParam("rangemin", 0)
    range_max = genome.getParam("rangemax", 100)
 
-   genome.genomeList = [rand_randint(range_min, range_max) for i in xrange(genome.getListSize())]
+   genome.genomeList = [rand_randint(range_min, range_max) for i in xrange(genome.get_list_size())]
 
 def G1DListInitializatorReal(genome, **args):
    """ Real initialization function of G1DList
@@ -82,7 +82,7 @@ def G1DListInitializatorReal(genome, **args):
    range_min = genome.getParam("rangemin", 0)
    range_max = genome.getParam("rangemax", 100)
 
-   genome.genomeList = [rand_uniform(range_min, range_max) for i in xrange(genome.getListSize())]
+   genome.genomeList = [rand_uniform(range_min, range_max) for i in xrange(genome.get_list_size())]
 
 
 ####################
@@ -95,13 +95,13 @@ def G2DListInitializatorInteger(genome, **args):
    This initializator accepts the *rangemin* and *rangemax* genome parameters.
    
    """
-   genome.clearList()
+   genome.clear_list()
    
-   for i in xrange(genome.getHeight()):
-      for j in xrange(genome.getWidth()):
+   for i in xrange(genome.get_height()):
+      for j in xrange(genome.get_width()):
          randomInteger = rand_randint(genome.getParam("rangemin", 0),
                                       genome.getParam("rangemax", 100))
-         genome.setItem(i, j, randomInteger)
+         genome.set_item(i, j, randomInteger)
 
 
 def G2DListInitializatorReal(genome, **args):
@@ -110,13 +110,13 @@ def G2DListInitializatorReal(genome, **args):
    This initializator accepts the *rangemin* and *rangemax* genome parameters.
 
    """
-   genome.clearList()
+   genome.clear_list()
    
-   for i in xrange(genome.getHeight()):
-      for j in xrange(genome.getWidth()):
+   for i in xrange(genome.get_height()):
+      for j in xrange(genome.get_width()):
          randomReal = rand_uniform(genome.getParam("rangemin", 0),
                                    genome.getParam("rangemax", 100))
-         genome.setItem(i, j, randomReal)
+         genome.set_item(i, j, randomReal)
 
 def G2DListInitializatorAllele(genome, **args):
    """ Allele initialization function of G2DList
@@ -135,12 +135,12 @@ def G2DListInitializatorAllele(genome, **args):
    if allele.homogeneous == False:
       utils.raise_exception("to use the G2DListInitializatorAllele, the 'allele' must be homogeneous")
 
-   genome.clearList()
+   genome.clear_list()
    
-   for i in xrange(genome.getHeight()):
-      for j in xrange(genome.getWidth()):
+   for i in xrange(genome.get_height()):
+      for j in xrange(genome.get_width()):
          random_allele = allele[0].getRandomAllele()
-         genome.setItem(i, j, random_allele)
+         genome.set_item(i, j, random_allele)
 
 ####################
 ##      Tree      ##
@@ -188,7 +188,7 @@ def GTreeInitializatorInteger(genome, **args):
 
    genome.setRoot(root)
    genome.processNodes()
-   assert genome.getHeight() <= max_depth
+   assert genome.get_height() <= max_depth
 
 def GTreeInitializatorAllele(genome, **args):
    """ Allele initialization function of GTree
@@ -227,7 +227,7 @@ def GTreeInitializatorAllele(genome, **args):
 
    genome.setRoot(root)
    genome.processNodes()
-   assert genome.getHeight() <= max_depth
+   assert genome.get_height() <= max_depth
 
 ####################
 ##      Tree GP   ##
@@ -264,4 +264,4 @@ def GTreeGPInitializator(genome, **args):
 
    genome.setRoot(root)
    genome.processNodes()
-   assert genome.getHeight() <= max_depth
+   assert genome.get_height() <= max_depth

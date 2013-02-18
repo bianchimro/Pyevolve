@@ -93,7 +93,7 @@ class G1DBinaryString(G1DBase):
         """ Return a string representation of Genome """
         ret =  super(G1DBinaryString, self).__repr__()
         ret += "- G1DBinaryString\n"
-        ret += "\tString length:\t %s\n" % (self.getListSize(),)
+        ret += "\tString length:\t %s\n" % (self.get_list_size(),)
         ret += "\tString:\t\t %s\n\n" % (self.getBinary(),)
         return ret
 
@@ -174,6 +174,6 @@ class G1DBinaryString(G1DBase):
         :rtype: the G1DBinaryString instance clone
         
         """
-        newcopy = G1DBinaryString(self.getListSize())
+        newcopy = G1DBinaryString(self.get_list_size())
         self.copy(newcopy)
         return newcopy

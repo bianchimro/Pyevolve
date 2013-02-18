@@ -11,7 +11,7 @@ def eval_func(chromosome):
    # in the height of the Tree, the extra
    # code is commented.
 
-   #height = chromosome.getHeight()
+   #height = chromosome.get_height()
 
    for node in chromosome:
       score += (100 - node.getData())*0.1

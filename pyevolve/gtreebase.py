@@ -183,7 +183,7 @@ class GTreeBase:
             height = h_inner
       return height
 
-   def getHeight(self):
+   def get_height(self):
       """ Return the tree height
       
       :rtype: the tree height
@@ -270,7 +270,7 @@ class GTreeBase:
 
    def __repr__(self):
       str_buff  = "- GTree\n"
-      str_buff += "\tHeight:\t\t\t%d\n" % self.getHeight()
+      str_buff += "\tHeight:\t\t\t%d\n" % self.get_height()
       str_buff += "\tNodes:\t\t\t%d\n" % self.getNodesCount()
       str_buff += "\n" + self.getTraversalString()
 

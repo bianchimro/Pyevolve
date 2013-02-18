@@ -268,7 +268,7 @@ def G1DListGetEdges(individual):
    :rtype: the edges dictionary
    """
    edg = {}
-   ind_list = individual.getInternalList()
+   ind_list = individual.get_internal_list()
    for i in xrange(len(ind_list)):
       a, b = ind_list[i], ind_list[i-1]
 

@@ -10,9 +10,9 @@ def eval_func(chromosome):
     score = 0.0
  
     # iterate over the chromosome
-    for i in xrange(chromosome.getHeight()):
-        for j in xrange(chromosome.getWidth()):
-          # You can use the chromosome.getItem(i, j)
+    for i in xrange(chromosome.get_height()):
+        for j in xrange(chromosome.get_width()):
+          # You can use the chromosome.get_item(i, j)
             if chromosome[i][j]==0:
                 score += 0.1
     return score
