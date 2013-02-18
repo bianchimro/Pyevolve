@@ -26,7 +26,7 @@ def evolve_callback(ga_engine):
 def run_main():
    genome = g1dlist.G1DList
 (len(sentence))
-   genome.setParams(rangemin=min(numeric_sentence),
+   genome.set_params(rangemin=min(numeric_sentence),
                     rangemax=max(numeric_sentence),
                     bestrawscore=0.00,
                     gauss_mu=1, gauss_sigma=4)

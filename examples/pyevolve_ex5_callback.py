@@ -24,7 +24,7 @@ def run_main():
    # Genome instance
    genome = g1dlist.G1DList
 (200)
-   genome.setParams(rangemin=0, rangemax=10)
+   genome.set_params(rangemin=0, rangemax=10)
 
    # The evaluator function (objective function)
    genome.evaluator.set(eval_func)

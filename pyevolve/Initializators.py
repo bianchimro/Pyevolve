@@ -56,7 +56,7 @@ def G1DListInitializatorAllele(genome, **args):
 
    """
 
-   allele = genome.getParam("allele", None)
+   allele = genome.get_param("allele", None)
    if allele is None:
       utils.raise_exception("to use the G1DListInitializatorAllele, you must specify the 'allele' parameter")
 
@@ -68,8 +68,8 @@ def G1DListInitializatorInteger(genome, **args):
    This initializator accepts the *rangemin* and *rangemax* genome parameters.
 
    """
-   range_min = genome.getParam("rangemin", 0)
-   range_max = genome.getParam("rangemax", 100)
+   range_min = genome.get_param("rangemin", 0)
+   range_max = genome.get_param("rangemax", 100)
 
    genome.genomeList = [rand_randint(range_min, range_max) for i in xrange(genome.get_list_size())]
 
@@ -79,8 +79,8 @@ def G1DListInitializatorReal(genome, **args):
    This initializator accepts the *rangemin* and *rangemax* genome parameters.
 
    """
-   range_min = genome.getParam("rangemin", 0)
-   range_max = genome.getParam("rangemax", 100)
+   range_min = genome.get_param("rangemin", 0)
+   range_max = genome.get_param("rangemax", 100)
 
    genome.genomeList = [rand_uniform(range_min, range_max) for i in xrange(genome.get_list_size())]
 
@@ -99,8 +99,8 @@ def G2DListInitializatorInteger(genome, **args):
    
    for i in xrange(genome.get_height()):
       for j in xrange(genome.get_width()):
-         randomInteger = rand_randint(genome.getParam("rangemin", 0),
-                                      genome.getParam("rangemax", 100))
+         randomInteger = rand_randint(genome.get_param("rangemin", 0),
+                                      genome.get_param("rangemax", 100))
          genome.set_item(i, j, randomInteger)
 
 
@@ -114,8 +114,8 @@ def G2DListInitializatorReal(genome, **args):
    
    for i in xrange(genome.get_height()):
       for j in xrange(genome.get_width()):
-         randomReal = rand_uniform(genome.getParam("rangemin", 0),
-                                   genome.getParam("rangemax", 100))
+         randomReal = rand_uniform(genome.get_param("rangemin", 0),
+                                   genome.get_param("rangemax", 100))
          genome.set_item(i, j, randomReal)
 
 def G2DListInitializatorAllele(genome, **args):
@@ -128,7 +128,7 @@ def G2DListInitializatorAllele(genome, **args):
 
    """
 
-   allele = genome.getParam("allele", None)
+   allele = genome.get_param("allele", None)
    if allele is None:
       utils.raise_exception("to use the G2DListInitializatorAllele, you must specify the 'allele' parameter")
 
@@ -164,15 +164,15 @@ def GTreeInitializatorInteger(genome, **args):
    .. versionadded:: 0.6
       The *GTreeInitializatorInteger* function.
    """
-   max_depth = genome.getParam("max_depth", 5)
-   max_siblings = genome.getParam("max_siblings", 2)
+   max_depth = genome.get_param("max_depth", 5)
+   max_siblings = genome.get_param("max_siblings", 2)
 
-   range_min = genome.getParam("rangemin", 0)
-   range_max = genome.getParam("rangemax", 100)
+   range_min = genome.get_param("rangemin", 0)
+   range_max = genome.get_param("rangemax", 100)
 
    lambda_generator = lambda: rand_randint(range_min, range_max)
 
-   method = genome.getParam("method", "grow")
+   method = genome.get_param("method", "grow")
 
    if method == "grow":
       root = gtree.buildGTreeGrow(0, lambda_generator, max_siblings, max_depth)
@@ -201,11 +201,11 @@ def GTreeInitializatorAllele(genome, **args):
    .. versionadded:: 0.6
       The *GTreeInitializatorAllele* function.
    """
-   max_depth    = genome.getParam("max_depth", 5)
-   max_siblings = genome.getParam("max_siblings", 2)
-   method       = genome.getParam("method", "grow")
+   max_depth    = genome.get_param("max_depth", 5)
+   max_siblings = genome.get_param("max_siblings", 2)
+   method       = genome.get_param("method", "grow")
 
-   allele = genome.getParam("allele", None)
+   allele = genome.get_param("allele", None)
    if allele is None:
       utils.raise_exception("to use the GTreeInitializatorAllele, you must specify the 'allele' parameter")
 
@@ -246,8 +246,8 @@ def GTreeGPInitializator(genome, **args):
       The *GTreeGPInitializator* function.
    """
 
-   max_depth = genome.getParam("max_depth", 5)
-   method    = genome.getParam("method", "grow")
+   max_depth = genome.get_param("max_depth", 5)
+   method    = genome.get_param("method", "grow")
    ga_engine = args["ga_engine"]
 
    if method == "grow":

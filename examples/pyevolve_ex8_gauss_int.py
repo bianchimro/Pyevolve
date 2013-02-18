@@ -22,7 +22,7 @@ def run_main():
 
    # The gauss_mu and gauss_sigma is used to the Gaussian Mutator, but
    # if you don't specify, the mutator will use the defaults
-   genome.setParams(rangemin=0, rangemax=10, gauss_mu=4, gauss_sigma=6)
+   genome.set_params(rangemin=0, rangemax=10, gauss_mu=4, gauss_sigma=6)
    genome.mutator.set(Mutators.G1DListMutatorIntegerGaussian)
 
    # The evaluator function (objective function)

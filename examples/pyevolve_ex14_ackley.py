@@ -24,7 +24,7 @@ def run_main():
    # Genome instance
    genome = g1dlist.G1DList
 (5)
-   genome.setParams(rangemin=-8, rangemax=8,  bestrawscore=0.00, rounddecimal=2)
+   genome.set_params(rangemin=-8, rangemax=8,  bestrawscore=0.00, rounddecimal=2)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
 
@@ -48,7 +48,7 @@ def run_main():
 
    # Best individual
    best = ga.bestIndividual()
-   print "\nBest individual score: %.2f" % (best.getRawScore(),)
+   print "\nBest individual score: %.2f" % (best.get_raw_score(),)
    print best
 
 if __name__ == "__main__":

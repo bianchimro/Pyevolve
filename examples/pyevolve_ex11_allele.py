@@ -46,7 +46,7 @@ def run_main():
       
    genome = g1dlist.G1DList
 (20)
-   genome.setParams(allele=setOfAlleles)
+   genome.set_params(allele=setOfAlleles)
 
    # The evaluator function (objective function)
    genome.evaluator.set(eval_func)

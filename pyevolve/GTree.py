@@ -601,7 +601,7 @@ class GTreeGP(GenomeBase, GTreeBase):
       end_index = len(pop) if end==0 else end
       for i in xrange(start, end_index):
          ind = pop[i]
-         subg = pydot.Cluster("cluster_%d" % i, label="\"Ind. #%d - Score Raw/Fit.: %.4f/%.4f\"" % (i, ind.getRawScore(), ind.getFitnessScore()))
+         subg = pydot.Cluster("cluster_%d" % i, label="\"Ind. #%d - Score Raw/Fit.: %.4f/%.4f\"" % (i, ind.get_raw_score(), ind.get_fitness_score()))
          n = ind.writeDotGraph(subg, n)
          graph.add_subgraph(subg)
 
@@ -635,7 +635,7 @@ class GTreeGP(GenomeBase, GTreeBase):
       end_index = len(pop) if end==0 else end
       for i in xrange(start, end_index):
          ind = pop[i]
-         subg = pydot.Cluster("cluster_%d" % i, label="\"Ind. #%d - Score Raw/Fit.: %.4f/%.4f\"" % (i, ind.getRawScore(), ind.getFitnessScore()))
+         subg = pydot.Cluster("cluster_%d" % i, label="\"Ind. #%d - Score Raw/Fit.: %.4f/%.4f\"" % (i, ind.get_raw_score(), ind.get_fitness_score()))
          n = ind.writeDotGraph(subg, n)
          graph.add_subgraph(subg)
 
@@ -679,10 +679,10 @@ def buildGTreeGPGrow(ga_engine, depth, max_depth):
    :rtype: the root node
    """
 
-   gp_terminals = ga_engine.getParam("gp_terminals")
+   gp_terminals = ga_engine.get_param("gp_terminals")
    assert gp_terminals is not None
 
-   gp_function_set = ga_engine.getParam("gp_function_set")
+   gp_function_set = ga_engine.get_param("gp_function_set")
    assert gp_function_set is not None
 
    if depth == max_depth:
@@ -719,10 +719,10 @@ def buildGTreeGPFull(ga_engine, depth, max_depth):
    :max_depth: the maximum depth of the tree
    :rtype: the root node
    """
-   gp_terminals = ga_engine.getParam("gp_terminals")
+   gp_terminals = ga_engine.get_param("gp_terminals")
    assert gp_terminals is not None
 
-   gp_function_set = ga_engine.getParam("gp_function_set")
+   gp_function_set = ga_engine.get_param("gp_function_set")
    assert gp_function_set is not None
 
    if depth == max_depth:

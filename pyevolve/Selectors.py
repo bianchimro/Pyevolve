@@ -61,7 +61,7 @@ def GTournamentSelector(population, **args):
    should_minimize = population.minimax == Consts.minimaxType["minimize"]
    minimax_operator = min if should_minimize else max
 
-   poolSize = population.getParam("tournamentPool", Consts.CDefTournamentPoolSize)
+   poolSize = population.get_param("tournamentPool", Consts.CDefTournamentPoolSize)
    tournament_pool = [GRouletteWheel(population, **args) for i in xrange(poolSize) ] 
 
    if population.sortType == Consts.sortType["scaled"]:
@@ -82,7 +82,7 @@ def GTournamentSelectorAlternative(population, **args):
       Added the GTournamentAlternative function.
 
    """
-   pool_size = population.getParam("tournamentPool", Consts.CDefTournamentPoolSize)
+   pool_size = population.get_param("tournamentPool", Consts.CDefTournamentPoolSize)
    len_pop = len(population)
    should_minimize = population.minimax == Consts.minimaxType["minimize"]
    minimax_operator = min if should_minimize else max

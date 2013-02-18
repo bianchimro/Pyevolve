@@ -103,14 +103,14 @@ def RawScoreCriteria(ga_engine):
    parameter obtained from the individual
 
    Example:
-      >>> genome.setParams(bestrawscore=0.00, rounddecimal=2)
+      >>> genome.set_params(bestrawscore=0.00, rounddecimal=2)
       (...)
       >>> ga_engine.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
 
    """
    ind = ga_engine.bestIndividual()
-   bestRawScore = ind.getParam("bestrawscore")
-   roundDecimal = ind.getParam("rounddecimal")
+   bestRawScore = ind.get_param("bestrawscore")
+   roundDecimal = ind.get_param("rounddecimal")
 
    if bestRawScore is None:
       utils.raise_exception("you must specify the bestrawscore parameter", ValueError)
@@ -297,32 +297,32 @@ class GSimpleGA:
       else:
          return self.evolve()
 
-   def setParams(self, **args):
+   def set_params(self, **args):
       """ Set the internal params
 
       Example:
-         >>> ga.setParams(gp_terminals=['x', 'y'])
+         >>> ga.set_params(gp_terminals=['x', 'y'])
 
 
       :param args: params to save
 
       ..versionaddd:: 0.6
-         Added the *setParams* method.
+         Added the *set_params* method.
       """
       self.internalParams.update(args)
    
-   def getParam(self, key, nvl=None):
+   def get_param(self, key, nvl=None):
       """ Gets an internal parameter
 
       Example:
-         >>> ga.getParam("gp_terminals")
+         >>> ga.get_param("gp_terminals")
          ['x', 'y']
 
       :param key: the key of param
       :param nvl: if the key doesn't exist, the nvl will be returned
 
       ..versionaddd:: 0.6
-         Added the *getParam* method.
+         Added the *get_param* method.
       """
       return self.internalParams.get(key, nvl)
 
@@ -606,7 +606,7 @@ class GSimpleGA:
       if len(function_set) <= 0:
          utils.raise_exception("No function set found using function prefix '%s' !" % prefix, ValueError)
 
-      self.setParams(gp_function_set=function_set)
+      self.set_params(gp_function_set=function_set)
 
    def initialize(self):
       """ Initializes the GA Engine. Create and initialize population """
@@ -764,7 +764,7 @@ class GSimpleGA:
 
 
       if self.getGPMode():
-         gp_function_prefix = self.getParam("gp_function_prefix")
+         gp_function_prefix = self.get_param("gp_function_prefix")
          if gp_function_prefix is not None:
             self.__gp_catch_functions(gp_function_prefix)
 

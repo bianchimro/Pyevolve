@@ -126,15 +126,15 @@ def G1DListMutatorIntegerRange(genome, **args):
       mutations = 0
       for it in xrange(listSize):
          if utils.random_flip_coin(args["pmut"]):
-            genome[it] = rand_randint(genome.getParam("rangemin", Consts.CDefRangeMin),
-                         genome.getParam("rangemax", Consts.CDefRangeMax))
+            genome[it] = rand_randint(genome.get_param("rangemin", Consts.CDefRangeMin),
+                         genome.get_param("rangemax", Consts.CDefRangeMax))
             mutations += 1
    
    else: 
       for it in xrange(int(round(mutations))):
          which_gene = rand_randint(0, listSize-1)
-         genome[which_gene] = rand_randint(genome.getParam("rangemin", Consts.CDefRangeMin),
-                              genome.getParam("rangemax", Consts.CDefRangeMax))
+         genome[which_gene] = rand_randint(genome.get_param("rangemin", Consts.CDefRangeMin),
+                              genome.get_param("rangemax", Consts.CDefRangeMax))
 
    return int(mutations)
 
@@ -153,15 +153,15 @@ def G1DListMutatorRealRange(genome, **args):
       mutations = 0
       for it in xrange(listSize):
          if utils.random_flip_coin(args["pmut"]):
-            genome[it] = rand_uniform(genome.getParam("rangemin", Consts.CDefRangeMin),
-                         genome.getParam("rangemax", Consts.CDefRangeMax))
+            genome[it] = rand_uniform(genome.get_param("rangemin", Consts.CDefRangeMin),
+                         genome.get_param("rangemax", Consts.CDefRangeMax))
             mutations += 1
    
    else: 
       for it in xrange(int(round(mutations))):
          which_gene = rand_randint(0, listSize-1)
-         genome[which_gene] = rand_uniform(genome.getParam("rangemin", Consts.CDefRangeMin),
-                              genome.getParam("rangemax", Consts.CDefRangeMax))
+         genome[which_gene] = rand_uniform(genome.get_param("rangemin", Consts.CDefRangeMin),
+                              genome.get_param("rangemax", Consts.CDefRangeMax))
 
    return int(mutations)
 
@@ -190,8 +190,8 @@ def G1DListMutatorIntegerGaussianGradient(genome, **args):
          if utils.random_flip_coin(args["pmut"]):
             final_value = int(genome[it] * abs(rand_gauss(mu, sigma)))
 
-            final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-            final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+            final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+            final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
             genome[it] = final_value
             mutations += 1
@@ -200,8 +200,8 @@ def G1DListMutatorIntegerGaussianGradient(genome, **args):
          which_gene = rand_randint(0, listSize-1)
          final_value = int(genome[which_gene] * abs(rand_gauss(mu, sigma)))
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome[which_gene] = final_value
 
@@ -219,8 +219,8 @@ def G1DListMutatorIntegerGaussian(genome, **args):
    listSize = len(genome)
    mutations = args["pmut"] * (listSize)
    
-   mu = genome.getParam("gauss_mu")
-   sigma = genome.getParam("gauss_sigma")
+   mu = genome.get_param("gauss_mu")
+   sigma = genome.get_param("gauss_sigma")
 
    if mu is None:
       mu = Consts.CDefG1DListMutIntMU
@@ -234,8 +234,8 @@ def G1DListMutatorIntegerGaussian(genome, **args):
          if utils.random_flip_coin(args["pmut"]):
             final_value = genome[it] + int(rand_gauss(mu, sigma))
 
-            final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-            final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+            final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+            final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
             genome[it] = final_value
             mutations += 1
@@ -244,8 +244,8 @@ def G1DListMutatorIntegerGaussian(genome, **args):
          which_gene = rand_randint(0, listSize-1)
          final_value = genome[which_gene] + int(rand_gauss(mu, sigma))
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome[which_gene] = final_value
 
@@ -264,8 +264,8 @@ def G1DListMutatorRealGaussian(genome, **args):
    listSize = len(genome)
    mutations = args["pmut"] * (listSize)
 
-   mu = genome.getParam("gauss_mu")
-   sigma = genome.getParam("gauss_sigma")
+   mu = genome.get_param("gauss_mu")
+   sigma = genome.get_param("gauss_sigma")
 
    if mu is None:
       mu = Consts.CDefG1DListMutRealMU
@@ -279,8 +279,8 @@ def G1DListMutatorRealGaussian(genome, **args):
          if utils.random_flip_coin(args["pmut"]):
             final_value = genome[it] + rand_gauss(mu, sigma)
 
-            final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-            final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+            final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+            final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
             genome[it] = final_value
             mutations += 1
@@ -289,8 +289,8 @@ def G1DListMutatorRealGaussian(genome, **args):
          which_gene = rand_randint(0, listSize-1)
          final_value = genome[which_gene] + rand_gauss(mu, sigma)
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome[which_gene] = final_value
 
@@ -326,8 +326,8 @@ def G1DListMutatorRealGaussianGradient(genome, **args):
          if utils.random_flip_coin(args["pmut"]):
             final_value = genome[it] * abs(rand_gauss(mu, sigma))
 
-            final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-            final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+            final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+            final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
             genome[it] = final_value
             mutations += 1
@@ -336,8 +336,8 @@ def G1DListMutatorRealGaussianGradient(genome, **args):
          which_gene = rand_randint(0, listSize-1)
          final_value = genome[which_gene] * abs(rand_gauss(mu, sigma))
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome[which_gene] = final_value
 
@@ -380,7 +380,7 @@ def G1DListMutatorAllele(genome, **args):
    listSize = len(genome) - 1
    mutations = args["pmut"] * (listSize+1)
 
-   allele = genome.getParam("allele", None)
+   allele = genome.get_param("allele", None)
    if allele is None:
       utils.raise_exception("to use the G1DListMutatorAllele, you must specify the 'allele' parameter", TypeError)
 
@@ -444,8 +444,8 @@ def G2DListMutatorIntegerRange(genome, **args):
 
    mutations = args["pmut"] * elements
 
-   range_min = genome.getParam("rangemin", Consts.CDefRangeMin)
-   range_max = genome.getParam("rangemax", Consts.CDefRangeMax)
+   range_min = genome.get_param("rangemin", Consts.CDefRangeMin)
+   range_max = genome.get_param("rangemax", Consts.CDefRangeMax)
 
    if mutations < 1.0:
       mutations = 0
@@ -493,8 +493,8 @@ def G2DListMutatorIntegerGaussianGradient(genome, **args):
             if utils.random_flip_coin(args["pmut"]):
                final_value = int(genome[i][j] * abs(rand_gauss(mu, sigma)))
 
-               final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-               final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+               final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+               final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
                genome.set_item(i, j, final_value)
                mutations += 1
@@ -506,8 +506,8 @@ def G2DListMutatorIntegerGaussianGradient(genome, **args):
 
          final_value = int(genome[which_y][which_x] * abs(rand_gauss(mu, sigma)))
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome.set_item(which_y, which_x, final_value)
 
@@ -527,8 +527,8 @@ def G2DListMutatorIntegerGaussian(genome, **args):
 
    mutations = args["pmut"] * elements
 
-   mu = genome.getParam("gauss_mu")
-   sigma = genome.getParam("gauss_sigma")
+   mu = genome.get_param("gauss_mu")
+   sigma = genome.get_param("gauss_sigma")
 
    if mu is None:
       mu = Consts.CDefG2DListMutIntMU
@@ -544,8 +544,8 @@ def G2DListMutatorIntegerGaussian(genome, **args):
             if utils.random_flip_coin(args["pmut"]):
                final_value = genome[i][j] + int(rand_gauss(mu, sigma))
 
-               final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-               final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+               final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+               final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
                genome.set_item(i, j, final_value)
                mutations += 1
@@ -557,8 +557,8 @@ def G2DListMutatorIntegerGaussian(genome, **args):
 
          final_value = genome[which_y][which_x] + int(rand_gauss(mu, sigma))
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome.set_item(which_y, which_x, final_value)
 
@@ -578,7 +578,7 @@ def G2DListMutatorAllele(genome, **args):
    listSize = genome.get_height()*genome.get_width() - 1
    mutations = args["pmut"] * (listSize+1)
 
-   allele = genome.getParam("allele", None)
+   allele = genome.get_param("allele", None)
    if allele is None:
       utils.raise_exception("to use the G2DListMutatorAllele, you must specify the 'allele' parameter", TypeError)
 
@@ -619,8 +619,8 @@ def G2DListMutatorRealGaussian(genome, **args):
 
    mutations = args["pmut"] * elements
 
-   mu = genome.getParam("gauss_mu")
-   sigma = genome.getParam("gauss_sigma")
+   mu = genome.get_param("gauss_mu")
+   sigma = genome.get_param("gauss_sigma")
 
    if mu is None:
       mu = Consts.CDefG2DListMutRealMU
@@ -636,8 +636,8 @@ def G2DListMutatorRealGaussian(genome, **args):
             if utils.random_flip_coin(args["pmut"]):
                final_value = genome[i][j] + rand_gauss(mu, sigma)
 
-               final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-               final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+               final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+               final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
                genome.set_item(i, j, final_value)
                mutations += 1
@@ -649,8 +649,8 @@ def G2DListMutatorRealGaussian(genome, **args):
 
          final_value = genome[which_y][which_x] + rand_gauss(mu, sigma)
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome.set_item(which_y, which_x, final_value)
 
@@ -682,8 +682,8 @@ def G2DListMutatorRealGaussianGradient(genome, **args):
             if utils.random_flip_coin(args["pmut"]):
                final_value = genome[i][j] * abs(rand_gauss(mu, sigma))
 
-               final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-               final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+               final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+               final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
                genome.set_item(i, j, final_value)
                mutations += 1
@@ -695,8 +695,8 @@ def G2DListMutatorRealGaussianGradient(genome, **args):
 
          final_value = genome[which_y][which_x] * abs(rand_gauss(mu, sigma))
 
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
 
          genome.set_item(which_y, which_x, final_value)
 
@@ -810,8 +810,8 @@ def GTreeMutatorIntegerRange(genome, **args):
    elements = len(genome)
    mutations = args["pmut"] * elements
 
-   range_min = genome.getParam("rangemin", Consts.CDefRangeMin)
-   range_max = genome.getParam("rangemax", Consts.CDefRangeMax)
+   range_min = genome.get_param("rangemin", Consts.CDefRangeMin)
+   range_max = genome.get_param("rangemax", Consts.CDefRangeMax)
 
    if mutations < 1.0:
       mutations = 0
@@ -843,8 +843,8 @@ def GTreeMutatorRealRange(genome, **args):
    elements = len(genome)
    mutations = args["pmut"] * elements
 
-   range_min = genome.getParam("rangemin", Consts.CDefRangeMin)
-   range_max = genome.getParam("rangemax", Consts.CDefRangeMax)
+   range_min = genome.get_param("rangemin", Consts.CDefRangeMin)
+   range_max = genome.get_param("rangemax", Consts.CDefRangeMax)
 
    if mutations < 1.0:
       mutations = 0
@@ -876,8 +876,8 @@ def GTreeMutatorIntegerGaussian(genome, **args):
    elements = len(genome)
    mutations = args["pmut"] * elements
 
-   mu = genome.getParam("gauss_mu", Consts.CDefG1DListMutIntMU)
-   sigma = genome.getParam("gauss_sigma", Consts.CDefG1DListMutIntSIGMA)
+   mu = genome.get_param("gauss_mu", Consts.CDefG1DListMutIntMU)
+   sigma = genome.get_param("gauss_sigma", Consts.CDefG1DListMutIntSIGMA)
 
    if mutations < 1.0:
       mutations = 0
@@ -886,15 +886,15 @@ def GTreeMutatorIntegerGaussian(genome, **args):
             mutations += 1
             rand_node = genome.getRandomNode()
             final_value = rand_node.getData() + int(rand_gauss(mu, sigma))
-            final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-            final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+            final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+            final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
             rand_node.setData(final_value)
    else: 
       for it in xrange(int(round(mutations))):
          rand_node = genome.getRandomNode()
          final_value = rand_node.getData() + int(rand_gauss(mu, sigma))
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
          rand_node.setData(final_value)
 
    return int(mutations)
@@ -912,8 +912,8 @@ def GTreeMutatorRealGaussian(genome, **args):
    elements = len(genome)
    mutations = args["pmut"] * elements
 
-   mu = genome.getParam("gauss_mu", Consts.CDefG1DListMutRealMU)
-   sigma = genome.getParam("gauss_sigma", Consts.CDefG1DListMutRealSIGMA)
+   mu = genome.get_param("gauss_mu", Consts.CDefG1DListMutRealMU)
+   sigma = genome.get_param("gauss_sigma", Consts.CDefG1DListMutRealSIGMA)
 
    if mutations < 1.0:
       mutations = 0
@@ -922,15 +922,15 @@ def GTreeMutatorRealGaussian(genome, **args):
             mutations += 1
             rand_node = genome.getRandomNode()
             final_value = rand_node.getData() + rand_gauss(mu, sigma)
-            final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-            final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+            final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+            final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
             rand_node.setData(final_value)
    else: 
       for it in xrange(int(round(mutations))):
          rand_node = genome.getRandomNode()
          final_value = rand_node.getData() + rand_gauss(mu, sigma)
-         final_value = min(final_value, genome.getParam("rangemax", Consts.CDefRangeMax))
-         final_value = max(final_value, genome.getParam("rangemin", Consts.CDefRangeMin))
+         final_value = min(final_value, genome.get_param("rangemax", Consts.CDefRangeMax))
+         final_value = max(final_value, genome.get_param("rangemin", Consts.CDefRangeMin))
          rand_node.setData(final_value)
 
    return int(mutations)
@@ -954,10 +954,10 @@ def GTreeGPMutatorOperation(genome, **args):
    ga_engine = args["ga_engine"]
 
 
-   gp_terminals = ga_engine.getParam("gp_terminals")
+   gp_terminals = ga_engine.get_param("gp_terminals")
    assert gp_terminals is not None
 
-   gp_function_set = ga_engine.getParam("gp_function_set")
+   gp_function_set = ga_engine.get_param("gp_function_set")
    assert gp_function_set is not None
 
    if mutations < 1.0:
@@ -1014,7 +1014,7 @@ def GTreeGPMutatorSubtree(genome, **args):
 
    if args["pmut"] <= 0.0: return 0
    ga_engine = args["ga_engine"]
-   max_depth = genome.getParam("max_depth", None)
+   max_depth = genome.get_param("max_depth", None)
    mutations = 0
 
    if max_depth is None:

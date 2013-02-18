@@ -27,7 +27,7 @@ def queens_init(genome, **args):
 def run_main():
    genome = g1dlist.G1DList
 (BOARD_SIZE)
-   genome.setParams(bestrawscore=BOARD_SIZE, rounddecimal=2)
+   genome.set_params(bestrawscore=BOARD_SIZE, rounddecimal=2)
    genome.initializator.set(queens_init)
    genome.mutator.set(Mutators.G1DListMutatorSwap)
    genome.crossover.set(Crossovers.G1DListCrossoverCutCrossfill)
@@ -52,7 +52,7 @@ def run_main():
 
    best = ga.bestIndividual()
    print best
-   print "Best individual score: %.2f\n" % (best.getRawScore(),)
+   print "Best individual score: %.2f\n" % (best.get_raw_score(),)
 
 if __name__ == "__main__":
    run_main()

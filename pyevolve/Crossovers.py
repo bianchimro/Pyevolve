@@ -35,12 +35,12 @@ def G1DBinaryStringXSinglePoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       sister[cut:] = gDad[cut:]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       brother[cut:] = gMom[cut:]
 
    return (sister, brother)
@@ -66,12 +66,12 @@ def G1DBinaryStringXTwoPoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       sister[cuts[0]:cuts[1]] = gDad[cuts[0]:cuts[1]]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       brother[cuts[0]:cuts[1]] = gMom[cuts[0]:cuts[1]]
 
    return (sister, brother)
@@ -85,8 +85,8 @@ def G1DBinaryStringXUniform(genome, **args):
 
    sister = gMom.clone()
    brother = gDad.clone()
-   sister.resetStats()
-   brother.resetStats()
+   sister.reset_stats()
+   brother.reset_stats()
 
    for i in xrange(len(gMom)):
       if utils.random_flip_coin(Consts.CDefG1DBinaryStringUniformProb):
@@ -118,12 +118,12 @@ def G1DListCrossoverSinglePoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       sister[cut:] = gDad[cut:]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       brother[cut:] = gMom[cut:]
 
    return (sister, brother)
@@ -149,12 +149,12 @@ def G1DListCrossoverTwoPoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       sister[cuts[0]:cuts[1]] = gDad[cuts[0]:cuts[1]]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       brother[cuts[0]:cuts[1]] = gMom[cuts[0]:cuts[1]]
 
    return (sister, brother)
@@ -172,8 +172,8 @@ def G1DListCrossoverUniform(genome, **args):
 
    sister = gMom.clone()
    brother = gDad.clone()
-   sister.resetStats()
-   brother.resetStats()
+   sister.reset_stats()
+   brother.reset_stats()
 
    for i in xrange(len(gMom)):
       if utils.random_flip_coin(Consts.CDefG1DListCrossUniformProb):
@@ -203,13 +203,13 @@ def G1DListCrossoverOX(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       P1 = [ c for c in gMom[c2:] + gMom[:c2] if c not in gDad[c1:c2] ]
       sister.genomeList = P1[listSize - c2:] + gDad[c1:c2] + P1[:listSize-c2]
     
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       P2 = [ c for c in gDad[c2:] + gDad[:c2] if c not in gMom[c1:c2] ]
       brother.genomeList = P2[listSize - c2:] + gMom[c1:c2] + P2[:listSize-c2]
 
@@ -244,8 +244,8 @@ def G1DListCrossoverEdge(genome, **args):
 
    sister = gMom.clone()
    brother = gDad.clone()
-   sister.resetStats()
-   brother.resetStats()
+   sister.reset_stats()
+   brother.reset_stats()
 
    sister.genomeList  = sisterl
    brother.genomeList = brotherl
@@ -268,7 +268,7 @@ def G1DListCrossoverCutCrossfill(genome, **args):
    if args["count"] >= 1:
       sister = gMom.clone()
       mother_part = gMom[0:cut]
-      sister.resetStats()
+      sister.reset_stats()
       i = (len(sister) - cut)
       x = 0
       for v in gDad:
@@ -280,7 +280,7 @@ def G1DListCrossoverCutCrossfill(genome, **args):
    if args["count"] == 2:
       brother = gDad.clone()
       father_part = gDad[0:cut]
-      brother.resetStats()
+      brother.reset_stats()
       i = (len(brother) - cut) 
       x = 0
       for v in gMom:
@@ -308,14 +308,14 @@ def G1DListCrossoverRealSBX(genome, **args):
    gDad = args["dad"]
 
    # Get the variable bounds ('gDad' could have been used; but I love Mom:-))
-   lb = gMom.getParam("rangemin", Consts.CDefRangeMin)
-   ub = gMom.getParam("rangemax", Consts.CDefRangeMax)
+   lb = gMom.get_param("rangemin", Consts.CDefRangeMin)
+   ub = gMom.get_param("rangemax", Consts.CDefRangeMax)
 
    sister = gMom.clone()
    brother = gDad.clone()
 
-   sister.resetStats()
-   brother.resetStats()
+   sister.reset_stats()
+   brother.reset_stats()
 
    for i in range(0,len(gMom)):
       if math.fabs(gMom[i]-gDad[i]) > EPS:
@@ -380,8 +380,8 @@ def G2DListCrossoverUniform(genome, **args):
 
    sister = gMom.clone()
    brother = gDad.clone()
-   sister.resetStats()
-   brother.resetStats()
+   sister.reset_stats()
+   brother.reset_stats()
    
    h, w = gMom.get_size()
    
@@ -406,13 +406,13 @@ def G2DListCrossoverSingleVPoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       for i in xrange(sister.get_height()):
          sister[i][cut:] = gDad[i][cut:]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       for i in xrange(brother.get_height()):
          brother[i][cut:] = gMom[i][cut:]
 
@@ -429,13 +429,13 @@ def G2DListCrossoverSingleHPoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       for i in xrange(cut, sister.get_height()):
          sister[i][:] = gDad[i][:]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       for i in xrange(brother.get_height()):
          brother[i][:] = gMom[i][:]
 
@@ -460,8 +460,8 @@ def G2DBinaryStringXUniform(genome, **args):
 
    sister = gMom.clone()
    brother = gDad.clone()
-   sister.resetStats()
-   brother.resetStats()
+   sister.reset_stats()
+   brother.reset_stats()
    
    h, w = gMom.get_size()
    
@@ -490,13 +490,13 @@ def G2DBinaryStringXSingleVPoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       for i in xrange(sister.get_height()):
          sister[i][cut:] = gDad[i][cut:]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       for i in xrange(brother.get_height()):
          brother[i][cut:] = gMom[i][cut:]
 
@@ -518,13 +518,13 @@ def G2DBinaryStringXSingleHPoint(genome, **args):
 
    if args["count"] >= 1:
       sister = gMom.clone()
-      sister.resetStats()
+      sister.reset_stats()
       for i in xrange(cut, sister.get_height()):
          sister[i][:] = gDad[i][:]
 
    if args["count"] == 2:
       brother = gDad.clone()
-      brother.resetStats()
+      brother.reset_stats()
       for i in xrange(brother.get_height()):
          brother[i][:] = gMom[i][:]
 
@@ -542,8 +542,8 @@ def GTreeCrossoverSinglePoint(genome, **args):
    gMom = args["mom"].clone()
    gDad = args["dad"].clone()
 
-   gMom.resetStats()
-   gDad.resetStats()
+   gMom.reset_stats()
+   gDad.reset_stats()
 
    node_mom_stack = []
    all_mom_nodes  = []
@@ -612,12 +612,12 @@ def GTreeCrossoverSinglePointStrict(genome, **args):
    gMom = args["mom"].clone()
    gDad = args["dad"].clone()
 
-   gMom.resetStats()
-   gDad.resetStats()
+   gMom.reset_stats()
+   gDad.reset_stats()
 
-   max_depth   = gMom.getParam("max_depth", None)
-   max_attempt = gMom.getParam("max_attempt", 10)
-   distr_leaf =  gMom.getParam("distr_leaf", None)
+   max_depth   = gMom.get_param("max_depth", None)
+   max_attempt = gMom.get_param("max_attempt", 10)
+   distr_leaf =  gMom.get_param("distr_leaf", None)
 
    if max_depth is None:
       utils.raise_exception("You must specify the max_depth genome parameter !", ValueError)
@@ -711,11 +711,11 @@ def GTreeGPCrossoverSinglePoint(genome, **args):
    gMom = args["mom"].clone()
    gDad = args["dad"].clone()
 
-   gMom.resetStats()
-   gDad.resetStats()
+   gMom.reset_stats()
+   gDad.reset_stats()
 
-   max_depth   = gMom.getParam("max_depth", None)
-   max_attempt = gMom.getParam("max_attempt", 15)
+   max_depth   = gMom.get_param("max_depth", None)
+   max_attempt = gMom.get_param("max_attempt", 15)
 
    if max_depth is None:
       utils.raise_exception("You must specify the max_depth genome parameter !", ValueError)

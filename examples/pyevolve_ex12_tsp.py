@@ -87,9 +87,9 @@ def evolve_callback(ga_engine):
    global LAST_SCORE
    if ga_engine.getCurrentGeneration() % 100 == 0:
       best = ga_engine.bestIndividual()
-      if LAST_SCORE != best.getRawScore():
+      if LAST_SCORE != best.get_raw_score():
          write_tour_to_img( coords, best, "tspimg/tsp_result_%d.png" % ga_engine.getCurrentGeneration())
-         LAST_SCORE = best.getRawScore()
+         LAST_SCORE = best.get_raw_score()
    return False
 
 def main_run():

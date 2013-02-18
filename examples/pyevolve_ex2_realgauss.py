@@ -15,7 +15,7 @@ def eval_func(genome):
 def run_main():
    # Genome instance
    genome = g1dlist.G1DList(20)
-   genome.setParams(rangemin=-6.0, rangemax=6.0)
+   genome.set_params(rangemin=-6.0, rangemax=6.0)
 
    # Change the initializator to Real values
    genome.initializator.set(Initializators.G1DListInitializatorReal)

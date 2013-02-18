@@ -20,7 +20,7 @@ def eval_func(chromosome):
 def run_main():
    # Genome instance
    genome = G2DList.G2DList(8, 5)
-   genome.setParams(rangemin=0, rangemax=100)
+   genome.set_params(rangemin=0, rangemax=100)
 
    # The evaluator function (objective function)
    genome.evaluator.set(eval_func)

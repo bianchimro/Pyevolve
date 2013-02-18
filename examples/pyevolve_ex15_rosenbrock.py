@@ -12,7 +12,7 @@ def run_main():
    # Genome instance
    genome = g1dlist.G1DList
 (15)
-   genome.setParams(rangemin=-1, rangemax=1.1)
+   genome.set_params(rangemin=-1, rangemax=1.1)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealRange)
 

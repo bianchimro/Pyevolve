@@ -87,13 +87,13 @@ def BoltzmannScaling(pop):
       The `BoltzmannScaling` function.
 
    """
-   boltz_temperature = pop.getParam("boltz_temperature", Consts.CDefScaleBoltzStart)
-   boltz_factor      = pop.getParam("boltz_factor", Consts.CDefScaleBoltzFactor)
-   boltz_min         = pop.getParam("boltz_min", Consts.CDefScaleBoltzMinTemp)
+   boltz_temperature = pop.get_param("boltz_temperature", Consts.CDefScaleBoltzStart)
+   boltz_factor      = pop.get_param("boltz_factor", Consts.CDefScaleBoltzFactor)
+   boltz_min         = pop.get_param("boltz_min", Consts.CDefScaleBoltzMinTemp)
 
    boltz_temperature-= boltz_factor
    boltz_temperature = max(boltz_temperature, boltz_min)
-   pop.setParams(boltzTemperature=boltz_temperature)
+   pop.set_params(boltzTemperature=boltz_temperature)
 
    boltz_e = []
    avg = 0.0

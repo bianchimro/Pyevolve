@@ -11,7 +11,7 @@ def sphere(xlist):
 
 def run_main():
    genome = g1dlist.G1DList(140)
-   genome.setParams(rangemin=-5.12, rangemax=5.13)
+   genome.set_params(rangemin=-5.12, rangemax=5.13)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
    genome.evaluator.set(sphere)

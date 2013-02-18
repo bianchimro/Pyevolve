@@ -26,11 +26,11 @@ def eval_func(chromosome):
 
 def main_run():
    genome = GTree.GTreeGP()
-   genome.setParams(max_depth=4, method="ramped")
+   genome.set_params(max_depth=4, method="ramped")
    genome.evaluator += eval_func
 
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.setParams(gp_terminals       = ['a', 'b'],
+   ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 
    ga.setMinimax(Consts.minimaxType["minimize"])

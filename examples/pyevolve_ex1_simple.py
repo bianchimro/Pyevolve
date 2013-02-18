@@ -24,7 +24,7 @@ def run_main():
    genome = g1dlist.G1DList(50)
 
    # Sets the range max and min of the 1D List
-   genome.setParams(rangemin=0, rangemax=10)
+   genome.set_params(rangemin=0, rangemax=10)
 
    # The evaluator function (evaluation function)
    genome.evaluator.set(eval_func)

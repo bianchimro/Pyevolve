@@ -417,7 +417,7 @@ class GPopulation:
       this calls the initialize() of individuals """
       logging.debug("Initializing the population")
    
-      if self.oneSelfGenome.getParam("full_diversity", True) and hasattr(self.oneSelfGenome, "compare"):
+      if self.oneSelfGenome.get_param("full_diversity", True) and hasattr(self.oneSelfGenome, "compare"):
          for i in xrange(len(self.internalPop)):
             curr = self.internalPop[i]
             curr.initialize(**args)
@@ -504,11 +504,11 @@ class GPopulation:
       pop.internalParams = self.internalParams
       pop.multiProcessing = self.multiProcessing
    
-   def getParam(self, key, nvl=None):
+   def get_param(self, key, nvl=None):
       """ Gets an internal parameter
 
       Example:
-         >>> population.getParam("tournamentPool")
+         >>> population.get_param("tournamentPool")
          5
 
       :param key: the key of param
@@ -518,16 +518,16 @@ class GPopulation:
       return self.internalParams.get(key, nvl)
 
 
-   def setParams(self, **args):
+   def set_params(self, **args):
       """ Gets an internal parameter
 
       Example:
-         >>> population.setParams(tournamentPool=5)
+         >>> population.set_params(tournamentPool=5)
 
       :param args: parameters to set
 
       .. versionadded:: 0.6
-         The `setParams` method.
+         The `set_params` method.
       """
       self.internalParams.update(args)
 

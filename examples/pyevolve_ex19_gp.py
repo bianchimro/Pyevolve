@@ -60,12 +60,12 @@ def main_run():
    root   = GTree.GTreeNodeGP('a', Consts.nodeType["TERMINAL"])
    genome.setRoot(root)
 
-   genome.setParams(max_depth=2, method="ramped")
+   genome.set_params(max_depth=2, method="ramped")
    genome.evaluator += eval_func
    genome.mutator.set(Mutators.GTreeGPMutatorSubtree)
 
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.setParams(gp_terminals       = ['a', 'b'],
+   ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 
    ga.setMinimax(Consts.minimaxType["maximize"])

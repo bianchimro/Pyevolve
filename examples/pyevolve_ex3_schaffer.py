@@ -16,7 +16,7 @@ def schafferF6(genome):
 def run_main():
    # Genome instance
    genome = g1dlist.G1DList(2)
-   genome.setParams(rangemin=-100.0, rangemax=100.0, bestrawscore=0.0000, rounddecimal=4)
+   genome.set_params(rangemin=-100.0, rangemax=100.0, bestrawscore=0.0000, rounddecimal=4)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
 
@@ -40,7 +40,7 @@ def run_main():
    # Best individual
    best = ga.bestIndividual()
    print best
-   print "Best individual score: %.2f" % best.getRawScore()
+   print "Best individual score: %.2f" % best.get_raw_score()
 
 if __name__ == "__main__":
    run_main()
