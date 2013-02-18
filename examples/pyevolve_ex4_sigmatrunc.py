@@ -3,7 +3,7 @@ from pyevolve import GSimpleGA
 from pyevolve import Selectors
 from pyevolve import Initializators, Mutators
 from pyevolve import Scaling
-from pyevolve import Consts
+from pyevolve import constants
 import math
 
 def eval_func(ind):
@@ -32,7 +32,7 @@ def run_main():
 
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
 
    pop = ga.getPopulation()
    pop.scaleMethod.set(Scaling.SigmaTruncScaling)

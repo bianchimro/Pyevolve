@@ -1,5 +1,5 @@
 from pyevolve import g1dlist, GSimpleGA, Selectors
-from pyevolve import Initializators, Mutators, Consts
+from pyevolve import Initializators, Mutators, constants
 import math
 
 # This is the Schaffer F6 Function
@@ -27,7 +27,7 @@ def run_main():
    ga = GSimpleGA.GSimpleGA(genome)
    ga.selector.set(Selectors.GRouletteWheel)
 
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(8000)
    ga.setMutationRate(0.05)
    ga.setPopulationSize(100)

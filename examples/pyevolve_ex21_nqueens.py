@@ -1,6 +1,6 @@
 from pyevolve import g1dlist
 from pyevolve import Mutators, Crossovers
-from pyevolve import Consts, GSimpleGA
+from pyevolve import constants, GSimpleGA
 from pyevolve import DBAdapters
 from random import shuffle
 
@@ -35,7 +35,7 @@ def run_main():
 
    ga = GSimpleGA.GSimpleGA(genome)
    ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
-   ga.setMinimax(Consts.minimaxType["maximize"])
+   ga.setMinimax(constants.minimaxType["maximize"])
    
    ga.setPopulationSize(100)
    ga.setGenerations(250)

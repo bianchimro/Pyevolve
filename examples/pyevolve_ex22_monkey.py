@@ -5,7 +5,7 @@
 #===============================================================================
 
 from pyevolve import g1dlist
-from pyevolve import GSimpleGA, Consts
+from pyevolve import GSimpleGA, constants
 from pyevolve import Selectors
 from pyevolve import Initializators, Mutators, Crossovers
 import math
@@ -39,7 +39,7 @@ def run_main():
 
    ga = GSimpleGA.GSimpleGA(genome)
    #ga.stepCallback.set(evolve_callback)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
    ga.setPopulationSize(60)
    ga.setMutationRate(0.02)

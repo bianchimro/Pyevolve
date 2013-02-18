@@ -86,7 +86,7 @@ import pyevolve
 if sys_platform[:3] == "win":
    import msvcrt
    
-from Consts import minimaxType
+from constants import minimaxType
 from gtree import GTreeGP
 
 # - GA Engine defaults

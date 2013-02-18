@@ -1,5 +1,5 @@
 from pyevolve import G1DList, GSimpleGA, Selectors
-from pyevolve import Initializators, Mutators, Consts, DBAdapters
+from pyevolve import Initializators, Mutators, constants, DBAdapters
 import math
 
 # This is the Rastringin Function, a deception function
@@ -33,7 +33,7 @@ def run_main():
 
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(1000)
    ga.setMutationRate(0.04)
    ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)

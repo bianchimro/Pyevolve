@@ -104,7 +104,7 @@ def buildGTreeGPGrow(ga_engine, depth, max_depth):
 
    if depth == max_depth:
       random_terminal = checkTerminal(random.choice(gp_terminals))
-      n = GTreeNodeGP(random_terminal, Consts.nodeType["TERMINAL"])
+      n = GTreeNodeGP(random_terminal, constants.nodeType["TERMINAL"])
       return n
    else:
       # Do not generate degenerative trees 
@@ -115,11 +115,11 @@ def buildGTreeGPGrow(ga_engine, depth, max_depth):
          random_node = random.choice(fchoice)
 
       if random_node in gp_terminals:
-         n = GTreeNodeGP(checkTerminal(random_node), Consts.nodeType["TERMINAL"])
+         n = GTreeNodeGP(checkTerminal(random_node), constants.nodeType["TERMINAL"])
       else:
-         n = GTreeNodeGP(random_node, Consts.nodeType["NONTERMINAL"])
+         n = GTreeNodeGP(random_node, constants.nodeType["NONTERMINAL"])
 
-   if n.getType() == Consts.nodeType["NONTERMINAL"]:
+   if n.getType() == constants.nodeType["NONTERMINAL"]:
       for i in xrange(gp_function_set[n.getData()]):
          child = buildGTreeGPGrow(ga_engine, depth+1, max_depth)
          child.setParent(n)
@@ -144,13 +144,13 @@ def buildGTreeGPFull(ga_engine, depth, max_depth):
 
    if depth == max_depth:
       random_terminal = checkTerminal(random.choice(gp_terminals))
-      n = GTreeNodeGP(random_terminal, Consts.nodeType["TERMINAL"])
+      n = GTreeNodeGP(random_terminal, constants.nodeType["TERMINAL"])
       return n
    else:
       random_oper = random.choice(gp_function_set.keys())
-      n = GTreeNodeGP(random_oper, Consts.nodeType["NONTERMINAL"])
+      n = GTreeNodeGP(random_oper, constants.nodeType["NONTERMINAL"])
 
-   if n.getType() == Consts.nodeType["NONTERMINAL"]:
+   if n.getType() == constants.nodeType["NONTERMINAL"]:
       for i in xrange(gp_function_set[n.getData()]):
          child = buildGTreeGPFull(ga_engine, depth+1, max_depth)
          child.setParent(n)

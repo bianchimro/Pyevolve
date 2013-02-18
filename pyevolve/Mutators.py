@@ -10,7 +10,7 @@ In this module we have the genetic operators of mutation for each chromosome rep
 import utils
 from random import randint as rand_randint, gauss as rand_gauss, uniform as rand_uniform
 from random import choice as rand_choice
-from Consts import CDefRangeMin, CDefRangeMax
+from constants import CDefRangeMin, CDefRangeMax
 import gtree_utils
 
 # Gaussian Gradient

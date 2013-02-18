@@ -1,6 +1,6 @@
 from pyevolve import GSimpleGA
 from pyevolve import GTree
-from pyevolve import Consts
+from pyevolve import constants
 from pyevolve import Selectors
 from pyevolve import Mutators
 from math import sqrt
@@ -57,7 +57,7 @@ def eval_func(chromosome):
 
 def main_run():
    genome = GTree.GTreeGP()
-   root   = GTree.GTreeNodeGP('a', Consts.nodeType["TERMINAL"])
+   root   = GTree.GTreeNodeGP('a', constants.nodeType["TERMINAL"])
    genome.setRoot(root)
 
    genome.set_params(max_depth=2, method="ramped")
@@ -68,7 +68,7 @@ def main_run():
    ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 
-   ga.setMinimax(Consts.minimaxType["maximize"])
+   ga.setMinimax(constants.minimaxType["maximize"])
    ga.setGenerations(500)
    ga.setCrossoverRate(1.0)
    ga.setMutationRate(0.08)

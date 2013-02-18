@@ -23,7 +23,7 @@ except ImportError:
    HAS_MPI4PY = False
 
 
-# Migration Consts
+# Migration constants
 CDefGenMigrationRate = 20
 CDefMigrationNIndividuals = 3
 CDefGenMigrationReplacement = 3

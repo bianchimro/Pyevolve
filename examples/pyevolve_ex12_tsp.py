@@ -2,7 +2,7 @@ from pyevolve import G1DList, GAllele
 from pyevolve import GSimpleGA
 from pyevolve import Mutators
 from pyevolve import Crossovers
-from pyevolve import Consts
+from pyevolve import constants
 
 import sys, random
 random.seed(1024)
@@ -108,7 +108,7 @@ def main_run():
    # 3662.69
    ga = GSimpleGA.GSimpleGA(genome)
    ga.setGenerations(200000)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setCrossoverRate(1.0)
    ga.setMutationRate(0.02)
    ga.setPopulationSize(80)

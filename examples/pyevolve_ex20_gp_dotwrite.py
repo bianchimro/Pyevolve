@@ -38,7 +38,7 @@ def main_run():
    ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(2)
    ga.setCrossoverRate(1.0)
    ga.setMutationRate(0.08)

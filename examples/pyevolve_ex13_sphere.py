@@ -1,6 +1,6 @@
 from pyevolve import g1dlist
 from pyevolve import Mutators, Initializators
-from pyevolve import GSimpleGA, Consts
+from pyevolve import GSimpleGA, constants
 
 # This is the Sphere Function
 def sphere(xlist):
@@ -17,7 +17,7 @@ def run_main():
    genome.evaluator.set(sphere)
 
    ga = GSimpleGA.GSimpleGA(genome, seed=666)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(1500)
    ga.setMutationRate(0.01)
    ga.evolve(freq_stats=500)

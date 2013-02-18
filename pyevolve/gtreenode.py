@@ -127,14 +127,14 @@ class GTreeNodeGP(GTreeNodeBase):
    def setType(self, node_type):
       """Sets the node type 
       
-      :param node_type: the node type is type of Consts.nodeType
+      :param node_type: the node type is type of constants.nodeType
       """
       self.node_type = node_type
 
    def getType(self):
       """Get the node type 
       
-      :rtype: the node type is type of Consts.nodeType
+      :rtype: the node type is type of constants.nodeType
       """
       return self.node_type
 

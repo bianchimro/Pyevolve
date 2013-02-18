@@ -11,7 +11,7 @@ from random import randint as rand_randint, choice as rand_choice
 from random import random as rand_random
 import math
 import utils
-#import Consts
+#import constants
 
 
 # SBX Crossover defaults

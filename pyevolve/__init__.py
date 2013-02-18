@@ -9,7 +9,7 @@ is above this namespace, for example, to import :mod:`Mutators`:
 
 
 """
-__all__ = ["Consts", "Crossovers", "DBAdapters", "FunctionSlot",
+__all__ = ["constants", "Crossovers", "DBAdapters", "FunctionSlot",
            "G1DBinaryString", "g1dlist", "G2DBinaryString",
            "G2DList", "GAllele", "GenomeBase", "GPopulation",
            "GSimpleGA", "gtree", "gtreenode", "gtree_utils",  "Initializators",
@@ -19,15 +19,15 @@ __all__ = ["Consts", "Crossovers", "DBAdapters", "FunctionSlot",
 __version__ =  '0.6'
 __author__ =  'Christian S. Perone'
 
-import pyevolve.Consts
+import pyevolve.constants
 import sys
 
-if sys.version_info[:2] < Consts.CDefPythonRequire:
+if sys.version_info[:2] < constants.CDefPythonRequire:
    raise Exception("Python 2.5+ required, the version %s was found on your system !" % (sys.version_info[:2],))
 
 del sys
 
-def logEnable(filename=Consts.CDefLogFile, level=Consts.CDefLogLevel):
+def logEnable(filename=constants.CDefLogFile, level=constants.CDefLogLevel):
    """ Enable the log system for pyevolve
 
    :param filename: the log filename

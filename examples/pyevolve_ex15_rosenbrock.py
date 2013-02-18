@@ -1,5 +1,5 @@
 from pyevolve import G1DList, GSimpleGA, Selectors, Statistics
-from pyevolve import Initializators, Mutators, Consts, DBAdapters
+from pyevolve import Initializators, Mutators, constants, DBAdapters
 
 # This is the Rosenbrock Function
 def rosenbrock(xlist):
@@ -21,7 +21,7 @@ def run_main():
 
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.selector.set(Selectors.GRouletteWheel)
    ga.setGenerations(4000)
    ga.setCrossoverRate(0.9)

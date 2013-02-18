@@ -1,9 +1,9 @@
 """
 
-:mod:`Consts` -- constants module
+:mod:`constants` -- constants module
 ============================================================================
 
-Pyevolve have defaults in all genetic operators, settings and etc, this is an issue to helps the user in the API use and minimize the source code needed to make simple things. In the module :mod:`Consts`, you will find those defaults settings. You are encouraged to see the constants, but not to change directly on the module, there are methods for this.
+Pyevolve have defaults in all genetic operators, settings and etc, this is an issue to helps the user in the API use and minimize the source code needed to make simple things. In the module :mod:`constants`, you will find those defaults settings. You are encouraged to see the constants, but not to change directly on the module, there are methods for this.
 
 General constants
 ----------------------------------------------------------------------------
@@ -25,16 +25,16 @@ General constants
    Sort type, raw or scaled.
 
    Example:
-      >>> sort_type = Consts.sortType["raw"]
-      >>> sort_type = Consts.sortType["scaled"]
+      >>> sort_type = constants.sortType["raw"]
+      >>> sort_type = constants.sortType["scaled"]
 
 .. attribute:: minimaxType
 
    The Min/Max type, maximize or minimize the evaluation function.
 
    Example:
-      >>> minmax = Consts.minimaxType["minimize"]
-      >>> minmax = Consts.minimaxType["maximize]
+      >>> minmax = constants.minimaxType["minimize"]
+      >>> minmax = constants.minimaxType["maximize]
   
 .. attribute:: CDefESCKey
 
@@ -380,18 +380,22 @@ CDefLogLevel = logging.DEBUG
 # - raw: uses the "score" attribute
 # - scaled: uses the "fitness" attribute
 sortType = { 
-   "raw"    : 0,
-   "scaled" : 1
+    "raw"    : 0,
+    "scaled" : 1
 }
 
 # Optimization type
 # - Minimize or Maximize the Evaluator Function
-minimaxType = { "minimize" : 0,
-                "maximize" : 1
-               }
+minimaxType = { 
+    "minimize" : 0,
+    "maximize" : 1
+}
 
 
-nodeType = {"TERMINAL" : 0, "NONTERMINAL": 1}
+nodeType = {
+    "TERMINAL" : 0, 
+    "NONTERMINAL": 1
+}
 
 # - This is general used by integer/real ranges defaults
 CDefRangeMin = 0

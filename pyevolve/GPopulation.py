@@ -43,7 +43,7 @@ import Scaling
 
 
 # - Population Defaults
-from Consts import sortType, minimaxType
+from constants import sortType, minimaxType
 CDefPopSortType               = sortType["scaled"]
 CDefPopMinimax                = minimaxType["maximize"]
 CDefPopScale                  = Scaling.LinearScaling

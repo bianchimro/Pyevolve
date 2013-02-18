@@ -9,7 +9,7 @@ allele types to use with the supported chromosomes.
 
 """
 import random
-import Consts
+import constants
 import utils
 
 class GAlleles:
@@ -185,8 +185,8 @@ class GAlleleRange:
 
    """
 
-   def __init__(self, begin=Consts.CDefRangeMin,
-                end=Consts.CDefRangeMax, real=False):
+   def __init__(self, begin=constants.CDefRangeMin,
+                end=constants.CDefRangeMax, real=False):
       """ The constructor of GAlleleRange class """
       self.beginEnd = [(begin, end)]
       self.real = real

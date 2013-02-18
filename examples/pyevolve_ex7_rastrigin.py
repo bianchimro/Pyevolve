@@ -2,7 +2,7 @@ from pyevolve import GSimpleGA
 from pyevolve import g1dlist
 from pyevolve import Mutators, Initializators
 from pyevolve import Selectors
-from pyevolve import Consts
+from pyevolve import constants
 import math
 
 # This is the Rastrigin Function, a deception function
@@ -26,7 +26,7 @@ def run_main():
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
    ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(3000)
    ga.setCrossoverRate(0.8)
    ga.setPopulationSize(100)

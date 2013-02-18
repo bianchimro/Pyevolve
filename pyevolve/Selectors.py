@@ -11,7 +11,7 @@ import random
 import operator
 
 # - Tournament selector
-from Consts import sortType, minimaxType
+from constants import sortType, minimaxType
 CDefTournamentPoolSize = 2
 
 

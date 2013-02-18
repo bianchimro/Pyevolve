@@ -1,7 +1,7 @@
 from pyevolve import utils
 from pyevolve import gtree
 from pyevolve import GSimpleGA
-from pyevolve import Consts
+from pyevolve import constants
 import math
 
 rmse_accum = utils.ErrorAccumulator()
@@ -33,7 +33,7 @@ def run_main():
    ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 
-   ga.setMinimax(Consts.minimaxType["minimize"])
+   ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(50)
    ga.setCrossoverRate(1.0)
    ga.setMutationRate(0.25)
