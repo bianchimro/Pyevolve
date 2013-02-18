@@ -427,12 +427,11 @@ CDefScaleBoltzStart           = 40.0
 CDefRangeMin = 0
 CDefRangeMax = 100
 
-
-
 # - GTree defaults
 CDefGTreeInit      = Initializators.GTreeInitializatorInteger
 CDefGGTreeMutator  = Mutators.GTreeMutatorIntegerRange
 CDefGTreeCrossover = Crossovers.GTreeCrossoverSinglePointStrict
+
 
 # - GTreeGP defaults
 CDefGTreeGPInit      = Initializators.GTreeGPInitializator

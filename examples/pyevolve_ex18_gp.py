@@ -1,5 +1,5 @@
 from pyevolve import utils
-from pyevolve import GTree
+from pyevolve import gtree
 from pyevolve import GSimpleGA
 from pyevolve import Consts
 import math
@@ -24,8 +24,8 @@ def eval_func(chromosome):
 
    return rmse_accum.getRMSE()
 
-def main_run():
-   genome = GTree.GTreeGP()
+def run_main():
+   genome = gtree.GTreeGP()
    genome.set_params(max_depth=4, method="ramped")
    genome.evaluator += eval_func
 
@@ -44,4 +44,4 @@ def main_run():
    print best
 
 if __name__ == "__main__":
-   main_run()
+   run_main()
