@@ -1,3 +1,5 @@
+import sys
+sys.path.append("../")
 from pyevolve import G1DList
 from pyevolve import GSimpleGA
 from pyevolve import Selectors
