@@ -1,5 +1,5 @@
 from pyevolve import GSimpleGA
-from pyevolve import GTree
+from pyevolve import gtree
 from pyevolve import Crossovers
 from pyevolve import Mutators
 import time
@@ -22,8 +22,8 @@ def eval_func(chromosome):
    return score
 
 def run_main():
-   genome = GTree.GTree()
-   root = GTree.GTreeNode(2)
+   genome = gtree.GTree()
+   root = gtree.GTreeNode(2)
    genome.setRoot(root)
    genome.processNodes()
 

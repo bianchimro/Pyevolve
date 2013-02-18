@@ -15,7 +15,7 @@ choosing random data.
 """
 
 from random import randint as rand_randint, uniform as rand_uniform, choice as rand_choice
-import GTree
+import gtree
 import utils
 
 #############################
@@ -175,14 +175,14 @@ def GTreeInitializatorInteger(genome, **args):
    method = genome.getParam("method", "grow")
 
    if method == "grow":
-      root = GTree.buildGTreeGrow(0, lambda_generator, max_siblings, max_depth)
+      root = gtree.buildGTreeGrow(0, lambda_generator, max_siblings, max_depth)
    elif method == "full":
-      root = GTree.buildGTreeFull(0, lambda_generator, max_siblings, max_depth)
+      root = gtree.buildGTreeFull(0, lambda_generator, max_siblings, max_depth)
    elif method == "ramped":
       if utils.random_flip_coin(0.5):
-         root = GTree.buildGTreeGrow(0, lambda_generator, max_siblings, max_depth)
+         root = gtree.buildGTreeGrow(0, lambda_generator, max_siblings, max_depth)
       else:
-         root = GTree.buildGTreeFull(0, lambda_generator, max_siblings, max_depth)
+         root = gtree.buildGTreeFull(0, lambda_generator, max_siblings, max_depth)
    else:
       utils.raise_exception("Unknown tree initialization method [%s] !" % method)
 
@@ -213,14 +213,14 @@ def GTreeInitializatorAllele(genome, **args):
       utils.raise_exception("to use the GTreeInitializatorAllele, the 'allele' must be homogeneous")
 
    if method == "grow":
-      root = GTree.buildGTreeGrow(0, allele[0].getRandomAllele, max_siblings, max_depth)
+      root = gtree.buildGTreeGrow(0, allele[0].getRandomAllele, max_siblings, max_depth)
    elif method == "full":
-      root = GTree.buildGTreeFull(0, allele[0].getRandomAllele, max_siblings, max_depth)
+      root = gtree.buildGTreeFull(0, allele[0].getRandomAllele, max_siblings, max_depth)
    elif method == "ramped":
       if utils.random_flip_coin(0.5):
-         root = GTree.buildGTreeGrow(0, allele[0].getRandomAllele, max_siblings, max_depth)
+         root = gtree.buildGTreeGrow(0, allele[0].getRandomAllele, max_siblings, max_depth)
       else:
-         root = GTree.buildGTreeFull(0, allele[0].getRandomAllele, max_siblings, max_depth)
+         root = gtree.buildGTreeFull(0, allele[0].getRandomAllele, max_siblings, max_depth)
    else:
       utils.raise_exception("Unknown tree initialization method [%s] !" % method)
 
@@ -251,14 +251,14 @@ def GTreeGPInitializator(genome, **args):
    ga_engine = args["ga_engine"]
 
    if method == "grow":
-      root = GTree.buildGTreeGPGrow(ga_engine, 0, max_depth)
+      root = gtree.buildGTreeGPGrow(ga_engine, 0, max_depth)
    elif method == "full":
-      root = GTree.buildGTreeGPFull(ga_engine, 0, max_depth)
+      root = gtree.buildGTreeGPFull(ga_engine, 0, max_depth)
    elif method == "ramped":
       if utils.random_flip_coin(0.5):
-         root = GTree.buildGTreeGPFull(ga_engine, 0, max_depth)
+         root = gtree.buildGTreeGPFull(ga_engine, 0, max_depth)
       else:
-         root = GTree.buildGTreeGPGrow(ga_engine, 0, max_depth)
+         root = gtree.buildGTreeGPGrow(ga_engine, 0, max_depth)
    else:
       utils.raise_exception("Unknown tree initialization method [%s] !" % method)
 

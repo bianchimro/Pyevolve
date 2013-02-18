@@ -373,7 +373,7 @@ import Initializators
 import Mutators
 import Crossovers
 import logging
-from GTree import GTreeGP
+from gtree import GTreeGP
 
 # Required python version 2.5+
 CDefPythonRequire = (2, 5)

@@ -11,7 +11,7 @@ import utils
 from random import randint as rand_randint, gauss as rand_gauss, uniform as rand_uniform
 from random import choice as rand_choice
 import Consts
-import GTree
+import gtree
 
 #############################
 ##     1D Binary String    ##
@@ -1035,7 +1035,7 @@ def GTreeGPMutatorSubtree(genome, **args):
          depth = genome.getNodeDepth(node)
          mutations += 1
 
-         root_subtree = GTree.buildGTreeGPGrow(ga_engine, 0, max_depth-depth)
+         root_subtree = gtree.buildGTreeGPGrow(ga_engine, 0, max_depth-depth)
          node_parent = node.getParent()
 
          if node_parent is None:
