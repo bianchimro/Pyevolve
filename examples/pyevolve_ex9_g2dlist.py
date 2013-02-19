@@ -1,4 +1,4 @@
-from pyevolve import g2dlist
+from pyevolve.g2d import g2dlist
 from pyevolve import GSimpleGA
 from pyevolve import selectors
 from pyevolve import Crossovers

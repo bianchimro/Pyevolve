@@ -35,14 +35,14 @@ Classes
 -------------------------------------------------------------
 """
 import random
-from genome import GenomeBase
+from ..genome import GenomeBase
 from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
 
-import initializators
-import mutators
-import Crossovers
-
+from .. import initializators
+from .. import mutators
+from .. import Crossovers
+from .. import utils
 
 # - GTree defaults
 CDefGTreeInit      = initializators.GTreeInitializatorInteger
@@ -56,8 +56,6 @@ CDefGGTreeGPMutator  = mutators.GTreeGPMutatorSubtree
 CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
 
 
-
-import utils
 
 try:
    import pydot

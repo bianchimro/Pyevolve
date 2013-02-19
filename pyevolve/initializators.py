@@ -15,7 +15,7 @@ choosing random data.
 """
 
 from random import randint as rand_randint, uniform as rand_uniform, choice as rand_choice
-import gtree_utils
+from gtree import gtree_utils
 import utils
 
 #############################

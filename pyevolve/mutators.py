@@ -11,7 +11,7 @@ import utils
 from random import randint as rand_randint, gauss as rand_gauss, uniform as rand_uniform
 from random import choice as rand_choice
 from constants import CDefRangeMin, CDefRangeMax
-import gtree_utils
+from gtree import gtree_utils
 
 
 CDefG1DListMutIntMU = 2

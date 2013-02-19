@@ -1,4 +1,4 @@
-from pyevolve import G2DBinaryString
+from pyevolve.g2d import G2DBinaryString
 from pyevolve import GSimpleGA
 from pyevolve import selectors
 from pyevolve import Crossovers

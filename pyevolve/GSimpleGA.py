@@ -87,7 +87,7 @@ if sys_platform[:3] == "win":
    import msvcrt
    
 from constants import minimaxType
-from gtree import GTreeGP
+from gtree.gtree import GTreeGP
 
 # - GA Engine defaults
 CDefGAGenerations    = 100

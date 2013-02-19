@@ -35,11 +35,10 @@ Class
 
 """
 
-from genome import GenomeBase
-
-import mutators
-import Crossovers
-import initializators
+from ..genome import GenomeBase
+from .. import mutators
+from .. import Crossovers
+from .. import initializators
 
 
 # - G2DList defaults

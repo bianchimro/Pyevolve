@@ -38,11 +38,11 @@ Class
 -------------------------------------------------------------
 """
 
-from genome import GenomeBase
-import mutators
-import Crossovers
-import initializators
-import utils
+from ..genome import GenomeBase
+from .. import mutators
+from .. import Crossovers
+from .. import initializators
+from .. import utils
     
 # - G2DBinaryString defaults
 CDefG2DBinaryStringMutator     = mutators.G2DBinaryStringMutatorFlip

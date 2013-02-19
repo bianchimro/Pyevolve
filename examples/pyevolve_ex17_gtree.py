@@ -1,5 +1,5 @@
 from pyevolve import GSimpleGA
-from pyevolve import gtree
+from pyevolve.gtree import gtree
 from pyevolve import Crossovers
 from pyevolve import mutators
 import time
