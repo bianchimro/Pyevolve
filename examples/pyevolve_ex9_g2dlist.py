@@ -1,4 +1,4 @@
-from pyevolve import G2DList
+from pyevolve import g2dlist
 from pyevolve import GSimpleGA
 from pyevolve import Selectors
 from pyevolve import Crossovers
@@ -19,7 +19,7 @@ def eval_func(chromosome):
 
 def test_run_main():
    # Genome instance
-   genome = G2DList.G2DList(8, 5)
+   genome = g2dlist.G2DList(8, 5)
    genome.set_params(rangemin=0, rangemax=100)
 
    # The evaluator function (objective function)
