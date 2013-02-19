@@ -1,4 +1,4 @@
-from pyevolve import g1dlist, GSimpleGA, selectors
+from pyevolve.G1D import g1dlist, GSimpleGA, selectors
 from pyevolve import initializators, mutators, constants, DBAdapters
 import math
 

@@ -36,10 +36,10 @@ Class
 
 from g1dbase import G1DBase
 
-import mutators
-import Crossovers
-import initializators
-import utils
+from .. import mutators
+from .. import Crossovers
+from .. import initializators
+from .. import utils
 
 # - G1DBinaryString defaults
 CDefG1DBinaryStringMutator     = mutators.G1DBinaryStringMutatorFlip

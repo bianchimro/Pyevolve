@@ -1,4 +1,4 @@
-from pyevolve import g1dlist, GSimpleGA, selectors, Statistics
+from pyevolve.G1D import g1dlist, GSimpleGA, selectors, Statistics
 from pyevolve import initializators, mutators, constants, DBAdapters
 
 # This is the Rosenbrock Function

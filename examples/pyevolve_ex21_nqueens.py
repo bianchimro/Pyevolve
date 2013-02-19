@@ -1,4 +1,4 @@
-from pyevolve import g1dlist
+from pyevolve.G1D import g1dlist
 from pyevolve import mutators, Crossovers
 from pyevolve import constants, GSimpleGA
 from pyevolve import DBAdapters
