@@ -50,7 +50,7 @@ Default Parameters
 
 *Selector (Selection Method)*
 
-   :func:`Selectors.GRankSelector`
+   :func:`selectors.GRankSelector`
 
    The Rank Selection method
 
@@ -66,10 +66,10 @@ from genome   import GenomeBase
 from DBAdapters   import DBBaseAdapter
 
 import utils
-import Mutators
+import mutators
 import Crossovers
 import initializators
-import Selectors
+import selectors
 
 import random
 import logging
@@ -94,7 +94,7 @@ CDefGAGenerations    = 100
 CDefGAMutationRate   = 0.02
 CDefGACrossoverRate  = 0.9
 CDefGAPopulationSize = 80
-CDefGASelector       = Selectors.GRankSelector
+CDefGASelector       = selectors.GRankSelector
 CDefGAElitismReplacement = 1
 
 CDefGPGenomes = [GTreeGP] 
@@ -174,7 +174,7 @@ class GSimpleGA:
 
    Example:
       >>> ga = GSimpleGA.GSimpleGA(genome)
-      >>> ga.selector.set(Selectors.GRouletteWheel)
+      >>> ga.selector.set(selectors.GRouletteWheel)
       >>> ga.setGenerations(120)
       >>> ga.terminationCriteria.set(GSimpleGA.ConvergenceCriteria)
 
@@ -190,7 +190,7 @@ class GSimpleGA:
    """ This is the function slot for the selection method
    if you want to change the default selector, you must do this: ::
 
-      ga_engine.selector.set(Selectors.GRouletteWheel) """
+      ga_engine.selector.set(selectors.GRouletteWheel) """
 
    stepCallback = None
    """ This is the :term:`step callback function` slot,

@@ -39,7 +39,7 @@ class MigrationScheme(object):
    """ This is the function slot for the selection method
    if you want to change the default selector, you must do this: ::
 
-      migration_scheme.selector.set(Selectors.GRouletteWheel) """
+      migration_scheme.selector.set(selectors.GRouletteWheel) """
 
    def __init__(self):
       self.selector = FunctionSlot("Selector")
@@ -165,7 +165,7 @@ class WANMigration(MigrationScheme):
    """ This is the function slot for the selection method
    if you want to change the default selector, you must do this: ::
 
-      migration_scheme.selector.set(Selectors.GRouletteWheel) """
+      migration_scheme.selector.set(selectors.GRouletteWheel) """
 
    def __init__(self, host, port, group_name):
       super(WANMigration, self).__init__()

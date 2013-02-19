@@ -1,6 +1,6 @@
 from pyevolve import g1dlist, GAllele
 from pyevolve import GSimpleGA
-from pyevolve import Mutators
+from pyevolve import mutators
 from pyevolve import Crossovers
 from pyevolve import constants
 

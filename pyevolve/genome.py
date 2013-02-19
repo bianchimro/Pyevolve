@@ -37,7 +37,7 @@ class GenomeBase(object):
     """ This is the mutator function slot, you can change the default
     mutator using the slot *set* function: ::
  
-       genome.mutator.set(Mutators.G1DListMutatorSwap)
+       genome.mutator.set(mutators.G1DListMutatorSwap)
  
     """
  

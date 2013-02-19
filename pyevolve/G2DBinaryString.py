@@ -21,7 +21,7 @@ Default Parameters
 
 *Mutator*
 
-   :func:`Mutators.G2DBinaryStringMutatorFlip`
+   :func:`mutators.G2DBinaryStringMutatorFlip`
 
    The Flip Mutator for G2DBinaryString
 
@@ -39,13 +39,13 @@ Class
 """
 
 from genome import GenomeBase
-import Mutators
+import mutators
 import Crossovers
 import initializators
 import utils
     
 # - G2DBinaryString defaults
-CDefG2DBinaryStringMutator     = Mutators.G2DBinaryStringMutatorFlip
+CDefG2DBinaryStringMutator     = mutators.G2DBinaryStringMutatorFlip
 CDefG2DBinaryStringCrossover   = Crossovers.G2DBinaryStringXUniform
 CDefG2DBinaryStringInit        = initializators.G2DBinaryStringInitializator
 CDefG2DBinaryStringUniformProb = 0.5

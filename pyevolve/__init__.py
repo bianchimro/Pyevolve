@@ -3,9 +3,9 @@
 ================================================================
 
 This is the main module of the pyevolve, every other module
-is above this namespace, for example, to import :mod:`Mutators`:
+is above this namespace, for example, to import :mod:`mutators`:
 
-   >>> from pyevolve import Mutators
+   >>> from pyevolve import mutators
 
 
 """
@@ -13,7 +13,7 @@ __all__ = ["constants", "Crossovers", "DBAdapters", "FunctionSlot",
            "G1DBinaryString", "g1dlist", "G2DBinaryString",
            "G2DList", "GAllele", "GenomeBase", "GPopulation",
            "GSimpleGA", "gtree", "gtreenode", "gtree_utils",  "initializators",
-           "Migration", "Mutators", "Network", "Scaling", "Selectors",
+           "Migration", "mutators", "Network", "Scaling", "selectors",
            "Statistics", "utils", 'gd1base']
 
 __version__ =  '0.6'

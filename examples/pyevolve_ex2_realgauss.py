@@ -1,7 +1,7 @@
 from pyevolve import GSimpleGA
 from pyevolve import g1dlist
-from pyevolve import Selectors
-from pyevolve import initializators, Mutators
+from pyevolve import selectors
+from pyevolve import initializators, mutators
 
 # Find negative element
 def eval_func(genome):
@@ -21,14 +21,14 @@ def test_run_main():
    genome.initializator.set(initializators.G1DListInitializatorReal)
 
    # Change the mutator to Gaussian Mutator
-   genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
+   genome.mutator.set(mutators.G1DListMutatorRealGaussian)
 
    # The evaluator function (objective function)
    genome.evaluator.set(eval_func)
 
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.selector.set(Selectors.GRouletteWheel)
+   ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(100)
 
    # Do the evolution

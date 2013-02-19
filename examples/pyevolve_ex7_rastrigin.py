@@ -1,7 +1,7 @@
 from pyevolve import GSimpleGA
 from pyevolve import g1dlist
-from pyevolve import Mutators, initializators
-from pyevolve import Selectors
+from pyevolve import mutators, initializators
+from pyevolve import selectors
 from pyevolve import constants
 import math
 
@@ -18,7 +18,7 @@ def test_run_main():
    genome = g1dlist.G1DList(20)
    genome.set_params(rangemin=-5.2, rangemax=5.30, bestrawscore=0.00, rounddecimal=2)
    genome.initializator.set(initializators.G1DListInitializatorReal)
-   genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
+   genome.mutator.set(mutators.G1DListMutatorRealGaussian)
 
    genome.evaluator.set(rastrigin)
 

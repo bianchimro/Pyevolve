@@ -2,7 +2,7 @@ import sys
 sys.path.append("../")
 from pyevolve import g1dlist
 from pyevolve import GSimpleGA
-from pyevolve import Selectors
+from pyevolve import selectors
 from pyevolve import Statistics
 from pyevolve import DBAdapters
 
@@ -34,7 +34,7 @@ def test_run_main():
 
    # Set the Roulette Wheel selector method, the number of generations and
    # the termination criteria
-   ga.selector.set(Selectors.GRouletteWheel)
+   ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(500)
    ga.terminationCriteria.set(GSimpleGA.ConvergenceCriteria)
 

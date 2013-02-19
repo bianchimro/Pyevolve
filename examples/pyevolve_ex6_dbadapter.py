@@ -1,6 +1,6 @@
 from pyevolve import g1dlist
 from pyevolve import GSimpleGA
-from pyevolve import Selectors
+from pyevolve import selectors
 from pyevolve import DBAdapters
 from pyevolve import Statistics
 

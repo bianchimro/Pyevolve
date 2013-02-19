@@ -2,8 +2,8 @@ from pyevolve import GSimpleGA
 from pyevolve import gtree
 from pyevolve import gtreenode
 from pyevolve import constants
-from pyevolve import Selectors
-from pyevolve import Mutators
+from pyevolve import selectors
+from pyevolve import mutators
 from math import sqrt
 import pydot   
 import random
@@ -63,7 +63,7 @@ def main_run():
 
    genome.set_params(max_depth=2, method="ramped")
    genome.evaluator += eval_func
-   genome.mutator.set(Mutators.GTreeGPMutatorSubtree)
+   genome.mutator.set(mutators.GTreeGPMutatorSubtree)
 
    ga = GSimpleGA.GSimpleGA(genome)
    ga.set_params(gp_terminals       = ['a', 'b'],

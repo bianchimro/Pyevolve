@@ -1,7 +1,7 @@
 from pyevolve import GSimpleGA
 from pyevolve import gtree
 from pyevolve import Crossovers
-from pyevolve import Mutators
+from pyevolve import mutators
 import time
 import random
 

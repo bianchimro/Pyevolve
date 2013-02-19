@@ -19,7 +19,7 @@ Default Parameters
 
 *Mutator*
 
-   :func:`Mutators.G1DListMutatorSwap`
+   :func:`mutators.G1DListMutatorSwap`
 
    The Swap Mutator for G1DList
 
@@ -35,13 +35,13 @@ Class
 
 """
 from g1dbase import G1DBase
-import Mutators
+import mutators
 import Crossovers
 import initializators
 
 # - G1DList defaults
 
-CDefG1DListMutator   = Mutators.G1DListMutatorSwap
+CDefG1DListMutator   = mutators.G1DListMutatorSwap
 CDefG1DListCrossover = Crossovers.G1DListCrossoverSinglePoint
 CDefG1DListInit      = initializators.G1DListInitializatorInteger
 CDefG1DListCrossUniformProb = 0.5

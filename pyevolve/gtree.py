@@ -18,7 +18,7 @@ Default Parameters
 
 *Mutator*
    
-   :func:`Mutators.GTreeMutatorIntegerRange`
+   :func:`mutators.GTreeMutatorIntegerRange`
 
    The Integer Range mutator for GTree
 
@@ -40,19 +40,19 @@ from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
 
 import initializators
-import Mutators
+import mutators
 import Crossovers
 
 
 # - GTree defaults
 CDefGTreeInit      = initializators.GTreeInitializatorInteger
-CDefGGTreeMutator  = Mutators.GTreeMutatorIntegerRange
+CDefGGTreeMutator  = mutators.GTreeMutatorIntegerRange
 CDefGTreeCrossover = Crossovers.GTreeCrossoverSinglePointStrict
 
 
 # - GTreeGP defaults
 CDefGTreeGPInit      = initializators.GTreeGPInitializator
-CDefGGTreeGPMutator  = Mutators.GTreeGPMutatorSubtree
+CDefGGTreeGPMutator  = mutators.GTreeGPMutatorSubtree
 CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
 
 
@@ -101,7 +101,7 @@ class GTree(GenomeBase, GTreeBase):
    """ This is the mutator function slot, you can change the default
    mutator using the slot *set* function: ::
 
-      genome.mutator.set(Mutators.G1DListMutatorSwap)
+      genome.mutator.set(mutators.G1DListMutatorSwap)
 
    """
 

@@ -31,7 +31,7 @@ def main_run():
    genome = GTree.GTreeGP()
    genome.set_params(max_depth=6, method="ramped")
    genome.evaluator += eval_func
-   genome.mutator.set(Mutators.GTreeGPMutatorSubtree)
+   genome.mutator.set(mutators.GTreeGPMutatorSubtree)
 
    ga = GSimpleGA.GSimpleGA(genome, seed=666)
    ga.stepCallback.set(step_callback)

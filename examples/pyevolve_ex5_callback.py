@@ -1,6 +1,6 @@
 from pyevolve import g1dlist
 from pyevolve import GSimpleGA
-from pyevolve import Selectors
+from pyevolve import selectors
 
 # The step callback function, this function
 # will be called every step (generation) of the GA evolution
@@ -30,7 +30,7 @@ def test_run_main():
 
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.selector.set(Selectors.GRouletteWheel)
+   ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(800)
    ga.stepCallback.set(evolve_callback)
 

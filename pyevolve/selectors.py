@@ -1,6 +1,6 @@
 """
 
-:mod:`Selectors` -- selection methods module
+:mod:`selectors` -- selection methods module
 ==============================================================
 
 This module have the *selection methods*, like roulette wheel, tournament, ranking, etc.

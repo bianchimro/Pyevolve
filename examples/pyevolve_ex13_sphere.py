@@ -1,5 +1,5 @@
 from pyevolve import g1dlist
-from pyevolve import Mutators, initializators
+from pyevolve import mutators, initializators
 from pyevolve import GSimpleGA, constants
 
 # This is the Sphere Function
@@ -13,7 +13,7 @@ def test_run_main():
    genome = g1dlist.G1DList(140)
    genome.set_params(rangemin=-5.12, rangemax=5.13)
    genome.initializator.set(initializators.G1DListInitializatorReal)
-   genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
+   genome.mutator.set(mutators.G1DListMutatorRealGaussian)
    genome.evaluator.set(sphere)
 
    ga = GSimpleGA.GSimpleGA(genome, seed=666)

@@ -65,12 +65,12 @@ General constants
    The classes which are used in Genetic Programming, used to detected the
    correct mode when starting the evolution
 
-Selection methods constants (:mod:`Selectors`)
+Selection methods constants (:mod:`selectors`)
 ----------------------------------------------------------------------------
 
 .. attribute:: CDefTournamentPoolSize
 
-   The default pool size for the Tournament Selector (:func:`Selectors.GTournamentSelector`).
+   The default pool size for the Tournament Selector (:func:`selectors.GTournamentSelector`).
 
 Scaling scheme constants (:mod:`Scaling`)
 ----------------------------------------------------------------------------
@@ -164,19 +164,19 @@ Population constants (:class:`GPopulation.GPopulation`)
 
 .. attribute:: CDefG1DListMutIntMU
 
-   Default *mu* value of the 1D List Gaussian Integer Mutator (:func:`Mutators.G1DListMutatorIntegerGaussian`), the *mu* represents the mean of the distribution.
+   Default *mu* value of the 1D List Gaussian Integer Mutator (:func:`mutators.G1DListMutatorIntegerGaussian`), the *mu* represents the mean of the distribution.
    
 .. attribute:: CDefG1DListMutIntSIGMA
 
-   Default *sigma* value of the 1D List Gaussian Integer Mutator (:func:`Mutators.G1DListMutatorIntegerGaussian`), the *sigma* represents the standard deviation of the distribution.
+   Default *sigma* value of the 1D List Gaussian Integer Mutator (:func:`mutators.G1DListMutatorIntegerGaussian`), the *sigma* represents the standard deviation of the distribution.
    
 .. attribute:: CDefG1DListMutRealMU
 
-   Default *mu* value of the 1D List Gaussian Real Mutator (:func:`Mutators.G1DListMutatorRealGaussian`), the *mu* represents the mean of the distribution.
+   Default *mu* value of the 1D List Gaussian Real Mutator (:func:`mutators.G1DListMutatorRealGaussian`), the *mu* represents the mean of the distribution.
    
 .. attribute:: CDefG1DListMutRealSIGMA
 
-   Default *sigma* value of the 1D List Gaussian Real Mutator (:func:`Mutators.G1DListMutatorRealGaussian`), the *sigma* represents the mean of the distribution.
+   Default *sigma* value of the 1D List Gaussian Real Mutator (:func:`mutators.G1DListMutatorRealGaussian`), the *sigma* represents the mean of the distribution.
 
 
 Tree chromosome constants (:class:`GTree.GTree`)
@@ -200,19 +200,19 @@ Tree chromosome constants (:class:`GTree.GTree`)
 
 .. attribute:: CDefG2DListMutRealMU
 
-   Default *mu* value of the 2D List Gaussian Real Mutator (:func:`Mutators.G2DListMutatorRealGaussian`), the *mu* represents the mean of the distribution.
+   Default *mu* value of the 2D List Gaussian Real Mutator (:func:`mutators.G2DListMutatorRealGaussian`), the *mu* represents the mean of the distribution.
 
 .. attribute:: CDefG2DListMutRealSIGMA
 
-   Default *sigma* value of the 2D List Gaussian Real Mutator (:func:`Mutators.G2DListMutatorRealGaussian`), the *sigma* represents the mean of the distribution.
+   Default *sigma* value of the 2D List Gaussian Real Mutator (:func:`mutators.G2DListMutatorRealGaussian`), the *sigma* represents the mean of the distribution.
 
 .. attribute:: CDefG2DListMutIntMU
 
-   Default *mu* value of the 2D List Gaussian Integer Mutator (:func:`Mutators.G2DListMutatorIntegerGaussian`), the *mu* represents the mean of the distribution.
+   Default *mu* value of the 2D List Gaussian Integer Mutator (:func:`mutators.G2DListMutatorIntegerGaussian`), the *mu* represents the mean of the distribution.
    
 .. attribute:: CDefG2DListMutIntSIGMA
 
-   Default *sigma* value of the 2D List Gaussian Integer Mutator (:func:`Mutators.G2DListMutatorIntegerGaussian`), the *sigma* represents the mean of the distribution.
+   Default *sigma* value of the 2D List Gaussian Integer Mutator (:func:`mutators.G2DListMutatorIntegerGaussian`), the *sigma* represents the mean of the distribution.
 
 .. attribute:: CDefG2DListMutator
 

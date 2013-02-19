@@ -1,6 +1,6 @@
 """
 
-:mod:`Mutators` -- mutation methods module
+:mod:`mutators` -- mutation methods module
 =====================================================================
 
 In this module we have the genetic operators of mutation for each chromosome representation.

@@ -18,7 +18,7 @@ Default Parameters
 
 *Mutator*
 
-   :func:`Mutators.G2DListMutatorSwap`
+   :func:`mutators.G2DListMutatorSwap`
 
    The Swap Mutator for G2DList
 
@@ -37,7 +37,7 @@ Class
 
 from genome import GenomeBase
 
-import Mutators
+import mutators
 import Crossovers
 import initializators
 
@@ -49,7 +49,7 @@ CDefG2DListMutIntSIGMA = 10
 CDefG2DListMutRealMU = 0
 CDefG2DListMutRealSIGMA = 1
 
-CDefG2DListMutator   = Mutators.G2DListMutatorSwap
+CDefG2DListMutator   = mutators.G2DListMutatorSwap
 CDefG2DListCrossover = Crossovers.G2DListCrossoverUniform
 CDefG2DListInit      = initializators.G2DListInitializatorInteger
 CDefG2DListCrossUniformProb = 0.5

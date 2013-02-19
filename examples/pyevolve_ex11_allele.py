@@ -1,6 +1,6 @@
 from pyevolve import g1dlist
 from pyevolve import GSimpleGA
-from pyevolve import Mutators
+from pyevolve import mutators
 from pyevolve import initializators
 from pyevolve import GAllele
 
@@ -53,7 +53,7 @@ def test_run_main():
    # This mutator and initializator will take care of
    # initializing valid individuals based on the allele set
    # that we have defined before
-   genome.mutator.set(Mutators.G1DListMutatorAllele)
+   genome.mutator.set(mutators.G1DListMutatorAllele)
    genome.initializator.set(initializators.G1DListInitializatorAllele)
 
    # Genetic Algorithm Instance

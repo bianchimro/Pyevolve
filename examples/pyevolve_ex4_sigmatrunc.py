@@ -1,7 +1,7 @@
 from pyevolve import g1dlist
 from pyevolve import GSimpleGA
-from pyevolve import Selectors
-from pyevolve import initializators, Mutators
+from pyevolve import selectors
+from pyevolve import initializators, mutators
 from pyevolve import Scaling
 from pyevolve import constants
 import math
@@ -21,7 +21,7 @@ def test_run_main():
    genome.initializator.set(initializators.G1DListInitializatorReal)
 
    # Change the mutator to Gaussian Mutator
-   genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
+   genome.mutator.set(mutators.G1DListMutatorRealGaussian)
 
    # Removes the default crossover
    genome.crossover.clear()
@@ -36,7 +36,7 @@ def test_run_main():
    pop = ga.getPopulation()
    pop.scaleMethod.set(Scaling.SigmaTruncScaling)
 
-   ga.selector.set(Selectors.GRouletteWheel)
+   ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(100)
 
    # Do the evolution

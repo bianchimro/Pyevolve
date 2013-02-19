@@ -17,7 +17,7 @@ Default Parameters
 
 *Mutator*
 
-   :func:`Mutators.G1DBinaryStringMutatorFlip`
+   :func:`mutators.G1DBinaryStringMutatorFlip`
 
    The Flip Mutator for G1DBinaryString
 
@@ -36,13 +36,13 @@ Class
 
 from g1dbase import G1DBase
 
-import Mutators
+import mutators
 import Crossovers
 import initializators
 import utils
 
 # - G1DBinaryString defaults
-CDefG1DBinaryStringMutator     = Mutators.G1DBinaryStringMutatorFlip
+CDefG1DBinaryStringMutator     = mutators.G1DBinaryStringMutatorFlip
 CDefG1DBinaryStringCrossover   = Crossovers.G1DBinaryStringXSinglePoint
 CDefG1DBinaryStringInit        = initializators.G1DBinaryStringInitializator
 CDefG1DBinaryStringUniformProb = 0.5

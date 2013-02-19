@@ -1,5 +1,5 @@
 from pyevolve import g1dlist
-from pyevolve import Mutators, Crossovers
+from pyevolve import mutators, Crossovers
 from pyevolve import constants, GSimpleGA
 from pyevolve import DBAdapters
 from random import shuffle
@@ -28,7 +28,7 @@ def test_run_main():
    genome = g1dlist.G1DList(BOARD_SIZE)
    genome.set_params(bestrawscore=BOARD_SIZE, rounddecimal=2)
    genome.initializator.set(queens_init)
-   genome.mutator.set(Mutators.G1DListMutatorSwap)
+   genome.mutator.set(mutators.G1DListMutatorSwap)
    genome.crossover.set(Crossovers.G1DListCrossoverCutCrossfill)
    genome.evaluator.set(queens_eval)
 

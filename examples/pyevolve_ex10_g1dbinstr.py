@@ -1,7 +1,7 @@
 from pyevolve import G1DBinaryString
 from pyevolve import GSimpleGA
-from pyevolve import Selectors
-from pyevolve import Mutators
+from pyevolve import selectors
+from pyevolve import mutators
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes
@@ -21,11 +21,11 @@ def test_run_main():
 
    # The evaluator function (objective function)
    genome.evaluator.set(eval_func)
-   genome.mutator.set(Mutators.G1DBinaryStringMutatorFlip)
+   genome.mutator.set(mutators.G1DBinaryStringMutatorFlip)
 
    # Genetic Algorithm Instance
    ga = GSimpleGA.GSimpleGA(genome)
-   ga.selector.set(Selectors.GTournamentSelector)
+   ga.selector.set(selectors.GTournamentSelector)
    ga.setGenerations(70)
 
    # Do the evolution, with stats dump
