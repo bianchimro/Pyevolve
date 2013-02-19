@@ -59,7 +59,7 @@ Class
 
 """
 
-from GPopulation  import GPopulation
+from population  import GPopulation
 from FunctionSlot import FunctionSlot
 from Migration    import MigrationScheme
 from genome   import GenomeBase
