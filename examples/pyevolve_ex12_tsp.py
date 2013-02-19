@@ -1,4 +1,4 @@
-from pyevolve.G1D import g1dlist, GAllele
+from pyevolve.g1d import g1dlist, GAllele
 from pyevolve import GSimpleGA
 from pyevolve import mutators
 from pyevolve import Crossovers

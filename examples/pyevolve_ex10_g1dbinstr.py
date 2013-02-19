@@ -1,4 +1,4 @@
-from pyevolve.G1D import G1DBinaryString
+from pyevolve.g1d import G1DBinaryString
 from pyevolve import GSimpleGA
 from pyevolve import selectors
 from pyevolve import mutators

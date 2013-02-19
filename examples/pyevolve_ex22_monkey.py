@@ -4,7 +4,7 @@
 # By Jelle Feringa
 #===============================================================================
 
-from pyevolve.G1D import g1dlist
+from pyevolve.g1d import g1dlist
 from pyevolve import GSimpleGA, constants
 from pyevolve import selectors
 from pyevolve import initializators, mutators, Crossovers

@@ -1,5 +1,5 @@
 from pyevolve import GSimpleGA
-from pyevolve.G1D import g1dlist
+from pyevolve.g1d import g1dlist
 from pyevolve import mutators, initializators
 from pyevolve import selectors
 from pyevolve import constants
