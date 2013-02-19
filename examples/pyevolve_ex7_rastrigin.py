@@ -13,10 +13,9 @@ def rastrigin(genome):
       total += genome[i]**2 - 10*math.cos(2*math.pi*genome[i])
    return (10*n) + total
 
-def run_main():
+def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList
-(20)
+   genome = g1dlist.G1DList(20)
    genome.set_params(rangemin=-5.2, rangemax=5.30, bestrawscore=0.00, rounddecimal=2)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
@@ -38,4 +37,4 @@ def run_main():
    print best
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

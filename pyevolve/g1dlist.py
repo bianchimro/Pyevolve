@@ -40,11 +40,6 @@ import Crossovers
 import Initializators
 
 # - G1DList defaults
-CDefG1DListMutIntMU = 2
-CDefG1DListMutIntSIGMA = 10
-
-CDefG1DListMutRealMU = 0
-CDefG1DListMutRealSIGMA = 1
 
 CDefG1DListMutator   = Mutators.G1DListMutatorSwap
 CDefG1DListCrossover = Crossovers.G1DListCrossoverSinglePoint

@@ -1,5 +1,6 @@
 from pyevolve import GSimpleGA
-from pyevolve import GTree
+from pyevolve import gtree
+from pyevolve import gtreenode
 from pyevolve import constants
 from pyevolve import Selectors
 from pyevolve import Mutators
@@ -56,8 +57,8 @@ def eval_func(chromosome):
    return score
 
 def main_run():
-   genome = GTree.GTreeGP()
-   root   = GTree.GTreeNodeGP('a', constants.nodeType["TERMINAL"])
+   genome = gtree.GTreeGP()
+   root   = gtreenode.GTreeNodeGP('a', constants.nodeType["TERMINAL"])
    genome.setRoot(root)
 
    genome.set_params(max_depth=2, method="ramped")

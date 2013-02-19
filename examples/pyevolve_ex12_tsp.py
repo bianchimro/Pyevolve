@@ -1,4 +1,4 @@
-from pyevolve import G1DList, GAllele
+from pyevolve import g1dlist, GAllele
 from pyevolve import GSimpleGA
 from pyevolve import Mutators
 from pyevolve import Crossovers
@@ -92,14 +92,13 @@ def evolve_callback(ga_engine):
          LAST_SCORE = best.get_raw_score()
    return False
 
-def main_run():
+def test_run_main():
    global cm, coords, WIDTH, HEIGHT
 
    coords = [(random.randint(0, WIDTH), random.randint(0, HEIGHT))
                  for i in xrange(CITIES)]
    cm     = cartesian_matrix(coords)
-   genome = g1dlist.G1DList
-(len(coords))
+   genome = g1dlist.G1DList(len(coords))
 
    genome.evaluator.set(lambda chromosome: tour_length(cm, chromosome))
    genome.crossover.set(Crossovers.G1DListCrossoverEdge)
@@ -128,4 +127,4 @@ def main_run():
       print "No PIL detected, cannot plot the graph !"
 
 if __name__ == "__main__":
-   main_run()
+   test_run_main()

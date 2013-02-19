@@ -24,9 +24,8 @@ def queens_init(genome, **args):
    genome.genomeList = range(0, BOARD_SIZE)
    shuffle(genome.genomeList)
 
-def run_main():
-   genome = g1dlist.G1DList
-(BOARD_SIZE)
+def test_run_main():
+   genome = g1dlist.G1DList(BOARD_SIZE)
    genome.set_params(bestrawscore=BOARD_SIZE, rounddecimal=2)
    genome.initializator.set(queens_init)
    genome.mutator.set(Mutators.G1DListMutatorSwap)
@@ -55,5 +54,5 @@ def run_main():
    print "Best individual score: %.2f\n" % (best.get_raw_score(),)
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()
   

@@ -16,8 +16,7 @@ def eval_func(chromosome):
    return score
 
 # Genome instance
-genome = g1dlist.G1DList
-(100)
+genome = g1dlist.G1DList(100)
 genome.set_params(rangemin=0, rangemax=10)
 
 # The evaluator function (objective function)

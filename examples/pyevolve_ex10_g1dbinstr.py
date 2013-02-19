@@ -15,7 +15,7 @@ def eval_func(chromosome):
       
    return score
 
-def run_main():
+def test_run_main():
    # Genome instance
    genome = G1DBinaryString.G1DBinaryString(50)
 
@@ -36,5 +36,5 @@ def run_main():
    print ga.bestIndividual()
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()
    

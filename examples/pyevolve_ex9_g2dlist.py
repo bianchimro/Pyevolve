@@ -17,7 +17,7 @@ def eval_func(chromosome):
             score += 0.1
    return score
 
-def run_main():
+def test_run_main():
    # Genome instance
    genome = G2DList.G2DList(8, 5)
    genome.set_params(rangemin=0, rangemax=100)
@@ -40,4 +40,4 @@ def run_main():
 
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

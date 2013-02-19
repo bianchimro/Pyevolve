@@ -26,7 +26,7 @@ def eval_func(chromosome):
 
    return score
 
-def run_main():
+def test_run_main():
    # Genome instance
    setOfAlleles = GAllele.GAlleles()
 
@@ -44,8 +44,7 @@ def run_main():
       a = GAllele.GAlleleList(['a','b', 'xxx', 666, 0])
       setOfAlleles.add(a)
       
-   genome = g1dlist.G1DList
-(20)
+   genome = g1dlist.G1DList(20)
    genome.set_params(allele=setOfAlleles)
 
    # The evaluator function (objective function)
@@ -70,4 +69,4 @@ def run_main():
 
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

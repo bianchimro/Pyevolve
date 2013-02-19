@@ -1,4 +1,4 @@
-from pyevolve import G1DList, GSimpleGA, Selectors, Statistics
+from pyevolve import g1dlist, GSimpleGA, Selectors, Statistics
 from pyevolve import Initializators, Mutators, constants, DBAdapters
 
 # This is the Rosenbrock Function
@@ -8,10 +8,9 @@ def rosenbrock(xlist):
       sum_var += 100.0 * (xlist[x] - xlist[x-1]**2)**2 + (1 - xlist[x-1])**2
    return sum_var
 
-def run_main():
+def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList
-(15)
+   genome = g1dlist.G1DList(15)
    genome.set_params(rangemin=-1, rangemax=1.1)
    genome.initializator.set(Initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealRange)
@@ -37,7 +36,7 @@ def run_main():
 
 
 if __name__ == "__main__":
-    run_main()
+    test_run_main()
 
 
 

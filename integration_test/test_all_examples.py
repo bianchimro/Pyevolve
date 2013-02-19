@@ -1,32 +1,27 @@
-import sys
-import os
-import glob
-
-sys.path.append("../")
-import pkgutil
-
-def get_examples(module):
-    dir = os.path.dirname(module.__file__)
-    print dir
-    def is_module(d):
-        return d.endswith('py') and not d.startswith('__')
-
-    return filter(is_module, os.listdir(dir))
-
-
 import examples
-"""
-def run_main_test():
-    exs = get_examples(examples)
 
-    for ex in exs:
-        ex_module = "examples." + ex.replace(".py", '')
-        print ex_module
-        p = __import__(ex_module)
-        m = getattr(p, 'run_main', None)
-        print m
-        
-        
-if __name__ == '__main__':
-    run_main_test()
-"""
+from examples.pyevolve_ex1_simple import test_run_main as test_1
+from examples.pyevolve_ex10_g1dbinstr import test_run_main as test_10
+from examples.pyevolve_ex11_allele import test_run_main as test_11
+
+#from examples.pyevolve_ex12_tsp import test_run_main as test_12
+#from examples.pyevolve_ex13_sphere import test_run_main as test_13
+#from examples.pyevolve_ex14_ackley import test_run_main as test_14
+#from examples.pyevolve_ex15_rosenbrock import test_run_main as test_15
+from examples.pyevolve_ex16_g2dbinstr import test_run_main as test_16
+from examples.pyevolve_ex17_gtree import test_run_main as test_17
+#from examples.pyevolve_ex18_gp import test_run_main as test_18
+#import examples.pyevolve_ex19_gp
+#import examples.pyevolve_ex20_gp_dotwrite
+#from examples.pyevolve_ex21_nqueens import test_run_main as test_21
+from examples.pyevolve_ex22_monkey import test_run_main as test_22
+from examples.pyevolve_ex2_realgauss import test_run_main as test_2
+import examples.pyevolve_ex3_schaffer
+import examples.pyevolve_ex4_sigmatrunc
+from examples.pyevolve_ex5_callback import test_run_main as test_5
+import examples.pyevolve_ex6_dbadapter
+import examples.pyevolve_ex7_rastrigin
+import examples.pyevolve_ex8_gauss_int
+import examples.pyevolve_ex9_g2dlist
+
+

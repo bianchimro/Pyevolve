@@ -23,9 +23,8 @@ def evolve_callback(ga_engine):
       print ''.join(map(chr,indiv))
    return False
 
-def run_main():
-   genome = g1dlist.G1DList
-(len(sentence))
+def test_run_main():
+   genome = g1dlist.G1DList(len(sentence))
    genome.set_params(rangemin=min(numeric_sentence),
                     rangemax=max(numeric_sentence),
                     bestrawscore=0.00,
@@ -52,4 +51,4 @@ def run_main():
    print ''.join(map(chr, best))
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

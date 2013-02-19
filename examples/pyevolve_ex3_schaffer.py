@@ -13,7 +13,7 @@ def schafferF6(genome):
    score = 0.5 + (t1*t1 - 0.5)/(t2*t2)
    return score
 
-def run_main():
+def test_run_main():
    # Genome instance
    genome = g1dlist.G1DList(2)
    genome.set_params(rangemin=-100.0, rangemax=100.0, bestrawscore=0.0000, rounddecimal=4)
@@ -43,4 +43,4 @@ def run_main():
    print "Best individual score: %.2f" % best.get_raw_score()
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

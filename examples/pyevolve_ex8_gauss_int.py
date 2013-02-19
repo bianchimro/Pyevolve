@@ -15,10 +15,9 @@ def eval_func(chromosome):
    return score
 
 
-def run_main():
+def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList
-(40)
+   genome = g1dlist.G1DList(40)
 
    # The gauss_mu and gauss_sigma is used to the Gaussian Mutator, but
    # if you don't specify, the mutator will use the defaults
@@ -42,4 +41,4 @@ def run_main():
 
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

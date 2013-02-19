@@ -12,7 +12,7 @@ def eval_func(genome):
 
    return score
 
-def run_main():
+def test_run_main():
    # Genome instance
    genome = g1dlist.G1DList(20)
    genome.set_params(rangemin=-6.0, rangemax=6.0)
@@ -38,5 +38,5 @@ def run_main():
    print ga.bestIndividual()
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()
 

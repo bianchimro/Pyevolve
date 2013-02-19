@@ -21,7 +21,7 @@ def eval_func(chromosome):
 
    return score
 
-def run_main():
+def test_run_main():
    genome = gtree.GTree()
    root = gtree.GTreeNode(2)
    genome.setRoot(root)
@@ -39,6 +39,6 @@ def run_main():
    print ga.bestIndividual()
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()
 
   

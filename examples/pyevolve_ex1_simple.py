@@ -19,7 +19,7 @@ def eval_func(genome):
    
    return score
 
-def run_main():
+def test_run_main():
    # Genome instance, 1D List of 50 elements
    genome = g1dlist.G1DList(50)
 
@@ -53,4 +53,4 @@ def run_main():
    print ga.bestIndividual()
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

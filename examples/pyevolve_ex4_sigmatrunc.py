@@ -12,10 +12,9 @@ def eval_func(ind):
    var_z = var_x**2+2*var_x+1*math.cos(var_x)
    return var_z
 
-def run_main():
+def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList
-(1)
+   genome = g1dlist.G1DList(1)
    genome.set_params(rangemin=-60.0, rangemax=60.0)
 
    # Change the initializator to Real values
@@ -47,4 +46,4 @@ def run_main():
    print ga.bestIndividual()
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()

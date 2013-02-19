@@ -13,6 +13,14 @@ from random import choice as rand_choice
 from constants import CDefRangeMin, CDefRangeMax
 import gtree_utils
 
+
+CDefG1DListMutIntMU = 2
+CDefG1DListMutIntSIGMA = 10
+
+CDefG1DListMutRealMU = 0
+CDefG1DListMutRealSIGMA = 1
+
+
 # Gaussian Gradient
 CDefGaussianGradientMU = 1.0
 CDefGaussianGradientSIGMA = (1.0/3.0) # approx. +/- 3-sigma is +/- 10%

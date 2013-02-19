@@ -24,7 +24,7 @@ def eval_func(chromosome):
 
    return rmse_accum.getRMSE()
 
-def run_main():
+def test_run_main():
    genome = gtree.GTreeGP()
    genome.set_params(max_depth=4, method="ramped")
    genome.evaluator += eval_func
@@ -44,4 +44,4 @@ def run_main():
    print best
 
 if __name__ == "__main__":
-   run_main()
+   test_run_main()
