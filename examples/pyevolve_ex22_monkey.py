@@ -7,7 +7,7 @@
 from pyevolve import g1dlist
 from pyevolve import GSimpleGA, constants
 from pyevolve import Selectors
-from pyevolve import Initializators, Mutators, Crossovers
+from pyevolve import initializators, Mutators, Crossovers
 import math
 
 sentence = """
@@ -30,7 +30,7 @@ def test_run_main():
                     bestrawscore=0.00,
                     gauss_mu=1, gauss_sigma=4)
 
-   genome.initializator.set(Initializators.G1DListInitializatorInteger)
+   genome.initializator.set(initializators.G1DListInitializatorInteger)
    genome.mutator.set(Mutators.G1DListMutatorIntegerGaussian)
    genome.evaluator.set(lambda genome: sum(
                            [abs(a-b) for a, b in zip(genome, numeric_sentence)]

@@ -27,9 +27,9 @@ class GenomeBase(object):
     """ This is the initialization function of the genome, you
     can change the default initializator using the function slot: ::
  
-       genome.initializator.set(Initializators.G1DListInitializatorAllele)
+       genome.initializator.set(initializators.G1DListInitializatorAllele)
  
-    In this example, the initializator :func:`Initializators.G1DListInitializatorAllele`
+    In this example, the initializator :func:`initializators.G1DListInitializatorAllele`
     will be used to create the initial population.
     """
  

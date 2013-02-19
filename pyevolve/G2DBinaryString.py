@@ -15,7 +15,7 @@ Default Parameters
 
 *Initializator*
    
-   :func:`Initializators.G2DBinaryStringInitializator`
+   :func:`initializators.G2DBinaryStringInitializator`
 
    The Binatry String Initializator for G2DBinaryString
 
@@ -41,13 +41,13 @@ Class
 from genome import GenomeBase
 import Mutators
 import Crossovers
-import Initializators
+import initializators
 import utils
     
 # - G2DBinaryString defaults
 CDefG2DBinaryStringMutator     = Mutators.G2DBinaryStringMutatorFlip
 CDefG2DBinaryStringCrossover   = Crossovers.G2DBinaryStringXUniform
-CDefG2DBinaryStringInit        = Initializators.G2DBinaryStringInitializator
+CDefG2DBinaryStringInit        = initializators.G2DBinaryStringInitializator
 CDefG2DBinaryStringUniformProb = 0.5
 
     

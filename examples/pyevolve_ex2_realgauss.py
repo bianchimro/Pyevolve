@@ -1,7 +1,7 @@
 from pyevolve import GSimpleGA
 from pyevolve import g1dlist
 from pyevolve import Selectors
-from pyevolve import Initializators, Mutators
+from pyevolve import initializators, Mutators
 
 # Find negative element
 def eval_func(genome):
@@ -18,7 +18,7 @@ def test_run_main():
    genome.set_params(rangemin=-6.0, rangemax=6.0)
 
    # Change the initializator to Real values
-   genome.initializator.set(Initializators.G1DListInitializatorReal)
+   genome.initializator.set(initializators.G1DListInitializatorReal)
 
    # Change the mutator to Gaussian Mutator
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)

@@ -13,7 +13,7 @@ Default Parameters
 
 *Initializator*
    
-   :func:`Initializators.G1DListInitializatorInteger`
+   :func:`initializators.G1DListInitializatorInteger`
 
    The Integer Initializator for G1DList
 
@@ -37,13 +37,13 @@ Class
 from g1dbase import G1DBase
 import Mutators
 import Crossovers
-import Initializators
+import initializators
 
 # - G1DList defaults
 
 CDefG1DListMutator   = Mutators.G1DListMutatorSwap
 CDefG1DListCrossover = Crossovers.G1DListCrossoverSinglePoint
-CDefG1DListInit      = Initializators.G1DListInitializatorInteger
+CDefG1DListInit      = initializators.G1DListInitializatorInteger
 CDefG1DListCrossUniformProb = 0.5
 
 

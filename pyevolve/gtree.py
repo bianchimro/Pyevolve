@@ -12,7 +12,7 @@ Default Parameters
 
 *Initializator*
 
-  :func:`Initializators.GTreeInitializatorInteger`
+  :func:`initializators.GTreeInitializatorInteger`
 
    The Integer Initializator for GTree
 
@@ -39,19 +39,19 @@ from genome import GenomeBase
 from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
 
-import Initializators
+import initializators
 import Mutators
 import Crossovers
 
 
 # - GTree defaults
-CDefGTreeInit      = Initializators.GTreeInitializatorInteger
+CDefGTreeInit      = initializators.GTreeInitializatorInteger
 CDefGGTreeMutator  = Mutators.GTreeMutatorIntegerRange
 CDefGTreeCrossover = Crossovers.GTreeCrossoverSinglePointStrict
 
 
 # - GTreeGP defaults
-CDefGTreeGPInit      = Initializators.GTreeGPInitializator
+CDefGTreeGPInit      = initializators.GTreeGPInitializator
 CDefGGTreeGPMutator  = Mutators.GTreeGPMutatorSubtree
 CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
 
@@ -91,9 +91,9 @@ class GTree(GenomeBase, GTreeBase):
    """ This is the initialization function of the genome, you
    can change the default initializator using the function slot: ::
 
-      genome.initializator.set(Initializators.G1DListInitializatorAllele)
+      genome.initializator.set(initializators.G1DListInitializatorAllele)
 
-   In this example, the initializator :func:`Initializators.G1DListInitializatorAllele`
+   In this example, the initializator :func:`initializators.G1DListInitializatorAllele`
    will be used to create the initial population.
    """
 

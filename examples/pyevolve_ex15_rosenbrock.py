@@ -1,5 +1,5 @@
 from pyevolve import g1dlist, GSimpleGA, Selectors, Statistics
-from pyevolve import Initializators, Mutators, constants, DBAdapters
+from pyevolve import initializators, Mutators, constants, DBAdapters
 
 # This is the Rosenbrock Function
 def rosenbrock(xlist):
@@ -12,7 +12,7 @@ def test_run_main():
    # Genome instance
    genome = g1dlist.G1DList(15)
    genome.set_params(rangemin=-1, rangemax=1.1)
-   genome.initializator.set(Initializators.G1DListInitializatorReal)
+   genome.initializator.set(initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealRange)
 
    # The evaluator function (objective function)

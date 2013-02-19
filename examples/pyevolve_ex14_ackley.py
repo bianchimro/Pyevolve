@@ -1,5 +1,5 @@
 from pyevolve import g1dlist, GSimpleGA, Selectors
-from pyevolve import Initializators, Mutators, constants, DBAdapters
+from pyevolve import initializators, Mutators, constants, DBAdapters
 import math
 
 # This is the Rastringin Function, a deception function
@@ -24,7 +24,7 @@ def test_run_main():
    # Genome instance
    genome = g1dlist.G1DList(5)
    genome.set_params(rangemin=-8, rangemax=8,  bestrawscore=0.00, rounddecimal=2)
-   genome.initializator.set(Initializators.G1DListInitializatorReal)
+   genome.initializator.set(initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
 
    # The evaluator function (objective function)

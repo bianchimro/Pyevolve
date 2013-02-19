@@ -1,6 +1,6 @@
 """
 
-:mod:`Initializators` -- initialization methods module
+:mod:`initializators` -- initialization methods module
 ===================================================================
 
 In this module we have the genetic operators of initialization for each

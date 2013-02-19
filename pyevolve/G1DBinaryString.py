@@ -11,7 +11,7 @@ Default Parameters
 
 *Initializator*
    
-   :func:`Initializators.G1DBinaryStringInitializator`
+   :func:`initializators.G1DBinaryStringInitializator`
 
    The Binatry String Initializator for G1DBinaryString
 
@@ -38,13 +38,13 @@ from g1dbase import G1DBase
 
 import Mutators
 import Crossovers
-import Initializators
+import initializators
 import utils
 
 # - G1DBinaryString defaults
 CDefG1DBinaryStringMutator     = Mutators.G1DBinaryStringMutatorFlip
 CDefG1DBinaryStringCrossover   = Crossovers.G1DBinaryStringXSinglePoint
-CDefG1DBinaryStringInit        = Initializators.G1DBinaryStringInitializator
+CDefG1DBinaryStringInit        = initializators.G1DBinaryStringInitializator
 CDefG1DBinaryStringUniformProb = 0.5
 
     

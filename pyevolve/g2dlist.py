@@ -12,7 +12,7 @@ Default Parameters
 
 *Initializator*
    
-   :func:`Initializators.G2DListInitializatorInteger`
+   :func:`initializators.G2DListInitializatorInteger`
 
    The Integer Initializator for G2DList
 
@@ -39,7 +39,7 @@ from genome import GenomeBase
 
 import Mutators
 import Crossovers
-import Initializators
+import initializators
 
 
 # - G2DList defaults
@@ -51,7 +51,7 @@ CDefG2DListMutRealSIGMA = 1
 
 CDefG2DListMutator   = Mutators.G2DListMutatorSwap
 CDefG2DListCrossover = Crossovers.G2DListCrossoverUniform
-CDefG2DListInit      = Initializators.G2DListInitializatorInteger
+CDefG2DListInit      = initializators.G2DListInitializatorInteger
 CDefG2DListCrossUniformProb = 0.5
 
     

@@ -1,5 +1,5 @@
 from pyevolve import g1dlist, GSimpleGA, Selectors
-from pyevolve import Initializators, Mutators, constants
+from pyevolve import initializators, Mutators, constants
 import math
 
 # This is the Schaffer F6 Function
@@ -17,7 +17,7 @@ def test_run_main():
    # Genome instance
    genome = g1dlist.G1DList(2)
    genome.set_params(rangemin=-100.0, rangemax=100.0, bestrawscore=0.0000, rounddecimal=4)
-   genome.initializator.set(Initializators.G1DListInitializatorReal)
+   genome.initializator.set(initializators.G1DListInitializatorReal)
    genome.mutator.set(Mutators.G1DListMutatorRealGaussian)
 
    # The evaluator function (objective function)
