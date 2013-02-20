@@ -35,7 +35,7 @@ Class
 
 """
 
-from ..genome import GenomeBase
+from ..genomebase import GenomeBase
 import mutators
 import crossovers
 import initializators

@@ -1,4 +1,4 @@
-from ..genome import GenomeBase
+from ..genomebase import GenomeBase
 
 class G1DBase(GenomeBase):
     """ G1DBase Class - The base class for 1D chromosomes

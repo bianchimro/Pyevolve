@@ -1,6 +1,6 @@
 from pyevolve import g1d
 from pyevolve import GSimpleGA
-from pyevolve import GAllele
+from pyevolve import genomebase
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes
@@ -26,12 +26,12 @@ def eval_func(chromosome):
 
 def test_run_main():
    # Genome instance
-   setOfAlleles = GAllele.GAlleles()
+   setOfAlleles = genomebase.GAlleles()
 
    # From 0 to 10 we can have only some
    # defined ranges of integers
    for i in xrange(11):
-      a = GAllele.GAlleleRange(0, i)
+      a = genomebase.GAlleleRange(0, i)
       setOfAlleles.add(a)
 
    # From 11 to 19 we can have a set
@@ -39,7 +39,7 @@ def test_run_main():
    for i in xrange(11, 20):
       # You can even add objects instead of strings or 
       # primitive values
-      a = GAllele.GAlleleList(['a','b', 'xxx', 666, 0])
+      a = genomebase.GAlleleList(['a','b', 'xxx', 666, 0])
       setOfAlleles.add(a)
       
    genome = g1d.G1DList(20)

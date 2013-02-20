@@ -35,7 +35,7 @@ Classes
 -------------------------------------------------------------
 """
 import random
-from ..genome import GenomeBase
+from ..genomebase import GenomeBase
 from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
 

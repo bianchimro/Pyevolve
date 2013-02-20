@@ -9,9 +9,9 @@ is above this namespace, for example, to import :mod:`mutators`:
 
 
 """
-__all__ = ["constants", "crossovers", "dbadapters", "functionslot",
-           "g1d", "g2d", "GAllele", "genome", "population",
-           "GSimpleGA", "gtree", "Migration", "mutators", "network", "scaling", "selectors",
+__all__ = ["constants",  "db", "functionslot",
+           "g1d", "g2d", "genome", "population",
+           "GSimpleGA", "gtree", "Migration", "network", "scaling", "selectors",
            "statistics", "utils" ]
 
 __version__ =  '0.6'

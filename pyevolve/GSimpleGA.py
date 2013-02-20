@@ -62,7 +62,7 @@ Class
 from population  import GPopulation
 from functionslot import FunctionSlot
 from migration import MigrationScheme
-from genome import GenomeBase
+from genomebase import GenomeBase
 from db import DBBaseAdapter
 
 import utils
