@@ -68,7 +68,6 @@ from dbadapters   import DBBaseAdapter
 import utils
 import mutators
 import crossovers
-import initializators
 import selectors
 
 import random

@@ -1,6 +1,6 @@
 from pyevolve import GSimpleGA
-from pyevolve.g1d import g1dlist
-from pyevolve import mutators, initializators
+from pyevolve import g1d
+from pyevolve import mutators
 from pyevolve import selectors
 from pyevolve import constants
 import math
@@ -15,9 +15,9 @@ def rastrigin(genome):
 
 def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList(20)
+   genome = g1d.g1dlist.G1DList(20)
    genome.set_params(rangemin=-5.2, rangemax=5.30, bestrawscore=0.00, rounddecimal=2)
-   genome.initializator.set(initializators.G1DListInitializatorReal)
+   genome.initializator.set(g1d.initializators.G1DListInitializatorReal)
    genome.mutator.set(mutators.G1DListMutatorRealGaussian)
 
    genome.evaluator.set(rastrigin)

@@ -41,7 +41,7 @@ Class
 from ..genome import GenomeBase
 from .. import mutators
 from .. import crossovers
-from .. import initializators
+import initializators
 from .. import utils
     
 # - G2DBinaryString defaults

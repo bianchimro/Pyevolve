@@ -38,7 +38,7 @@ Class
 from ..genome import GenomeBase
 from .. import mutators
 from .. import crossovers
-from .. import initializators
+import initializators
 
 
 # - G2DList defaults

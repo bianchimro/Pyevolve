@@ -1,7 +1,7 @@
-from pyevolve.g1d import g1dlist
+from pyevolve import g1d
 from pyevolve import GSimpleGA
 from pyevolve import selectors
-from pyevolve import initializators, mutators
+from pyevolve import mutators
 from pyevolve import scaling
 from pyevolve import constants
 import math
@@ -14,11 +14,11 @@ def eval_func(ind):
 
 def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList(1)
+   genome = g1d.g1dlist.G1DList(1)
    genome.set_params(rangemin=-60.0, rangemax=60.0)
 
    # Change the initializator to Real values
-   genome.initializator.set(initializators.G1DListInitializatorReal)
+   genome.initializator.set(g1d.initializators.G1DListInitializatorReal)
 
    # Change the mutator to Gaussian Mutator
    genome.mutator.set(mutators.G1DListMutatorRealGaussian)

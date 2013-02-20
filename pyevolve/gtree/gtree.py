@@ -39,7 +39,7 @@ from ..genome import GenomeBase
 from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
 
-from .. import initializators
+import initializators
 from .. import mutators
 from .. import crossovers
 from .. import utils

@@ -38,7 +38,7 @@ from g1dbase import G1DBase
 
 from .. import mutators
 from .. import crossovers
-from .. import initializators
+import initializators
 from .. import utils
 
 # - G1DBinaryString defaults

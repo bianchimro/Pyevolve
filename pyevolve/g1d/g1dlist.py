@@ -37,7 +37,7 @@ Class
 from g1dbase import G1DBase
 from .. import mutators
 from .. import crossovers
-from .. import initializators
+import initializators
 
 # - G1DList defaults
 
