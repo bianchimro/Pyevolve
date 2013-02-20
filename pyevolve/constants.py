@@ -228,7 +228,7 @@ Tree chromosome constants (:class:`GTree.GTree`)
 
 .. attribute:: CDefG2DListCrossUniformProb
 
-   Default uniform probability for the 2D List Uniform Crossover method (:func:`Crossovers.G2DListCrossoverUniform`).
+   Default uniform probability for the 2D List Uniform Crossover method (:func:`crossovers.G2DListCrossoverUniform`).
 
 
 GA Engine constants (:class:`GSimpleGA.GSimpleGA`)

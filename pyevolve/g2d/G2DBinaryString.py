@@ -27,7 +27,7 @@ Default Parameters
 
 *Crossover*
 
-   :func:`Crossovers.G2DBinaryStringXSinglePoint`
+   :func:`crossovers.G2DBinaryStringXSinglePoint`
 
    The Single Point Crossover for G2DBinaryString
 
@@ -40,13 +40,13 @@ Class
 
 from ..genome import GenomeBase
 from .. import mutators
-from .. import Crossovers
+from .. import crossovers
 from .. import initializators
 from .. import utils
     
 # - G2DBinaryString defaults
 CDefG2DBinaryStringMutator     = mutators.G2DBinaryStringMutatorFlip
-CDefG2DBinaryStringCrossover   = Crossovers.G2DBinaryStringXUniform
+CDefG2DBinaryStringCrossover   = crossovers.G2DBinaryStringXUniform
 CDefG2DBinaryStringInit        = initializators.G2DBinaryStringInitializator
 CDefG2DBinaryStringUniformProb = 0.5
 

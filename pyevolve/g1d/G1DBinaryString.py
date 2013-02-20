@@ -23,7 +23,7 @@ Default Parameters
 
 *Crossover*
 
-   :func:`Crossovers.G1DBinaryStringXSinglePoint`
+   :func:`crossovers.G1DBinaryStringXSinglePoint`
 
    The Single Point Crossover for G1DBinaryString
 
@@ -37,13 +37,13 @@ Class
 from g1dbase import G1DBase
 
 from .. import mutators
-from .. import Crossovers
+from .. import crossovers
 from .. import initializators
 from .. import utils
 
 # - G1DBinaryString defaults
 CDefG1DBinaryStringMutator     = mutators.G1DBinaryStringMutatorFlip
-CDefG1DBinaryStringCrossover   = Crossovers.G1DBinaryStringXSinglePoint
+CDefG1DBinaryStringCrossover   = crossovers.G1DBinaryStringXSinglePoint
 CDefG1DBinaryStringInit        = initializators.G1DBinaryStringInitializator
 CDefG1DBinaryStringUniformProb = 0.5
 

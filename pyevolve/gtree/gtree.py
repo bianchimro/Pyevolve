@@ -24,7 +24,7 @@ Default Parameters
 
 *Crossover*
 
-   :func:`Crossovers.GTreeCrossoverSinglePointStrict`
+   :func:`crossovers.GTreeCrossoverSinglePointStrict`
 
    The Strict Single Point crossover for GTree
 
@@ -41,19 +41,19 @@ from gtreenode import GTreeNode
 
 from .. import initializators
 from .. import mutators
-from .. import Crossovers
+from .. import crossovers
 from .. import utils
 
 # - GTree defaults
 CDefGTreeInit      = initializators.GTreeInitializatorInteger
 CDefGGTreeMutator  = mutators.GTreeMutatorIntegerRange
-CDefGTreeCrossover = Crossovers.GTreeCrossoverSinglePointStrict
+CDefGTreeCrossover = crossovers.GTreeCrossoverSinglePointStrict
 
 
 # - GTreeGP defaults
 CDefGTreeGPInit      = initializators.GTreeGPInitializator
 CDefGGTreeGPMutator  = mutators.GTreeGPMutatorSubtree
-CDefGTreeGPCrossover = Crossovers.GTreeGPCrossoverSinglePoint
+CDefGTreeGPCrossover = crossovers.GTreeGPCrossoverSinglePoint
 
 
 
@@ -107,7 +107,7 @@ class GTree(GenomeBase, GTreeBase):
    """ This is the reproduction function slot, the crossover. You
    can change the default crossover method using: ::
 
-      genome.crossover.set(Crossovers.G1DListCrossoverUniform)
+      genome.crossover.set(crossovers.G1DListCrossoverUniform)
    """
 
    def __init__(self, root_node=None):

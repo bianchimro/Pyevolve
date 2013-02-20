@@ -25,7 +25,7 @@ Default Parameters
 
 *Crossover*
 
-   :func:`Crossovers.G1DListCrossoverSinglePoint`
+   :func:`crossovers.G1DListCrossoverSinglePoint`
 
    The Single Point Crossover for G1DList
 
@@ -36,13 +36,13 @@ Class
 """
 from g1dbase import G1DBase
 from .. import mutators
-from .. import Crossovers
+from .. import crossovers
 from .. import initializators
 
 # - G1DList defaults
 
 CDefG1DListMutator   = mutators.G1DListMutatorSwap
-CDefG1DListCrossover = Crossovers.G1DListCrossoverSinglePoint
+CDefG1DListCrossover = crossovers.G1DListCrossoverSinglePoint
 CDefG1DListInit      = initializators.G1DListInitializatorInteger
 CDefG1DListCrossUniformProb = 0.5
 

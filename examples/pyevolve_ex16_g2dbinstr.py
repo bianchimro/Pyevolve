@@ -1,7 +1,7 @@
 from pyevolve.g2d import G2DBinaryString
 from pyevolve import GSimpleGA
 from pyevolve import selectors
-from pyevolve import Crossovers
+from pyevolve import crossovers
 from pyevolve import mutators
 
 # This function is the evaluation function, we want
@@ -24,7 +24,7 @@ def test_run_main():
     
     # The evaluator function (objective function)
     genome.evaluator.set(eval_func)
-    genome.crossover.set(Crossovers.G2DBinaryStringXSingleHPoint)
+    genome.crossover.set(crossovers.G2DBinaryStringXSingleHPoint)
     genome.mutator.set(mutators.G2DBinaryStringMutatorSwap)
     
     # Genetic Algorithm Instance

@@ -67,7 +67,7 @@ from DBAdapters   import DBBaseAdapter
 
 import utils
 import mutators
-import Crossovers
+import crossovers
 import initializators
 import selectors
 

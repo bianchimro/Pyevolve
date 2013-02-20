@@ -1,6 +1,6 @@
 from pyevolve import GSimpleGA
 from pyevolve.gtree import gtree
-from pyevolve import Crossovers
+from pyevolve import crossovers
 from pyevolve import mutators
 import time
 import random
@@ -29,7 +29,7 @@ def test_run_main():
 
    genome.set_params(max_depth=3, max_siblings=2, method="grow")
    genome.evaluator.set(eval_func)
-   genome.crossover.set(Crossovers.GTreeCrossoverSinglePointStrict)
+   genome.crossover.set(crossovers.GTreeCrossoverSinglePointStrict)
 
    ga = GSimpleGA.GSimpleGA(genome)
    ga.setGenerations(100)

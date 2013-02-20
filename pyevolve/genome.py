@@ -45,7 +45,7 @@ class GenomeBase(object):
     """ This is the reproduction function slot, the crossover. You
     can change the default crossover method using: ::
  
-       genome.crossover.set(Crossovers.G1DListCrossoverUniform)
+       genome.crossover.set(crossovers.G1DListCrossoverUniform)
     """
 
 

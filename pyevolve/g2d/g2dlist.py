@@ -24,7 +24,7 @@ Default Parameters
 
 *Crossover*
 
-   :func:`Crossovers.G2DListCrossoverUniform`
+   :func:`crossovers.G2DListCrossoverUniform`
 
    The Uniform Crossover for G2DList
 
@@ -37,7 +37,7 @@ Class
 
 from ..genome import GenomeBase
 from .. import mutators
-from .. import Crossovers
+from .. import crossovers
 from .. import initializators
 
 
@@ -49,7 +49,7 @@ CDefG2DListMutRealMU = 0
 CDefG2DListMutRealSIGMA = 1
 
 CDefG2DListMutator   = mutators.G2DListMutatorSwap
-CDefG2DListCrossover = Crossovers.G2DListCrossoverUniform
+CDefG2DListCrossover = crossovers.G2DListCrossoverUniform
 CDefG2DListInit      = initializators.G2DListInitializatorInteger
 CDefG2DListCrossUniformProb = 0.5
 

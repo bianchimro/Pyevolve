@@ -7,7 +7,7 @@
 from pyevolve.g1d import g1dlist
 from pyevolve import GSimpleGA, constants
 from pyevolve import selectors
-from pyevolve import initializators, mutators, Crossovers
+from pyevolve import initializators, mutators, crossovers
 import math
 
 sentence = """

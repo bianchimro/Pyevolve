@@ -1,7 +1,7 @@
 from pyevolve.g1d import g1dlist, GAllele
 from pyevolve import GSimpleGA
 from pyevolve import mutators
-from pyevolve import Crossovers
+from pyevolve import crossovers
 from pyevolve import constants
 
 import sys, random
@@ -101,7 +101,7 @@ def test_run_main():
    genome = g1dlist.G1DList(len(coords))
 
    genome.evaluator.set(lambda chromosome: tour_length(cm, chromosome))
-   genome.crossover.set(Crossovers.G1DListCrossoverEdge)
+   genome.crossover.set(crossovers.G1DListCrossoverEdge)
    genome.initializator.set(G1DListTSPInitializator)
 
    # 3662.69

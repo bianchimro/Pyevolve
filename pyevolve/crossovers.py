@@ -1,6 +1,6 @@
 """
 
-:mod:`Crossovers` -- crossover methods module
+:mod:`crossovers` -- crossover methods module
 =====================================================================
 
 In this module we have the genetic operators of crossover (or recombination) for each chromosome representation.
@@ -703,7 +703,7 @@ def GTreeCrossoverSinglePointStrict(genome, **args):
    return (sister, brother)
 
 #############################################################################
-#################  GTreeGP Crossovers  ######################################
+#################  GTreeGP crossovers  ######################################
 #############################################################################
 
 def GTreeGPCrossoverSinglePoint(genome, **args):
