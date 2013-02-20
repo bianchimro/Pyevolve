@@ -36,7 +36,7 @@ Class
 import logging
 
 import utils
-from FunctionSlot import FunctionSlot
+from functionslot import FunctionSlot
 from statistics import Statistics
 from math import sqrt as math_sqrt
 import scaling

@@ -13,7 +13,7 @@ GA related functions.
 import utils
 from random import randint as rand_randint, choice as rand_choice
 import Network
-from FunctionSlot import FunctionSlot
+from functionslot import FunctionSlot
 import logging
 
 try:

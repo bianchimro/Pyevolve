@@ -214,7 +214,7 @@ class DBURLPost(DBBaseAdapter):
    Example:
       >>> dbadapter = DBURLPost(url="http://localhost/post.py", identify="test")
 
-   The parameters that will be sent is all the statistics described in the :class:`Statistics.Statistics`
+   The parameters that will be sent is all the statistics described in the :class:`statistics.Statistics`
    class, and the parameters:
    
    **generation**
@@ -223,7 +223,7 @@ class DBURLPost(DBBaseAdapter):
    **identify**
       The id specified by user
 
-   .. note:: see the :class:`Statistics.Statistics` documentation.
+   .. note:: see the :class:`statistics.Statistics` documentation.
 
    :param url: the URL to be used
    :param identify: the identify of the run
@@ -344,10 +344,10 @@ class DBSQLite(DBBaseAdapter):
       logging.debug("Opening database, dbname=%s", self.dbName)
       self.connection = self.sqlite3mod.connect(self.dbName)
 
-      temp_stats = Statistics.Statistics()
+      temp_stats = statistics.Statistics()
 
       if self.resetDB:
-         self.resetStructure(Statistics.Statistics())
+         self.resetStructure(statistics.Statistics())
 
       self.createStructure(temp_stats)
 
@@ -702,11 +702,11 @@ class DBMySQLAdapter(DBBaseAdapter):
       self.connection = self.mysqldbmod.connect(host=self.host, user=self.user,
                                                 passwd=self.passwd, db=self.db,
                                                 port=self.port)
-      temp_stats = Statistics.Statistics()
+      temp_stats = statistics.Statistics()
       self.createStructure(temp_stats)
 
       if self.resetDB:
-         self.resetStructure(Statistics.Statistics())
+         self.resetStructure(statistics.Statistics())
 
       if self.resetIdentify:
          self.resetTableIdentify()

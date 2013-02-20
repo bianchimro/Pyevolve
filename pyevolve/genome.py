@@ -10,7 +10,7 @@ take a inside look into this module.
 """
 import inspect
 
-from FunctionSlot import FunctionSlot
+from functionslot import FunctionSlot
 import utils
 
 class GenomeBase(object):
