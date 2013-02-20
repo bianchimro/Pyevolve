@@ -1,6 +1,7 @@
 This is a refactor of Pyevolve. 
-Current goals are:
+Focused on:
 
+* testing (with nose)
 * new-style classes
 * PEP8
 * general refactoring of classes/functions to increase modularity
@@ -11,6 +12,7 @@ It's a work in progress, and in this early stage I don't recommend using this.
 In particular, DOCUMENTATION IS TOTALLY OUT OF SYNCH WITH THE CODE at the moment.
 Also docstrings are not reliable right now.
 Feel free to contact me for any info at bianchimro@gmail.com.
+
 
 The name of this project could probably change in the near future, as this fork is divergig a lot from the original source.
 
