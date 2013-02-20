@@ -1,0 +1,1 @@
+from GSimpleGA import *

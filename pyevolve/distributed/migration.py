@@ -10,10 +10,7 @@ GA related functions.
 
 """
 
-import utils
 from random import randint as rand_randint, choice as rand_choice
-import network
-from functionslot import FunctionSlot
 import logging
 
 try:
@@ -22,6 +19,9 @@ try:
 except ImportError:
    HAS_MPI4PY = False
 
+from ..functionslot import FunctionSlot
+from .. import utils
+import network
 
 # Migration constants
 CDefGenMigrationRate = 20

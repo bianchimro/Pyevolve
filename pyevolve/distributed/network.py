@@ -14,7 +14,6 @@ import threading
 import socket
 import time
 import sys
-import utils
 import cPickle
 
 try:
@@ -24,6 +23,7 @@ except ImportError:
     ZLIB_SUPPORT = False
 
 import logging
+from .. import utils
 
 CDefBroadcastAddress = "255.255.255.255"
 
