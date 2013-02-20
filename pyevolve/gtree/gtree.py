@@ -40,8 +40,8 @@ from gtreebase import GTreeBase, GTreeNodeBase
 from gtreenode import GTreeNode
 
 import initializators
-from .. import mutators
-from .. import crossovers
+import mutators
+import crossovers
 from .. import utils
 
 # - GTree defaults

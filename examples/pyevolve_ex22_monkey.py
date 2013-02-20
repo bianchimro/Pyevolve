@@ -8,7 +8,6 @@ from pyevolve import g1d
 
 from pyevolve import GSimpleGA, constants
 from pyevolve import selectors
-from pyevolve import mutators, crossovers
 import math
 
 sentence = """
@@ -25,14 +24,14 @@ def evolve_callback(ga_engine):
    return False
 
 def test_run_main():
-   genome = g1d.g1dlist.G1DList(len(sentence))
+   genome = g1d.G1DList(len(sentence))
    genome.set_params(rangemin=min(numeric_sentence),
                     rangemax=max(numeric_sentence),
                     bestrawscore=0.00,
                     gauss_mu=1, gauss_sigma=4)
 
    genome.initializator.set(g1d.initializators.G1DListInitializatorInteger)
-   genome.mutator.set(mutators.G1DListMutatorIntegerGaussian)
+   genome.mutator.set(g1d.mutators.G1DListMutatorIntegerGaussian)
    genome.evaluator.set(lambda genome: sum(
                            [abs(a-b) for a, b in zip(genome, numeric_sentence)]
                         ))

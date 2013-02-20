@@ -61,13 +61,11 @@ Class
 
 from population  import GPopulation
 from functionslot import FunctionSlot
-from migration    import MigrationScheme
-from genome   import GenomeBase
-from dbadapters   import DBBaseAdapter
+from migration import MigrationScheme
+from genome import GenomeBase
+from db import DBBaseAdapter
 
 import utils
-import mutators
-import crossovers
 import selectors
 
 import random

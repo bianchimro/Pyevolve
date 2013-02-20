@@ -1,7 +1,6 @@
-from pyevolve.g1d import g1dlist
+from pyevolve import g1d
 from pyevolve import GSimpleGA
 from pyevolve import selectors
-from pyevolve import mutators
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes
@@ -17,12 +16,12 @@ def eval_func(chromosome):
 
 def test_run_main():
    # Genome instance
-   genome = g1dlist.G1DList(40)
+   genome = g1d.G1DList(40)
 
    # The gauss_mu and gauss_sigma is used to the Gaussian Mutator, but
    # if you don't specify, the mutator will use the defaults
    genome.set_params(rangemin=0, rangemax=10, gauss_mu=4, gauss_sigma=6)
-   genome.mutator.set(mutators.G1DListMutatorIntegerGaussian)
+   genome.mutator.set(g1d.mutators.G1DListMutatorIntegerGaussian)
 
    # The evaluator function (objective function)
    genome.evaluator.set(eval_func)

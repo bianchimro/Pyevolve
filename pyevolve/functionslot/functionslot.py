@@ -15,7 +15,7 @@ from random import uniform as rand_uniform
 import inspect
 from types import BooleanType
 
-import utils
+from .. import utils
 
 class FunctionSlot:
    """ FunctionSlot Class - The function slot

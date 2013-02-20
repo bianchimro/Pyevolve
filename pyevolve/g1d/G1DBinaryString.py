@@ -36,8 +36,8 @@ Class
 
 from g1dbase import G1DBase
 
-from .. import mutators
-from .. import crossovers
+import mutators
+import crossovers
 import initializators
 from .. import utils
 

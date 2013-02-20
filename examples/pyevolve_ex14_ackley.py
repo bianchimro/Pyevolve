@@ -1,6 +1,6 @@
 from pyevolve import g1d
 from pyevolve import GSimpleGA, selectors
-from pyevolve import mutators, constants, dbadapters
+from pyevolve import constants, db
 import math
 
 # This is the Rastringin Function, a deception function
@@ -23,10 +23,10 @@ def ackley(xlist):
 
 def test_run_main():
    # Genome instance
-   genome = g1d.g1dlist.G1DList(5)
+   genome = g1d.G1DList(5)
    genome.set_params(rangemin=-8, rangemax=8,  bestrawscore=0.00, rounddecimal=2)
    genome.initializator.set(g1d.initializators.G1DListInitializatorReal)
-   genome.mutator.set(mutators.G1DListMutatorRealGaussian)
+   genome.mutator.set(g1d.mutators.G1DListMutatorRealGaussian)
 
    # The evaluator function (objective function)
    genome.evaluator.set(ackley)

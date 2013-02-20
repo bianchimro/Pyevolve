@@ -376,6 +376,11 @@ CDefPythonRequire = (2, 5)
 CDefLogFile = "pyevolve.log"
 CDefLogLevel = logging.DEBUG
 
+# Gaussian Gradient
+CDefGaussianGradientMU = 1.0
+CDefGaussianGradientSIGMA = (1.0/3.0) # approx. +/- 3-sigma is +/- 10%
+
+
 # Types of sort
 # - raw: uses the "score" attribute
 # - scaled: uses the "fitness" attribute

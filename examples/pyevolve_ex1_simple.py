@@ -1,10 +1,8 @@
-import sys
-sys.path.append("../")
-from pyevolve.g1d import g1dlist
+from pyevolve import g1d
 from pyevolve import GSimpleGA
 from pyevolve import selectors
 from pyevolve import statistics
-from pyevolve import dbadapters
+from pyevolve import db
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes
@@ -21,7 +19,7 @@ def eval_func(genome):
 
 def test_run_main():
    # Genome instance, 1D List of 50 elements
-   genome = g1dlist.G1DList(50)
+   genome = g1d.G1DList(50)
 
    # Sets the range max and min of the 1D List
    genome.set_params(rangemin=0, rangemax=10)
@@ -42,7 +40,7 @@ def test_run_main():
    # the database and erase all data every run, you should use this flag
    # just in the first time, after the pyevolve.db was created, you can
    # omit it.
-   sqlite_adapter = dbadapters.DBSQLite(identify="ex1", resetDB=True)
+   sqlite_adapter = db.DBSQLite(identify="ex1", resetDB=True)
    ga.setDBAdapter(sqlite_adapter)
 
    # Do the evolution, with stats dump

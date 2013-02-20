@@ -1,0 +1,1 @@
+from functionslot import FunctionSlot

@@ -18,11 +18,11 @@ module, you'll find the adapters above cited.
 """
 
 from pyevolve import __version__
-import utils
+from .. import utils
 import logging
 import types
 import datetime
-import statistics
+from .. import statistics
 
 
 # - DB Adapters SQLite defaults

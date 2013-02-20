@@ -1,6 +1,5 @@
 from pyevolve import g1d
 from pyevolve import GSimpleGA
-from pyevolve import mutators
 from pyevolve import GAllele
 
 # This function is the evaluation function, we want
@@ -43,7 +42,7 @@ def test_run_main():
       a = GAllele.GAlleleList(['a','b', 'xxx', 666, 0])
       setOfAlleles.add(a)
       
-   genome = g1d.g1dlist.G1DList(20)
+   genome = g1d.G1DList(20)
    genome.set_params(allele=setOfAlleles)
 
    # The evaluator function (objective function)
@@ -52,7 +51,7 @@ def test_run_main():
    # This mutator and initializator will take care of
    # initializing valid individuals based on the allele set
    # that we have defined before
-   genome.mutator.set(mutators.G1DListMutatorAllele)
+   genome.mutator.set(g1d.mutators.G1DListMutatorAllele)
    genome.initializator.set(g1d.initializators.G1DListInitializatorAllele)
 
    # Genetic Algorithm Instance

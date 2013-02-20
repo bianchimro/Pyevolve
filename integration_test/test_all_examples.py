@@ -14,7 +14,7 @@ from examples.pyevolve_ex10_g1dbinstr import test_run_main as test_10
 from examples.pyevolve_ex11_allele import test_run_main as test_11
 
 #from examples.pyevolve_ex12_tsp import test_run_main as test_12
-#from examples.pyevolve_ex13_sphere import test_run_main as test_13
+from examples.pyevolve_ex13_sphere import test_run_main as test_13
 from examples.pyevolve_ex14_ackley import test_run_main as test_14
 from examples.pyevolve_ex15_rosenbrock import test_run_main as test_15
 from examples.pyevolve_ex16_g2dbinstr import test_run_main as test_16

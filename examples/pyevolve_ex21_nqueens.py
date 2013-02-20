@@ -1,7 +1,7 @@
 from pyevolve.g1d import g1dlist
 from pyevolve import mutators, crossovers
 from pyevolve import constants, GSimpleGA
-from pyevolve import dbadapters
+from pyevolve import db
 from random import shuffle
 
 # The "n" in n-queens
