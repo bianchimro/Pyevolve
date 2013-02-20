@@ -1,7 +1,7 @@
 from pyevolve import g1d
-from pyevolve import algorithm, selectors, statistics
+from pyevolve import algorithm
+from pyevolve.population import selectors
 from pyevolve import constants
-from pyevolve import db
 
 # This is the Rosenbrock Function
 def rosenbrock(xlist):

@@ -1,7 +1,7 @@
 from pyevolve import g1d
 from pyevolve import algorithm
 from pyevolve.population import selectors
-from pyevolve import scaling
+from pyevolve.population import scaling
 from pyevolve import constants
 import math
 

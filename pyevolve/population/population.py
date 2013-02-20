@@ -39,7 +39,7 @@ from .. import utils
 from .. functionslot import FunctionSlot
 from .. statistics import Statistics
 from math import sqrt as math_sqrt
-from .. import scaling
+import scaling
 from .. constants import sortType, minimaxType
 
 # - Population Defaults
