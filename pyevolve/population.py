@@ -22,9 +22,9 @@ Default Parameters
 
 *Scale Method*
 
-   :func:`Scaling.LinearScaling`
+   :func:`scaling.Linearscaling.
 
-   The Linear Scaling scheme
+   The Linear scaling.scheme
 
 Class
 -------------------------------------------------------------
@@ -37,16 +37,16 @@ import logging
 
 import utils
 from FunctionSlot import FunctionSlot
-from Statistics import Statistics
+from statistics import Statistics
 from math import sqrt as math_sqrt
-import Scaling
+import scaling
 
 
 # - Population Defaults
 from constants import sortType, minimaxType
 CDefPopSortType               = sortType["scaled"]
 CDefPopMinimax                = minimaxType["maximize"]
-CDefPopScale                  = Scaling.LinearScaling
+CDefPopScale                  = scaling.LinearScaling
 
 
 try:

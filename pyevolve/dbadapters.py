@@ -22,7 +22,7 @@ import utils
 import logging
 import types
 import datetime
-import Statistics
+import statistics
 
 
 # - DB Adapters SQLite defaults

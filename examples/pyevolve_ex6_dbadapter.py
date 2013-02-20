@@ -1,8 +1,8 @@
 from pyevolve.g1d import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import selectors
-from pyevolve import DBAdapters
-from pyevolve import Statistics
+from pyevolve import dbadapters
+from pyevolve import statistics
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes

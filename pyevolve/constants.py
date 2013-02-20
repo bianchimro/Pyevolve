@@ -72,33 +72,33 @@ Selection methods constants (:mod:`selectors`)
 
    The default pool size for the Tournament Selector (:func:`selectors.GTournamentSelector`).
 
-Scaling scheme constants (:mod:`Scaling`)
+scaling.scheme constants (:mod:`scaling.)
 ----------------------------------------------------------------------------
 
 .. attribute:: CDefScaleLinearMultiplier
 
-   The multiplier of the Linear (:func:`Scaling.LinearScaling`) scaling scheme.
+   The multiplier of the Linear (:func:`scaling.Linearscaling.) scaling scheme.
 
 .. attribute:: CDefScaleSigmaTruncMultiplier
 
-   The default Sigma Truncation (:func:`Scaling.SigmaTruncScaling`) scaling scheme.
+   The default Sigma Truncation (:func:`scaling.SigmaTruncscaling.) scaling scheme.
 
 .. attribute:: CDefScalePowerLawFactor
 
-   The default Power Law (:func:`Scaling.PowerLawScaling`) scaling scheme factor.
+   The default Power Law (:func:`scaling.PowerLawscaling.) scaling scheme factor.
 
 .. attribute:: CDefScaleBoltzMinTemp
 
-   The default mininum temperature of the (:func:`Scaling.BoltzmannScaling`) scaling scheme factor.
+   The default mininum temperature of the (:func:`scaling.Boltzmannscaling.) scaling scheme factor.
 
 .. attribute:: CDefScaleBoltzFactor
 
-   The default Boltzmann Factor of (:func:`Scaling.BoltzmannScaling`) scaling scheme factor.
+   The default Boltzmann Factor of (:func:`scaling.Boltzmannscaling.) scaling scheme factor.
    This is the factor that the temperature will be subtracted.
 
 .. attribute:: CDefScaleBoltzStart
 
-   The default Boltzmann start temperature (:func:`Scaling.BoltzmannScaling`).
+   The default Boltzmann start temperature (:func:`scaling.Boltzmannscaling.).
    If you don't set the start temperature parameter, this will be the default initial
    temperature for the Boltzmann scaling scheme.
 

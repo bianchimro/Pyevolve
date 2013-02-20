@@ -2,7 +2,7 @@ from pyevolve.g1d import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import selectors
 from pyevolve import initializators, mutators
-from pyevolve import Scaling
+from pyevolve import scaling
 from pyevolve import constants
 import math
 
@@ -34,7 +34,7 @@ def test_run_main():
    ga.setMinimax(constants.minimaxType["minimize"])
 
    pop = ga.getPopulation()
-   pop.scaleMethod.set(Scaling.SigmaTruncScaling)
+   pop.scaleMethod.set(scaling.SigmaTruncScaling)
 
    ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(100)

@@ -1,5 +1,6 @@
-from pyevolve.g1d import g1dlist, GSimpleGA, selectors, Statistics
-from pyevolve import initializators, mutators, constants, DBAdapters
+from pyevolve.g1d import g1dlist
+from pyevolve import GSimpleGA, selectors, statistics
+from pyevolve import initializators, mutators, constants, dbadapters
 
 # This is the Rosenbrock Function
 def rosenbrock(xlist):

@@ -63,7 +63,7 @@ from population  import GPopulation
 from FunctionSlot import FunctionSlot
 from Migration    import MigrationScheme
 from genome   import GenomeBase
-from DBAdapters   import DBBaseAdapter
+from dbadapters   import DBBaseAdapter
 
 import utils
 import mutators

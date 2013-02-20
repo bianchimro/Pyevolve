@@ -3,8 +3,8 @@ sys.path.append("../")
 from pyevolve.g1d import g1dlist
 from pyevolve import GSimpleGA
 from pyevolve import selectors
-from pyevolve import Statistics
-from pyevolve import DBAdapters
+from pyevolve import statistics
+from pyevolve import dbadapters
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes
@@ -42,7 +42,7 @@ def test_run_main():
    # the database and erase all data every run, you should use this flag
    # just in the first time, after the pyevolve.db was created, you can
    # omit it.
-   sqlite_adapter = DBAdapters.DBSQLite(identify="ex1", resetDB=True)
+   sqlite_adapter = dbadapters.DBSQLite(identify="ex1", resetDB=True)
    ga.setDBAdapter(sqlite_adapter)
 
    # Do the evolution, with stats dump

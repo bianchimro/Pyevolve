@@ -9,12 +9,11 @@ is above this namespace, for example, to import :mod:`mutators`:
 
 
 """
-__all__ = ["constants", "crossovers", "DBAdapters", "FunctionSlot",
-           "G1DBinaryString", "g1dlist", "G2DBinaryString",
-           "G2DList", "GAllele", "GenomeBase", "GPopulation",
-           "GSimpleGA", "gtree", "gtreenode", "gtree_utils",  "initializators",
-           "Migration", "mutators", "Network", "Scaling", "selectors",
-           "Statistics", "utils", 'gd1base']
+__all__ = ["constants", "crossovers", "dbadapters", "FunctionSlot",
+           "g1d", "g2d", "GAllele", "genome", "population",
+           "GSimpleGA", "gtree","initializators",
+           "Migration", "mutators", "Network", "scaling", "selectors",
+           "statistics", "utils"]
 
 __version__ =  '0.6'
 __author__ =  'Christian S. Perone'
