@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import selectors
 from pyevolve import statistics
 from pyevolve import db
@@ -28,13 +28,13 @@ def test_run_main():
    genome.evaluator.set(eval_func)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
 
    # Set the Roulette Wheel selector method, the number of generations and
    # the termination criteria
    ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(500)
-   ga.terminationCriteria.set(GSimpleGA.ConvergenceCriteria)
+   ga.terminationCriteria.set(algorithm.ConvergenceCriteria)
 
    # Sets the DB Adapter, the resetDB flag will make the Adapter recreate
    # the database and erase all data every run, you should use this flag

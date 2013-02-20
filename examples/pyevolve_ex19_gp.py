@@ -1,4 +1,4 @@
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import gtree
 from pyevolve import gtreenode
 from pyevolve import constants
@@ -65,7 +65,7 @@ def main_run():
    genome.evaluator += eval_func
    genome.mutator.set(mutators.GTreeGPMutatorSubtree)
 
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 

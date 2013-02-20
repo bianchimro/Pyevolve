@@ -1,4 +1,4 @@
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import g1d
 from pyevolve import selectors
 from pyevolve import constants
@@ -22,8 +22,8 @@ def test_run_main():
    genome.evaluator.set(rastrigin)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
-   ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
+   ga = algorithm.GSimpleGA(genome)
+   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(3000)
    ga.setCrossoverRate(0.8)

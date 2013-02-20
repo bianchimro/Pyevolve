@@ -1,6 +1,6 @@
 from pyevolve import utils
 from pyevolve import gtree
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import constants
 import math
 
@@ -29,7 +29,7 @@ def test_run_main():
    genome.set_params(max_depth=4, method="ramped")
    genome.evaluator += eval_func
 
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")
 

@@ -1,5 +1,5 @@
 from pyevolve import g2d
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import selectors
 
 # This function is the evaluation function, we want
@@ -26,7 +26,7 @@ def test_run_main():
    genome.mutator.set(g2d.mutators.G2DListMutatorIntegerRange)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.setGenerations(800)
 
    # Do the evolution, with stats dump

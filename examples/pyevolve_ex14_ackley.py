@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA, selectors
+from pyevolve import algorithm, selectors
 from pyevolve import constants, db
 import math
 
@@ -32,11 +32,11 @@ def test_run_main():
    genome.evaluator.set(ackley)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(1000)
    ga.setMutationRate(0.04)
-   ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
 
    # Create DB Adapter and set as adapter
    # sqlite_adapter = DBAdapters.DBSQLite(identify="ackley")

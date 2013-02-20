@@ -12,7 +12,7 @@ module, you'll find the adapters above cited.
 
 .. seealso::
 
-   Method :meth:`GSimpleGA.GSimpleGA.setDBAdapter`
+   Method :meth:`algorithm.algorithm.setDBAdapter`
       DB Adapters are set in the GSimpleGA Class.
 
 """

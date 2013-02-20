@@ -32,8 +32,8 @@ def test_run_main():
    genome.crossover.set(crossovers.G1DListCrossoverCutCrossfill)
    genome.evaluator.set(queens_eval)
 
-   ga = GSimpleGA.GSimpleGA(genome)
-   ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
+   ga = algorithm.GSimpleGA(genome)
+   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
    ga.setMinimax(constants.minimaxType["maximize"])
    
    ga.setPopulationSize(100)

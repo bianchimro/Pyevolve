@@ -6,7 +6,7 @@
 
 from pyevolve import g1d
 
-from pyevolve import GSimpleGA, constants
+from pyevolve import algorithm, constants
 from pyevolve import selectors
 import math
 
@@ -36,10 +36,10 @@ def test_run_main():
                            [abs(a-b) for a, b in zip(genome, numeric_sentence)]
                         ))
 
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    #ga.stepCallback.set(evolve_callback)
    ga.setMinimax(constants.minimaxType["minimize"])
-   ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
    ga.setPopulationSize(60)
    ga.setMutationRate(0.02)
    ga.setCrossoverRate(0.9)

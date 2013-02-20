@@ -1,5 +1,5 @@
 from pyevolve.g1d import g1dlist, GAllele
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import mutators
 from pyevolve import crossovers
 from pyevolve import constants
@@ -105,7 +105,7 @@ def test_run_main():
    genome.initializator.set(G1DListTSPInitializator)
 
    # 3662.69
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.setGenerations(200000)
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.setCrossoverRate(1.0)

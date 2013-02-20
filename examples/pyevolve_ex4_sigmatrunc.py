@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import selectors
 from pyevolve import scaling
 from pyevolve import constants
@@ -29,7 +29,7 @@ def test_run_main():
    genome.evaluator.set(eval_func)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.setMinimax(constants.minimaxType["minimize"])
 
    pop = ga.getPopulation()

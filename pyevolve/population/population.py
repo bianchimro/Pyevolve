@@ -97,7 +97,7 @@ class GPopulation:
    """ GPopulation Class - The container for the population
 
    **Examples**
-      Get the population from the :class:`GSimpleGA.GSimpleGA` (GA Engine) instance
+      Get the population from the :class:`algorithm.GSimpleGA` (GA Engine) instance
          >>> pop = ga_engine.getPopulation()
 
       Get the best fitness individual

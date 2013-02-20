@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import selectors
 
 # This function is the evaluation function, we want
@@ -27,7 +27,7 @@ def test_run_main():
    genome.evaluator.set(eval_func)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    #ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(800)
 

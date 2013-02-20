@@ -1,5 +1,5 @@
 from pyevolve.g1d import g1dlist
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import selectors
 from pyevolve import db
 from pyevolve import statistics
@@ -24,7 +24,7 @@ def test_run_main():
     genome.evaluator.set(eval_func)
     
     # Genetic Algorithm Instance
-    ga = GSimpleGA.GSimpleGA(genome, 666)
+    ga = algorithm.GSimpleGA(genome, 666)
     ga.setGenerations(80)
     ga.setMutationRate(0.2)
     

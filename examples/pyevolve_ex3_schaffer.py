@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA, selectors
+from pyevolve import algorithm, selectors
 from pyevolve import constants
 import math
 
@@ -25,14 +25,14 @@ def test_run_main():
    genome.evaluator.set(schafferF6)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.selector.set(selectors.GRouletteWheel)
 
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(8000)
    ga.setMutationRate(0.05)
    ga.setPopulationSize(100)
-   ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
 
    # Do the evolution, with stats dump
    # frequency of 10 generations

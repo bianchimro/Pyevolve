@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA
+from pyevolve import algorithm
 from pyevolve import genomebase
 
 # This function is the evaluation function, we want
@@ -55,7 +55,7 @@ def test_run_main():
    genome.initializator.set(g1d.initializators.G1DListInitializatorAllele)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.setGenerations(40)
 
    # Do the evolution, with stats dump

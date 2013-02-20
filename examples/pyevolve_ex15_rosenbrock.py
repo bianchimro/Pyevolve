@@ -1,5 +1,5 @@
 from pyevolve import g1d
-from pyevolve import GSimpleGA, selectors, statistics
+from pyevolve import algorithm, selectors, statistics
 from pyevolve import constants
 from pyevolve import db
 
@@ -21,7 +21,7 @@ def test_run_main():
    genome.evaluator.set(rosenbrock)
 
    # Genetic Algorithm Instance
-   ga = GSimpleGA.GSimpleGA(genome)
+   ga = algorithm.GSimpleGA(genome)
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(4000)

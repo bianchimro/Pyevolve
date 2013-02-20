@@ -33,7 +33,7 @@ def main_run():
    genome.evaluator += eval_func
    genome.mutator.set(mutators.GTreeGPMutatorSubtree)
 
-   ga = GSimpleGA.GSimpleGA(genome, seed=666)
+   ga = algorithm.GSimpleGA(genome, seed=666)
    ga.stepCallback.set(step_callback)
    ga.set_params(gp_terminals       = ['a', 'b'],
                 gp_function_prefix = "gp")

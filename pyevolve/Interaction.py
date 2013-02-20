@@ -8,10 +8,10 @@ When you enter in the Interactive Mode, Pyevolve will automatic import this modu
 and exposes to you in the name space called "it".
 
 To use this mode, the parameter *interactiveMode* must be enabled in the
-:class:`GSimpleGA.GSimpleGA`.
+:class:`algorithm.GSimpleGA`.
 
 You can use the manual method to enter in the Interactive Mode at specific
-generation using the :meth:`GSimpleGA.GSimpleGA.setInteractiveGeneration` method.
+generation using the :meth:`algorithm.algorithm.setInteractiveGeneration` method.
 
 """
 import logging
