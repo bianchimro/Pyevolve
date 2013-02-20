@@ -6,8 +6,11 @@ Current goals are:
 * general refactoring of classes/functions to increase modularity
 * implement a genome delegating some operations to a "gene class", incapsulating initialization, mutation logic and providing simple means of using such genome as argument representation in order to optimize complex functions.
     
-  
-It's a work in progress, and in this early stage I don't recommend using this.
+
+It's a work in progress, and in this early stage I don't recommend using this. 
+In particular, DOCUMENTATION IS TOTALLY OUT OF SYNCH WITH THE CODE at the moment.
+Also docstrings are not reliable right now.
+Feel free to contact me for any info at bianchimro@gmail.com.
 
 The name of this project could probably change in the near future, as this fork is divergig a lot from the original source.
 
