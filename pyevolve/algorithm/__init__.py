@@ -1,1 +1,1 @@
-from GSimpleGA import *
+from simplega import *

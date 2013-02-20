@@ -11,7 +11,7 @@ is above this namespace, for example, to import :mod:`mutators`:
 """
 __all__ = ["constants",  "db", "functionslot",
            "g1d", "g2d", "genome", "population",
-           "algorithm", "gtree", "Migration", "network", "scaling", "selectors",
+           "algorithm", "gtree", "distributed", 
            "statistics", "utils" ]
 
 __version__ =  '0.6'
