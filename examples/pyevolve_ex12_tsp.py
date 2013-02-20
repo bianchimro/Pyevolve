@@ -1,7 +1,6 @@
-from pyevolve.g1d import g1dlist, GAllele
+from pyevolve import g1d
+from pyevolve import genomebase
 from pyevolve import algorithm
-from pyevolve import mutators
-from pyevolve import crossovers
 from pyevolve import constants
 
 import sys, random
@@ -45,6 +44,9 @@ def tour_length(matrix, tour):
 
 def write_tour_to_img(coords, tour, img_file):
    """ The function to plot the graph """
+   if not PIL_SUPPORT:
+      return
+      
    padding=20
    coords=[(x+padding,y+padding) for (x,y) in coords]
    maxx,maxy=0,0
@@ -98,10 +100,10 @@ def test_run_main():
    coords = [(random.randint(0, WIDTH), random.randint(0, HEIGHT))
                  for i in xrange(CITIES)]
    cm     = cartesian_matrix(coords)
-   genome = g1dlist.G1DList(len(coords))
+   genome = g1d.G1DList(len(coords))
 
    genome.evaluator.set(lambda chromosome: tour_length(cm, chromosome))
-   genome.crossover.set(crossovers.G1DListCrossoverEdge)
+   genome.crossover.set(g1d.crossovers.G1DListCrossoverEdge)
    genome.initializator.set(G1DListTSPInitializator)
 
    # 3662.69
@@ -115,8 +117,11 @@ def test_run_main():
    # This is to make a video
    ga.stepCallback.set(evolve_callback)
    # 21666.49
-   import psyco
-   psyco.full()
+   try:
+       import psyco
+       psyco.full()
+   except:
+       pass
 
    ga.evolve(freq_stats=500)
    best = ga.bestIndividual()

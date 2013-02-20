@@ -1,9 +1,7 @@
 from pyevolve import algorithm
 from pyevolve import gtree
-from pyevolve import gtreenode
 from pyevolve import constants
 from pyevolve.population import selectors
-from pyevolve import mutators
 from math import sqrt
 import pydot   
 import random
@@ -56,14 +54,14 @@ def eval_func(chromosome):
    score = (1.0 / (RMSE+1.0))
    return score
 
-def main_run():
+def test_run_main():
    genome = gtree.GTreeGP()
-   root   = gtreenode.GTreeNodeGP('a', constants.nodeType["TERMINAL"])
+   root   = gtree.GTreeNodeGP('a', constants.nodeType["TERMINAL"])
    genome.setRoot(root)
 
    genome.set_params(max_depth=2, method="ramped")
    genome.evaluator += eval_func
-   genome.mutator.set(mutators.GTreeGPMutatorSubtree)
+   genome.mutator.set(gtree.mutators.GTreeGPMutatorSubtree)
 
    ga = algorithm.GSimpleGA(genome)
    ga.set_params(gp_terminals       = ['a', 'b'],
@@ -83,7 +81,7 @@ def main_run():
    graph.write_jpeg('tree.png', prog='dot')
 
 if __name__ == "__main__":
-   main_run()
+   test_run_main()
    #import hotshot, hotshot.stats
    #prof = hotshot.Profile("ev.prof")
    #prof.runcall(main_run)
