@@ -8,8 +8,6 @@ def b_function(x):
     return x
 def c_function(c, name="x"):
     return str(c)+name
-
-
     
 an_integer = 10
 
