@@ -23,7 +23,7 @@ def test_run_main():
 
    # Genetic Algorithm Instance
    ga = algorithm.GSimpleGA(genome)
-   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.criteria.RawScoreCriteria)
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(3000)
    ga.setCrossoverRate(0.8)

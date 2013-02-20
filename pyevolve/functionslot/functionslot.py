@@ -15,8 +15,6 @@ from random import uniform as rand_uniform
 import inspect
 from types import BooleanType
 
-from .. import utils
-
 class FunctionSlot(object):
     """ FunctionSlot Class - The function slot
  
@@ -72,8 +70,7 @@ class FunctionSlot(object):
            .. versionadded:: 0.6
               The __iadd__ method.
         """
-        self.__typeCheck(func)
-        self.funcList.append(func)
+        self.add(func)
         return self
  
     def __getitem__(self, index):
@@ -105,7 +102,7 @@ class FunctionSlot(object):
   
         """
         if type(flag) != BooleanType:
-            utils.raise_exception("Random option must be True or False", TypeError)
+            raise TypeError("Random option must be True or False")
   
         self.rand_apply = flag
     
@@ -113,6 +110,7 @@ class FunctionSlot(object):
         """ Used to clear the functions in the slot """
         if len(self.funcList) > 0:
             del self.funcList[:]
+            del self.funcWeights[:]
  
     def add(self, func, weight=0.5):
         """ Used to add a function to the slot
@@ -147,20 +145,19 @@ class FunctionSlot(object):
                   functions added to the slot.
         """
         self.clear()
-        self.__typeCheck(func)
         self.add(func, weight)
  
-    def apply(self, index, obj, **args):
+    def apply(self, index, *args, **kwargs):
         """ Apply the index function
   
         :param index: the index of the function
-        :param obj: this object is passes as parameter to the function
-        :param args: this args dictionary is passed to the function   
+        :param args: args passed to function
+        :param kwargs: kwargs passed to function
   
         """
         if len(self.funcList) <= 0:
             raise Exception("No function defined: " + self.slotName)
-        return self.funcList[index](obj, **args)
+        return self.funcList[index](*args, **kwargs)
        
     def applyFunctions(self, obj=None, **args):
         """ Generator to apply all function slots in obj
@@ -170,7 +167,7 @@ class FunctionSlot(object):
   
         """
         if len(self.funcList) <= 0:
-            utils.raise_exception("No function defined: " + self.slotName)
+            raise Exception("No function defined: " + self.slotName)
         
         if not self.rand_apply:
             for f in self.funcList:

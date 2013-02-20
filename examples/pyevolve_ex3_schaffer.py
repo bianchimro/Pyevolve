@@ -33,7 +33,7 @@ def test_run_main():
    ga.setGenerations(8000)
    ga.setMutationRate(0.05)
    ga.setPopulationSize(100)
-   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.criteria.RawScoreCriteria)
 
    # Do the evolution, with stats dump
    # frequency of 10 generations

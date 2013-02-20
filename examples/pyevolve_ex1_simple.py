@@ -34,7 +34,7 @@ def test_run_main():
    # the termination criteria
    ga.selector.set(selectors.GRouletteWheel)
    ga.setGenerations(500)
-   ga.terminationCriteria.set(algorithm.ConvergenceCriteria)
+   ga.terminationCriteria.set(algorithm.criteria.ConvergenceCriteria)
 
    # Sets the DB Adapter, the resetDB flag will make the Adapter recreate
    # the database and erase all data every run, you should use this flag

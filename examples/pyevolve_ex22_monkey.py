@@ -39,7 +39,7 @@ def test_run_main():
    ga = algorithm.GSimpleGA(genome)
    #ga.stepCallback.set(evolve_callback)
    ga.setMinimax(constants.minimaxType["minimize"])
-   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.criteria.RawScoreCriteria)
    ga.setPopulationSize(60)
    ga.setMutationRate(0.02)
    ga.setCrossoverRate(0.9)

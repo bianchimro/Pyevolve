@@ -99,7 +99,7 @@ CDefGPGenomes = [GTreeGP]
 #esc key for interactive mode
 # TODO: not investigated yet
 CDefESCKey = 27  
-from criteria import *
+   
 
 
 

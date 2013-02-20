@@ -37,7 +37,7 @@ def test_run_main():
    ga.setMinimax(constants.minimaxType["minimize"])
    ga.setGenerations(1000)
    ga.setMutationRate(0.04)
-   ga.terminationCriteria.set(algorithm.RawScoreCriteria)
+   ga.terminationCriteria.set(algorithm.criteria.RawScoreCriteria)
 
    # Create DB Adapter and set as adapter
    # sqlite_adapter = DBAdapters.DBSQLite(identify="ackley")
