@@ -147,17 +147,17 @@ class FunctionSlot(object):
         self.clear()
         self.add(func, weight)
  
-    def apply(self, index, *args, **kwargs):
+    def apply(self, index, obj=None, **args):
         """ Apply the index function
   
         :param index: the index of the function
-        :param args: args passed to function
-        :param kwargs: kwargs passed to function
+        :param obj: this object is passes as parameter to the function
+        :param args: this args dictionary is passed to the function   
   
         """
         if len(self.funcList) <= 0:
-            raise Exception("No function defined: " + self.slotName)
-        return self.funcList[index](*args, **kwargs)
+            raise NotImplementedError("No function defined: " + self.slotName)
+        return self.funcList[index](obj, **args)
        
     def applyFunctions(self, obj=None, **args):
         """ Generator to apply all function slots in obj
@@ -167,7 +167,7 @@ class FunctionSlot(object):
   
         """
         if len(self.funcList) <= 0:
-            raise Exception("No function defined: " + self.slotName)
+            raise NotImplementedError("No function defined: " + self.slotName)
         
         if not self.rand_apply:
             for f in self.funcList:
