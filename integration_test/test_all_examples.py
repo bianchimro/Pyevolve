@@ -24,5 +24,4 @@ from examples.pyevolve_ex17_gtree import test_run_main as test_17
 #import examples.pyevolve_ex20_gp_dotwrite
 #from examples.pyevolve_ex21_nqueens import test_run_main as test_21
 from examples.pyevolve_ex22_monkey import test_run_main as test_22
-
-
+from examples.pyevolve_ex23_g1dbswapmut import test_run_main as test_23

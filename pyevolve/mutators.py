@@ -26,10 +26,60 @@ CDefGaussianGradientMU = 1.0
 CDefGaussianGradientSIGMA = (1.0/3.0) # approx. +/- 3-sigma is +/- 10%
 
 
+"""
+class BaseProbabilityMutator(object):
+    
+   def zero_pmut_handler(self):
+      return 0
+               
+   def get_mutations(self, genome, **args):
+      raise NotImplementedError
+       
+   def mutation_condition(self, it, genome, **args):
+      return utils.random_flip_coin(args["pmut"])
+       
+   def mutate_genome(self, genome, **args):
+      raise NotImplementedError
+       
+   @staticmethod   
+   def __call__(self, genome, **args):
+      if args["pmut"] <= 0.0:
+          return self.zero_pmut_handler()
+       
+      mutations = self.get_mutations(genome, **args)
+       
+      if mutations < 1.0:
+         mutations = 0
+         for it in xrange(stringLength):
+            if self.mutation_condition(it, genome, **args):
+               self.mutate_genome(genome, **args)
+               mutations+=1
+    
+      else:
+         for it in xrange(int(round(mutations))):
+            self.mutate_genome(genome, **args)
+    
+      return int(mutations)  
+        
+
+
 
 #############################
 ##     1D Binary String    ##
 #############################
+class G1DBinaryStringMutatorSwap(BaseProbabilityMutator):
+   
+   def get_mutations(self, genome, **args):
+      stringLength = len(genome)
+      mutations = args["pmut"] * (stringLength)
+      return mutations
+
+   def mutate_genome(self, it, genome, **args):
+      stringLength = len(genome)
+      utils.list_swap_element(genome, it, rand_randint(0, stringLength-1))
+"""        
+    
+
 
 def G1DBinaryStringMutatorSwap(genome, **args):
    """ The 1D Binary String Swap Mutator """
