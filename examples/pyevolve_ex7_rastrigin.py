@@ -1,6 +1,6 @@
 from pyevolve import algorithm
 from pyevolve import g1d
-from pyevolve import selectors
+from pyevolve.population import selectors
 from pyevolve import constants
 import math
 

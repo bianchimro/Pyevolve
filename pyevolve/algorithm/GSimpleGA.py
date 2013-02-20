@@ -59,14 +59,14 @@ Class
 
 """
 
-from .. population  import GPopulation
-from .. functionslot import FunctionSlot
-from .. distributed import MigrationScheme
-from .. genomebase import GenomeBase
-from .. db import DBBaseAdapter
+from ..population  import GPopulation
+from ..functionslot import FunctionSlot
+from ..distributed import MigrationScheme
+from ..genomebase import GenomeBase
+from ..db import DBBaseAdapter
 
 from .. import utils
-from .. import selectors
+from ..population import selectors
 
 import random
 import logging

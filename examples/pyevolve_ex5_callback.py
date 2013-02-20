@@ -1,6 +1,6 @@
 from pyevolve.g1d import g1dlist
 from pyevolve import algorithm
-from pyevolve import selectors
+from pyevolve.population import selectors
 
 # The step callback function, this function
 # will be called every step (generation) of the GA evolution

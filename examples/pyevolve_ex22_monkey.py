@@ -7,7 +7,7 @@
 from pyevolve import g1d
 
 from pyevolve import algorithm, constants
-from pyevolve import selectors
+from pyevolve.population import selectors
 import math
 
 sentence = """

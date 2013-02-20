@@ -1,6 +1,6 @@
 from pyevolve import g1d
 from pyevolve import algorithm
-from pyevolve import selectors
+from pyevolve.population import selectors
 
 # This function is the evaluation function, we want
 # to give high score to more zero'ed chromosomes

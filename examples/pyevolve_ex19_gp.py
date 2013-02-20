@@ -2,7 +2,7 @@ from pyevolve import algorithm
 from pyevolve import gtree
 from pyevolve import gtreenode
 from pyevolve import constants
-from pyevolve import selectors
+from pyevolve.population import selectors
 from pyevolve import mutators
 from math import sqrt
 import pydot   
