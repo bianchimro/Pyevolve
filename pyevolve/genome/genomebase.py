@@ -10,8 +10,8 @@ take a inside look into this module.
 """
 import inspect
 
-from functionslot import FunctionSlot
-import utils
+from ..functionslot import FunctionSlot
+from .. import utils
 
 class GenomeBase(object):
     """ GenomeBase Class - The base of all chromosome representation """

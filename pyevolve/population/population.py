@@ -35,15 +35,15 @@ Class
 
 import logging
 
-import utils
-from functionslot import FunctionSlot
-from statistics import Statistics
+from .. import utils
+from .. functionslot import FunctionSlot
+from .. statistics import Statistics
 from math import sqrt as math_sqrt
-import scaling
-
+from .. import scaling
+from .. constants import sortType, minimaxType
 
 # - Population Defaults
-from constants import sortType, minimaxType
+
 CDefPopSortType               = sortType["scaled"]
 CDefPopMinimax                = minimaxType["maximize"]
 CDefPopScale                  = scaling.LinearScaling
