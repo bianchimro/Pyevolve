@@ -1,3 +1,17 @@
-This is the new official Pyevolve repository.
+This is a refactor of Pyevolve. 
+Current goals are:
 
-The documentation (html rendered) is still hosted at sourceforce.net at http://pyevolve.sourceforge.net/0_6rc1/
+* new-style classes
+* PEP8
+* general refactoring of classes/functions to increase modularity
+* implement a genome delegating some operations to a "gene class", incapsulating initialization, mutation logic and
+  providing simple means of using such genome as argument representation in order to optimize complex functions.
+    
+  
+It's a work in progress, and in this early stage I don't recommend using this.
+
+The name of this project could probably change in the near future, 
+as this fork is divergig a lot from the original source.
+
+Original repository is
+https://github.com/perone/Pyevolve
