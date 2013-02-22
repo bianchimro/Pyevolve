@@ -104,7 +104,7 @@ class GAlleles(object):
 	  return ret
 
 
-class GAlleleList:
+class GAlleleList(object):
     """ GAlleleList Class - The list allele type
 
     Example:
@@ -174,7 +174,7 @@ class GAlleleList:
         ret += "\tAllele Options:\t %s\n\n" % (self.options,) 
         return ret
 
-class GAlleleRange:
+class GAlleleRange(object):
     """ GAlleleRange Class - The range allele type
 
     Example:
