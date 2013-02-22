@@ -30,6 +30,7 @@ class GAlleles:
 
    def __init__(self, allele_list = None, homogeneous=False):
       """ The constructor of GAlleles class """
+      #TODO: if homogeneous is True, allele_list should be an item only ...
       self.allele_list = []
       if allele_list is not None:
          self.allele_list.extend(allele_list)
@@ -58,6 +59,8 @@ class GAlleles:
 
    def __getitem__(self, index):
       """ Returns the index allele of the alleles list """
+      #TODO: not much sense here. if self.homogeneous is True index is not used
+      #(should it be a kwarg?)
       if self.homogeneous: return self.allele_list[0]
       try:
          val = self.allele_list[index]
@@ -257,6 +260,7 @@ class GAlleleRange:
       :param flag: True or False
 
       """
+      #TODO: should be a bool
       self.real = flag
 
    def getReal(self):
