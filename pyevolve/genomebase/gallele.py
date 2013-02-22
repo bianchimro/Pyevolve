@@ -65,7 +65,7 @@ class GAlleles(object):
 	  try:
 		 val = self.allele_list[index]
 	  except IndexError:
-		 utils.raise_exception(
+		 raise IndexError(
 		 """An error was occurred while finding allele for the %d position of chromosome.
 		    You may consider use the 'homogeneous' parameter of the GAlleles class.
 		 """ % (index,))

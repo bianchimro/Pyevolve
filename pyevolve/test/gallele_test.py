@@ -43,6 +43,18 @@ class GAlleles_Test():
         instance_2 += 1
         item = instance_2[1]
         assert item == 1
+        
+    def test_set_item(self):
+        instance = gallele.GAlleles([1,2])
+        instance[1] = 100
+        assert instance.allele_list[1] == 100
+    
+    
+    @raises(IndexError)
+    def test_get_item_indexerror(self):
+        instance = gallele.GAlleles(allele_list=[1,2,3,4])
+        item = instance[5]
+    
     
     def test_iter(self):
         instance = gallele.GAlleles(allele_list=[1,2,3,4])
@@ -96,6 +108,11 @@ class GAlleleList_Test():
         instance.add(4)
         assert instance.options == [1,2,3,4]
         
+    def test_remove(self):
+        instance = gallele.GAlleleList([1,2,3])
+        instance.remove(2)
+        assert 2 not in instance.options
+        
     def test_get_slice(self):
         instance = gallele.GAlleleList([1,2,3])
         slice = instance[:2]
@@ -111,6 +128,13 @@ class GAlleleList_Test():
         instance[1] = 4
         assert instance.options[1] == 4
         
+    def test_iter(self):
+        instance = gallele.GAlleleList([1,2,3])
+        li = []
+        for item in instance:
+            li.append[item]
+        assert li == instance.options
+    
     def test_len(self):
         instance = gallele.GAlleleList([1,2,3])
         assert len(instance) == 3
@@ -147,6 +171,11 @@ class GAlleleRange_Test():
         assert instance.minimum == 0
         assert instance.maximum == 200
         
+    @raises(ValueError)
+    def test_add_valueerror(self):
+        instance = gallele.GAlleleRange(begin=0, end=100)
+        instance.add(310, 200)
+        
     def test_get_item(self):
         instance = gallele.GAlleleRange(begin=0, end=100)
         instance.add(110, 200)
@@ -158,6 +187,11 @@ class GAlleleRange_Test():
         instance[0] = (110, 200)
         assert instance.minimum == 110
         assert instance.maximum == 200
+
+    @raises(ValueError)        
+    def test_set_item_valueerror(self):
+        instance = gallele.GAlleleRange(begin=0, end=100)
+        instance[0] = (510, 200)
         
     def test_clear(self):
         instance = gallele.GAlleleRange(begin=0, end=100)
