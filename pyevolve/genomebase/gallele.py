@@ -219,7 +219,7 @@ class GAlleleRange(object):
 
     def __setitem__(self, index, value):
         if value[0] > value[1]:
-            utils.raise_exception('Wrong value, the end of the range is greater than the begin ! %s' % value, ValueError)
+            utils.raise_exception('Wrong value, the end of the range (%s) is greater than the begin (%s) !' % value, ValueError)
         self.beginEnd[index] = value
         self.__processMinMax()
 

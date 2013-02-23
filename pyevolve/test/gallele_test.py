@@ -132,7 +132,7 @@ class GAlleleList_Test():
         instance = gallele.GAlleleList([1,2,3])
         li = []
         for item in instance:
-            li.append[item]
+            li.append(item)
         assert li == instance.options
     
     def test_len(self):
