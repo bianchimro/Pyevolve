@@ -1,8 +1,3 @@
-import sys
-sys.path.append("../")
-
-#from pyevolve import G1DList
-
 
 from pyevolve import algorithm
 from pyevolve.population import selectors
