@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load bootstrap %}
+{% load staticfiles %}
+
+{% block content%}
+
+<div class="container">
+<div class="alert">
+    <div id="persistent-filters">
+        <ul data-bind="foreach: vieFilter">
+            <li>
+                <span data-bind="text: $data"></span>
+                <button class="btn btn-mini" data-bind="click: $root.removeVia">Rimuovi</button>
+            
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h2>Elenco Vie</h2>
+    
+    <form class="form-inline search-form-viario" action="" method="GET">
+        <fieldset>
+        {{ form }}{% csrf_token %}
+        <button class="btn" type="submit">Cerca</button>
+        </fieldset>
+    </form>
+
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <th>ID</th>
+            <th>ID SIT</th>
+            <th>Nome</th>        
+            <th>Zone</th>
+            <th>Dettaglio</th>        
+        </tr>
+        {% for object in object_list %}
+        <tr>
+            <td>{{object.id_ord}}</td>
+            <td>{{object.id_sit}}</td>
+            <td>{{object.nome}}</td>  
+            <td>
+                {% for  zona in object.zone.all %}
+                    {{ zona.descrizione }}
+                    {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+            </td>      
+            <td>
+                <a href="{% url "via_detail" object.pk %}">Dettaglio</a>
+                <a href="#" onclick="addViaToFilter({{ object.id_ord }})">Aggiungi al filtro</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if is_paginated %}
+        {% include "paginator.html" %}
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
+
+{% block extra_body %}
+    <script src="{% static "persistent_filters/persistent_filters.js" %}"></script>
+{% endblock %}
